@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA72439AEC300ECF53C /* AppDelegate.swift */; };
+		CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA92439AEC300ECF53C /* SceneDelegate.swift */; };
+		CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FAB2439AEC300ECF53C /* ContentView.swift */; };
+		CC173FAE2439AEC500ECF53C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC173FAD2439AEC500ECF53C /* Assets.xcassets */; };
+		CC173FB12439AEC500ECF53C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC173FB02439AEC500ECF53C /* Preview Assets.xcassets */; };
+		CC173FB42439AEC500ECF53C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC173FB22439AEC500ECF53C /* LaunchScreen.storyboard */; };
+		CC173FBF2439AEC500ECF53C /* JLQuizCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FBE2439AEC500ECF53C /* JLQuizCardTests.swift */; };
+		CC173FCA2439AEC500ECF53C /* JLQuizCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CC173FBB2439AEC500ECF53C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC173F9C2439AEC300ECF53C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC173FA32439AEC300ECF53C;
+			remoteInfo = JLQuizCard;
+		};
+		CC173FC62439AEC500ECF53C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC173F9C2439AEC300ECF53C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC173FA32439AEC300ECF53C;
+			remoteInfo = JLQuizCard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CC173FA42439AEC300ECF53C /* JLQuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLQuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC173FA72439AEC300ECF53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CC173FA92439AEC300ECF53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CC173FAB2439AEC300ECF53C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC173FAD2439AEC500ECF53C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC173FB02439AEC500ECF53C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CC173FB32439AEC500ECF53C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CC173FB52439AEC500ECF53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC173FBA2439AEC500ECF53C /* JLQuizCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLQuizCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC173FBE2439AEC500ECF53C /* JLQuizCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLQuizCardTests.swift; sourceTree = "<group>"; };
+		CC173FC02439AEC500ECF53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLQuizCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLQuizCardUITests.swift; sourceTree = "<group>"; };
+		CC173FCB2439AEC500ECF53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC173FA12439AEC300ECF53C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC173FB72439AEC500ECF53C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC173FC22439AEC500ECF53C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC173F9B2439AEC300ECF53C = {
+			isa = PBXGroup;
+			children = (
+				CC173FA62439AEC300ECF53C /* JLQuizCard */,
+				CC173FBD2439AEC500ECF53C /* JLQuizCardTests */,
+				CC173FC82439AEC500ECF53C /* JLQuizCardUITests */,
+				CC173FA52439AEC300ECF53C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC173FA52439AEC300ECF53C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FA42439AEC300ECF53C /* JLQuizCard.app */,
+				CC173FBA2439AEC500ECF53C /* JLQuizCardTests.xctest */,
+				CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC173FA62439AEC300ECF53C /* JLQuizCard */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FA72439AEC300ECF53C /* AppDelegate.swift */,
+				CC173FA92439AEC300ECF53C /* SceneDelegate.swift */,
+				CC173FAB2439AEC300ECF53C /* ContentView.swift */,
+				CC173FAD2439AEC500ECF53C /* Assets.xcassets */,
+				CC173FB22439AEC500ECF53C /* LaunchScreen.storyboard */,
+				CC173FB52439AEC500ECF53C /* Info.plist */,
+				CC173FAF2439AEC500ECF53C /* Preview Content */,
+			);
+			path = JLQuizCard;
+			sourceTree = "<group>";
+		};
+		CC173FAF2439AEC500ECF53C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FB02439AEC500ECF53C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CC173FBD2439AEC500ECF53C /* JLQuizCardTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FBE2439AEC500ECF53C /* JLQuizCardTests.swift */,
+				CC173FC02439AEC500ECF53C /* Info.plist */,
+			);
+			path = JLQuizCardTests;
+			sourceTree = "<group>";
+		};
+		CC173FC82439AEC500ECF53C /* JLQuizCardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */,
+				CC173FCB2439AEC500ECF53C /* Info.plist */,
+			);
+			path = JLQuizCardUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC173FA32439AEC300ECF53C /* JLQuizCard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC173FCE2439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCard" */;
+			buildPhases = (
+				CC173FA02439AEC300ECF53C /* Sources */,
+				CC173FA12439AEC300ECF53C /* Frameworks */,
+				CC173FA22439AEC300ECF53C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JLQuizCard;
+			productName = JLQuizCard;
+			productReference = CC173FA42439AEC300ECF53C /* JLQuizCard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CC173FB92439AEC500ECF53C /* JLQuizCardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC173FD12439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardTests" */;
+			buildPhases = (
+				CC173FB62439AEC500ECF53C /* Sources */,
+				CC173FB72439AEC500ECF53C /* Frameworks */,
+				CC173FB82439AEC500ECF53C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC173FBC2439AEC500ECF53C /* PBXTargetDependency */,
+			);
+			name = JLQuizCardTests;
+			productName = JLQuizCardTests;
+			productReference = CC173FBA2439AEC500ECF53C /* JLQuizCardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CC173FC42439AEC500ECF53C /* JLQuizCardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC173FD42439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardUITests" */;
+			buildPhases = (
+				CC173FC12439AEC500ECF53C /* Sources */,
+				CC173FC22439AEC500ECF53C /* Frameworks */,
+				CC173FC32439AEC500ECF53C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC173FC72439AEC500ECF53C /* PBXTargetDependency */,
+			);
+			name = JLQuizCardUITests;
+			productName = JLQuizCardUITests;
+			productReference = CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC173F9C2439AEC300ECF53C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = jack;
+				TargetAttributes = {
+					CC173FA32439AEC300ECF53C = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					CC173FB92439AEC500ECF53C = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = CC173FA32439AEC300ECF53C;
+					};
+					CC173FC42439AEC500ECF53C = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = CC173FA32439AEC300ECF53C;
+					};
+				};
+			};
+			buildConfigurationList = CC173F9F2439AEC300ECF53C /* Build configuration list for PBXProject "JLQuizCard" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CC173F9B2439AEC300ECF53C;
+			productRefGroup = CC173FA52439AEC300ECF53C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC173FA32439AEC300ECF53C /* JLQuizCard */,
+				CC173FB92439AEC500ECF53C /* JLQuizCardTests */,
+				CC173FC42439AEC500ECF53C /* JLQuizCardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC173FA22439AEC300ECF53C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC173FB42439AEC500ECF53C /* LaunchScreen.storyboard in Resources */,
+				CC173FB12439AEC500ECF53C /* Preview Assets.xcassets in Resources */,
+				CC173FAE2439AEC500ECF53C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC173FB82439AEC500ECF53C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC173FC32439AEC500ECF53C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC173FA02439AEC300ECF53C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */,
+				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,
+				CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC173FB62439AEC500ECF53C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC173FBF2439AEC500ECF53C /* JLQuizCardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC173FC12439AEC500ECF53C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC173FCA2439AEC500ECF53C /* JLQuizCardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CC173FBC2439AEC500ECF53C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC173FA32439AEC300ECF53C /* JLQuizCard */;
+			targetProxy = CC173FBB2439AEC500ECF53C /* PBXContainerItemProxy */;
+		};
+		CC173FC72439AEC500ECF53C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC173FA32439AEC300ECF53C /* JLQuizCard */;
+			targetProxy = CC173FC62439AEC500ECF53C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CC173FB22439AEC500ECF53C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC173FB32439AEC500ECF53C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CC173FCC2439AEC500ECF53C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CC173FCD2439AEC500ECF53C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC173FCF2439AEC500ECF53C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"JLQuizCard/Preview Content\"";
+				DEVELOPMENT_TEAM = B22726TNGH;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = JLQuizCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CC173FD02439AEC500ECF53C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"JLQuizCard/Preview Content\"";
+				DEVELOPMENT_TEAM = B22726TNGH;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = JLQuizCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CC173FD22439AEC500ECF53C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B22726TNGH;
+				INFOPLIST_FILE = JLQuizCardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JLQuizCard.app/JLQuizCard";
+			};
+			name = Debug;
+		};
+		CC173FD32439AEC500ECF53C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B22726TNGH;
+				INFOPLIST_FILE = JLQuizCardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JLQuizCard.app/JLQuizCard";
+			};
+			name = Release;
+		};
+		CC173FD52439AEC500ECF53C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B22726TNGH;
+				INFOPLIST_FILE = JLQuizCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JLQuizCard;
+			};
+			name = Debug;
+		};
+		CC173FD62439AEC500ECF53C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B22726TNGH;
+				INFOPLIST_FILE = JLQuizCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JLQuizCard;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC173F9F2439AEC300ECF53C /* Build configuration list for PBXProject "JLQuizCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC173FCC2439AEC500ECF53C /* Debug */,
+				CC173FCD2439AEC500ECF53C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC173FCE2439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC173FCF2439AEC500ECF53C /* Debug */,
+				CC173FD02439AEC500ECF53C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC173FD12439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC173FD22439AEC500ECF53C /* Debug */,
+				CC173FD32439AEC500ECF53C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC173FD42439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC173FD52439AEC500ECF53C /* Debug */,
+				CC173FD62439AEC500ECF53C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CC173F9C2439AEC300ECF53C /* Project object */;
+}
