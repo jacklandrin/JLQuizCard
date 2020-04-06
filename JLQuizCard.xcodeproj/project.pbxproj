@@ -15,6 +15,14 @@
 		CC173FB42439AEC500ECF53C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC173FB22439AEC500ECF53C /* LaunchScreen.storyboard */; };
 		CC173FBF2439AEC500ECF53C /* JLQuizCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FBE2439AEC500ECF53C /* JLQuizCardTests.swift */; };
 		CC173FCA2439AEC500ECF53C /* JLQuizCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */; };
+		CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FD82439B25D00ECF53C /* QuizCardModel.swift */; };
+		CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FDC2439BEEC00ECF53C /* QuizCard.swift */; };
+		CC173FDF2439C0E300ECF53C /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FDE2439C0E300ECF53C /* CardSide.swift */; };
+		CC173FE12439C36A00ECF53C /* FiipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE02439C36A00ECF53C /* FiipView.swift */; };
+		CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE22439C3DC00ECF53C /* CardStack.swift */; };
+		CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE42439C43C00ECF53C /* CardPile.swift */; };
+		CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CCF243AF5FF00F78AD4 /* CardList.swift */; };
+		CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CD3243B148E00F78AD4 /* CardEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLQuizCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLQuizCardUITests.swift; sourceTree = "<group>"; };
 		CC173FCB2439AEC500ECF53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC173FD82439B25D00ECF53C /* QuizCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardModel.swift; sourceTree = "<group>"; };
+		CC173FDC2439BEEC00ECF53C /* QuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCard.swift; sourceTree = "<group>"; };
+		CC173FDE2439C0E300ECF53C /* CardSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSide.swift; sourceTree = "<group>"; };
+		CC173FE02439C36A00ECF53C /* FiipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiipView.swift; sourceTree = "<group>"; };
+		CC173FE22439C3DC00ECF53C /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
+		CC173FE42439C43C00ECF53C /* CardPile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPile.swift; sourceTree = "<group>"; };
+		CC414CCF243AF5FF00F78AD4 /* CardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardList.swift; sourceTree = "<group>"; };
+		CC414CD3243B148E00F78AD4 /* CardEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +115,8 @@
 		CC173FA62439AEC300ECF53C /* JLQuizCard */ = {
 			isa = PBXGroup;
 			children = (
+				CC173FDA2439BD4E00ECF53C /* Views */,
+				CC173FD72439B23600ECF53C /* Models */,
 				CC173FA72439AEC300ECF53C /* AppDelegate.swift */,
 				CC173FA92439AEC300ECF53C /* SceneDelegate.swift */,
 				CC173FAB2439AEC300ECF53C /* ContentView.swift */,
@@ -134,6 +152,36 @@
 				CC173FCB2439AEC500ECF53C /* Info.plist */,
 			);
 			path = JLQuizCardUITests;
+			sourceTree = "<group>";
+		};
+		CC173FD72439B23600ECF53C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FD82439B25D00ECF53C /* QuizCardModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC173FDA2439BD4E00ECF53C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FDB2439BD5B00ECF53C /* Containers */,
+				CC173FDC2439BEEC00ECF53C /* QuizCard.swift */,
+				CC173FE42439C43C00ECF53C /* CardPile.swift */,
+				CC414CCF243AF5FF00F78AD4 /* CardList.swift */,
+				CC414CD3243B148E00F78AD4 /* CardEditor.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC173FDB2439BD5B00ECF53C /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				CC173FDE2439C0E300ECF53C /* CardSide.swift */,
+				CC173FE02439C36A00ECF53C /* FiipView.swift */,
+				CC173FE22439C3DC00ECF53C /* CardStack.swift */,
+			);
+			path = Containers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +316,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */,
+				CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */,
 				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,
+				CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */,
+				CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */,
+				CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */,
+				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
+				CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */,
+				CC173FE12439C36A00ECF53C /* FiipView.swift in Sources */,
+				CC173FDF2439C0E300ECF53C /* CardSide.swift in Sources */,
 				CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
