@@ -49,8 +49,7 @@ struct QuizCard: View {
                     Text((card.type == .showText) ? card.answer : card.question)
                 }
             }
-        )//.shadow(radius: 0.5)
-//        .opacity(opacity)
+        )
         .rotation3DEffect(
             zRotation,
             axis: (1.0, 0.0, 0.0),

@@ -68,29 +68,6 @@ class CardsPileViewModel: ObservableObject, Identifiable {
         objectWillChange.send(self)
         
     }
-    
-//    required convenience init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        let pile = try values.decode(Array<Card>.self, forKey: .pile)
-//        let title = try values.decode(String.self, forKey: .title)
-//        self.init(pile:pile, title:title)
-//    }
-//
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(pile, forKey: .pile)
-//        try container.encode(title, forKey: .title)
-//    }
-    
-//    init(pile:[Card], title:String) {
-//        self.pile = pile
-//        self.title = title
-//    }
-    
-//    enum CodingKeys: String, CodingKey {
-//        case pile
-//        case title
-//    }
 }
 
 extension Card {

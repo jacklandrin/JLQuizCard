@@ -56,27 +56,6 @@ private struct FlipContent<Front: View, Back: View> : View {
                 self.angleState = currentState
             }
         }
-//        .gesture(
-//            DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
-//                .onChanged { value in
-//                    let angle = Double((value.translation.width / self.size.width)) * 180.0
-//                    self.angleState.angleTranslation = angle
-//                }
-//                .onEnded { value in
-//                    let endAngle = Double((value.predictedEndTranslation.width / self.size.width)) * 180.0
-//                    let animation = self.$angleState.animation(.spring())
-//
-//                    var currentState = self.angleState
-//                    if endAngle >= 90.0 {
-//                        currentState.angle += 180.0
-//                    } else if endAngle < -90.0 {
-//                        currentState.angle -= 180.0
-//                    }
-//
-//                    currentState.angleTranslation = 0.0
-//                    animation.wrappedValue = currentState
-//                }
-//        )
     }
 }
 
