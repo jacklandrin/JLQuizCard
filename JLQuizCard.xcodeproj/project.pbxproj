@@ -43,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CC173FA42439AEC300ECF53C /* JLQuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLQuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC173FA42439AEC300ECF53C /* QuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC173FA72439AEC300ECF53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC173FA92439AEC300ECF53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CC173FAB2439AEC300ECF53C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		CC173FA52439AEC300ECF53C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC173FA42439AEC300ECF53C /* JLQuizCard.app */,
+				CC173FA42439AEC300ECF53C /* QuizCard.app */,
 				CC173FBA2439AEC500ECF53C /* JLQuizCardTests.xctest */,
 				CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */,
 			);
@@ -201,7 +201,7 @@
 			);
 			name = JLQuizCard;
 			productName = JLQuizCard;
-			productReference = CC173FA42439AEC300ECF53C /* JLQuizCard.app */;
+			productReference = CC173FA42439AEC300ECF53C /* QuizCard.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CC173FB92439AEC500ECF53C /* JLQuizCardTests */ = {
@@ -500,7 +500,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -520,7 +520,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
