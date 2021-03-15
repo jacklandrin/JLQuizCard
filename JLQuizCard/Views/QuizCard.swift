@@ -58,19 +58,22 @@ struct QuizCard: View {
         )
         .gesture(DragGesture()
                 .onChanged {gesture in
-                            let dragDistance = gesture.translation.height
-                            print("dragDistance:\(dragDistance)")
+                        let dragDistance = gesture.translation.height
                         let validRange = Double(dragDistance) / dragOutDistance
                             if abs(dragDistance) < 1000   {
-                                if abs(validRange) > 1 {
-                                    self.onDragOut(dragDistance)
-                                } else if validRange > 0{
+                                if abs(validRange) < 1 && validRange > 0{
                                     self.zRotation = .degrees(validRange * 90.0)
                                 }
                             }
-                    
                     }
-                .onEnded{ _ in
+                .onEnded{ gesture in
+                    let dragDistance = gesture.translation.height
+                    let validRange = Double(dragDistance) / dragOutDistance
+                    if abs(dragDistance) < 1000   {
+                        if abs(validRange) > 1 {
+                            self.onDragOut(dragDistance)
+                        }
+                    }
                     withAnimation{
                         self.zRotation = .degrees(0.0)
                     }

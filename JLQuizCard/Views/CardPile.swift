@@ -37,12 +37,13 @@ struct CardPile: View {
                                                        }
                             } else {
                                 self.currentIndex += 1
+                                print("current index\(self.currentIndex)")
                             }
                         }, sequence: Int(index + 1))
                             .cardTransformed(self.currentIndex, card: index)
                         }
                             
-                }.frame(height:420)
+                }.padding(.vertical,80)
                 Spacer()
                 }
             .navigationBarTitle(Text("QuizCard"))

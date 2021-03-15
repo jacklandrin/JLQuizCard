@@ -19,7 +19,7 @@ extension Int: Identifiable {
 }
 
 struct Card : Codable, Identifiable, Hashable  {
-    let id = UUID()
+    var id = UUID()
     var question: String
     var answer: String
     var type: CardType
