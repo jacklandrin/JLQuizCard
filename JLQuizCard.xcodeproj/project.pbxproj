@@ -21,6 +21,7 @@
 		CC173FE12439C36A00ECF53C /* FiipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE02439C36A00ECF53C /* FiipView.swift */; };
 		CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE22439C3DC00ECF53C /* CardStack.swift */; };
 		CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE42439C43C00ECF53C /* CardPile.swift */; };
+		CC3E08A7260028E000381C79 /* ViewToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E08A6260028E000381C79 /* ViewToolkit.swift */; };
 		CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CCF243AF5FF00F78AD4 /* CardList.swift */; };
 		CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CD3243B148E00F78AD4 /* CardEditor.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		CC173FE02439C36A00ECF53C /* FiipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiipView.swift; sourceTree = "<group>"; };
 		CC173FE22439C3DC00ECF53C /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		CC173FE42439C43C00ECF53C /* CardPile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPile.swift; sourceTree = "<group>"; };
+		CC3E08A6260028E000381C79 /* ViewToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToolkit.swift; sourceTree = "<group>"; };
 		CC414CCF243AF5FF00F78AD4 /* CardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardList.swift; sourceTree = "<group>"; };
 		CC414CD3243B148E00F78AD4 /* CardEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 				CC173FE42439C43C00ECF53C /* CardPile.swift */,
 				CC414CCF243AF5FF00F78AD4 /* CardList.swift */,
 				CC414CD3243B148E00F78AD4 /* CardEditor.swift */,
+				CC3E08A6260028E000381C79 /* ViewToolkit.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,
 				CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */,
 				CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */,
+				CC3E08A7260028E000381C79 /* ViewToolkit.swift in Sources */,
 				CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */,
 				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
 				CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */,
