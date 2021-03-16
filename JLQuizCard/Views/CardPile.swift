@@ -44,6 +44,7 @@ struct CardPile: View {
                         }
                             
                 }.padding(.vertical,80)
+                .padding(.horizontal, 14)
                 Spacer()
                 }
             .navigationBarTitle(Text("QuizCard"))
