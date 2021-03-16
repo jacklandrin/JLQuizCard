@@ -75,7 +75,7 @@ struct CardEditor: View {
             return
         }
         
-       let card = Card(question: self.question, answer: self.answer, type: self.isTextMode ? .showText : .speech)
+        let card = Card(question: self.question, answer: self.answer, example:"", languageCode:"en-US", type: self.isTextMode ? .showText : .speech)
         self.finishEditCard(card)
         self.presentationMode.wrappedValue.dismiss()
     }

@@ -31,7 +31,7 @@ struct QuizCard: View {
                     else {
                         Button("🗣") {
                             let utterance = AVSpeechUtterance(string: self.card.question)
-                            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                            utterance.voice = AVSpeechSynthesisVoice(language: card.languageCode)
                             utterance.rate = 0.5
 
                             let synthesizer = AVSpeechSynthesizer()

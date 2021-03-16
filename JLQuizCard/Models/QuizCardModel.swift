@@ -22,7 +22,10 @@ struct Card : Codable, Identifiable, Hashable  {
     var id = UUID()
     var question: String
     var answer: String
+    var example: String
+    var languageCode: String
     var type: CardType
+    
     
     enum CardType: String, Codable {
         case showText = "ShowText"
@@ -32,11 +35,11 @@ struct Card : Codable, Identifiable, Hashable  {
 }
 
 private let defaultCardPile:[Card] = [
-    Card(question: "This is an English question.", answer: "Answer", type: .speech),
-    Card(question: "What's your problem?", answer: "Answer", type: .showText),
-    Card(question: "Repeat,repeat,repeat!", answer: "Answer", type: .speech),
-    Card(question: "Come on! Try it again!", answer: "Answer", type: .speech),
-    Card(question: "Hello, world!", answer: "Answer", type: .showText),
+    Card(question: "This is an English question.", answer: "Answer",example:"", languageCode:"en-US" ,type: .speech),
+    Card(question: "What's your problem?", answer: "Answer",example:"", languageCode:"en-US" , type: .showText),
+    Card(question: "Repeat,repeat,repeat!", answer: "Answer",example:"", languageCode:"en-US" , type: .speech),
+    Card(question: "Come on! Try it again!", answer: "Answer",example:"", languageCode:"en-US" , type: .speech),
+    Card(question: "Hello, world!", answer: "Answer",example:"", languageCode:"en-US" , type: .showText),
 ]
 
 class CardsPileViewModel: ObservableObject, Identifiable {
@@ -71,7 +74,7 @@ class CardsPileViewModel: ObservableObject, Identifiable {
 }
 
 extension Card {
-    static let previewCard = Card(question: "This is a English question.", answer: "Answer", type: .showText)
+    static let previewCard = Card(question: "This is a English question.", answer: "Answer",example:"", languageCode:"en-US" , type: .showText)
 //    static let previewCard = Card(question: "This is a English question.", answer: "Answer", type: .speech)
 }
 
