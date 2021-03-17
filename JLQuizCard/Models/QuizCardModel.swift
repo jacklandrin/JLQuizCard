@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import CoreData
 
 let dragOutDistance = 240.0
 
@@ -18,6 +19,26 @@ extension Int: Identifiable {
     }
 }
 
+//class CardInfo: NSManagedObject {
+//    var id = UUID()
+//    var question: String = ""
+//    var answer: String = ""
+//    var example: String = ""
+//    var languageCode: String = "en-US"
+//    var type: CardType = .showText
+//
+//
+//    enum CardType: String, Codable {
+//        case showText = "ShowText"
+//        case speech = "Speech"
+//    }
+//}
+
+enum CardType: String, Codable {
+    case showText = "ShowText"
+    case speech = "Speech"
+}
+
 struct Card : Codable, Identifiable, Hashable  {
     var id = UUID()
     var question: String
@@ -25,12 +46,6 @@ struct Card : Codable, Identifiable, Hashable  {
     var example: String
     var languageCode: String
     var type: CardType
-    
-    
-    enum CardType: String, Codable {
-        case showText = "ShowText"
-        case speech = "Speech"
-    }
 
 }
 

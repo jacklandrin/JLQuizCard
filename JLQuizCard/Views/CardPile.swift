@@ -12,6 +12,11 @@ struct CardPile: View {
     @EnvironmentObject var cardPileViewModel: CardsPileViewModel
     @State var currentIndex = 0.0
     @State var isAnimation:Bool = false
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(
+        entity: CardInfo.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \CardInfo.id, ascending:true)]
+    ) var cards:FetchedResults<CardInfo>
     
     var body: some View {
         NavigationView {
@@ -48,7 +53,7 @@ struct CardPile: View {
                 Spacer()
                 }
             .navigationBarTitle(Text("QuizCard"))
-            .navigationBarItems(trailing: NavigationLink(destination: CardList().environmentObject(self.cardPileViewModel)) {
+            .navigationBarItems(trailing: NavigationLink(destination: CardList().environmentObject(self.cardPileViewModel).environment(\.managedObjectContext, managedObjectContext)) {
                     Text("Edit")
                 })
             
