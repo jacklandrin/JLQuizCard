@@ -51,11 +51,8 @@ struct CardPile: View {
                 }.padding(.vertical,80)
                 .padding(.horizontal, 14)
                 Spacer()
-                }
-            .navigationBarTitle(Text("QuizCard"))
-            .navigationBarItems(trailing: NavigationLink(destination: CardList().environmentObject(self.cardPileViewModel).environment(\.managedObjectContext, managedObjectContext)) {
-                    Text("Edit")
-                })
+            }.changeNavigationTitleAndTrailingLink(title: "QuizCard", destination: CardList().environmentObject(self.cardPileViewModel).environment(\.managedObjectContext, managedObjectContext), trailingText: "Edit")
+
             
         }.navigationViewStyle(StackNavigationViewStyle())
         .padding(0)

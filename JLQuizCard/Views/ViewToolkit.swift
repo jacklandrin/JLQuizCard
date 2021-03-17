@@ -26,3 +26,56 @@ extension View {
         self.modifier(DeviceRotationViewModifier(action: action))
     }
 }
+@available(iOS 14.0, *)
+struct NavigationTitleAndToolbarLink<Destination> : ViewModifier where Destination:View {
+    let title: String
+    let destination:Destination
+    let trailingText: String
+    
+    func body(content: Content) -> some View {
+
+            return content
+                    .navigationTitle(title)
+                    .toolbar(content: {
+                        NavigationLink(destination:
+                                       destination, label:{
+                                            Text(trailingText)
+                                        })
+
+                    })
+            
+    }
+}
+
+struct NavigationTitleAndTrailingLink<Destination> :ViewModifier where Destination:View {
+    let title: String
+    let destination:Destination
+    let trailingText: String
+    
+    func body(content: Content) -> some View {
+    
+            return content
+                .navigationBarTitle(title)
+                .navigationBarItems(trailing: NavigationLink(destination:
+                                                                destination, label:{
+                                                                    Text(trailingText)
+                                                                                    }
+                                                            )
+                )
+        
+
+    }
+        
+}
+
+extension View {
+    @ViewBuilder
+    func changeNavigationTitleAndTrailingLink<Destination>(title: String, destination:Destination, trailingText:String) -> some View where Destination:View {
+        if #available(iOS 14.0, *) {
+            self.modifier(NavigationTitleAndToolbarLink<Destination>(title: title, destination: destination, trailingText: trailingText))
+        } else {
+            self.modifier(NavigationTitleAndTrailingLink<Destination>(title: title, destination: destination, trailingText: trailingText))
+        }
+       
+    }
+}
