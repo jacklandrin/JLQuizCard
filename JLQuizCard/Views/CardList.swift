@@ -13,25 +13,23 @@ struct CardList: View {
     @EnvironmentObject var cardPileViewModel: CardsPileViewModel
     
     var body: some View {
+//        if #available(iOS 14.0, *) {
             List {
                 ForEach(self.cardPileViewModel.pile.indices, id: \.id) { i in
                     NavigationLink(destination:
-                        CardEditor(isNewOne: false, card: self.cardPileViewModel.pile[i], finishEditCard: { c in
-                            self.modifyCard(card: c, index: i)
-                        }))
+                                    CardEditor(isNewOne: false, card: self.cardPileViewModel.pile[i], finishEditCard: { c in
+                                        self.modifyCard(card: c, index: i)
+                                    }))
                     {
                         Text(self.cellText(card: self.cardPileViewModel.pile[i]))
                     }
                 }.onDelete(perform: delete)
-                    
-            }.navigationBarTitle(Text("Card List"))
-            .navigationBarItems(trailing: NavigationLink(destination: 
-                CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
-                    self.addCard(card: c)
-                }))
-            {
-                Text("Add")
-            })
+                
+            }.changeNavigationTitleAndTrailingLink(title: "Card List", destination:
+                                                CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
+                                                    self.addCard(card: c)
+                                                }), trailingText:"Add")
+
     }
     
     func cellText(card: Card) -> String {
