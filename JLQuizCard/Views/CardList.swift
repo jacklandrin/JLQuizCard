@@ -20,7 +20,6 @@ struct CardList: View {
     ) var cards: FetchedResults<CardInfo>
     
     var body: some View {
-//        if #available(iOS 14.0, *) {
             List {
 
 //                ForEach(self.cardPileViewModel.pile.indices, id: \.id) { i in
@@ -41,12 +40,12 @@ struct CardList: View {
 
                 }.onDelete(perform: delete)
                 
-            }.changeNavigationTitleAndTrailingLink(title: "Card List", destination:
-                                                CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
-                                                    self.addCard(card: c)
-                                                }), trailingText:"Add")
 
-
+            }.changeNavigationTitleAndTrailingLink(title: "Card List", destination:CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
+                                    self.addCard(card: c)
+            })
+            , trailingText:"Add")
+        
     }
     
     func cellText(card: CardInfo) -> String {

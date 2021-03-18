@@ -36,13 +36,14 @@ struct NavigationTitleAndToolbarLink<Destination> : ViewModifier where Destinati
 
             return content
                     .navigationTitle(title)
-                    .toolbar(content: {
+                .toolbar{ ToolbarItem(placement:.navigationBarTrailing) {
                         NavigationLink(destination:
                                        destination, label:{
                                             Text(trailingText)
                                         })
 
-                    })
+                    }
+                }
             
     }
 }
@@ -77,5 +78,48 @@ extension View {
             self.modifier(NavigationTitleAndTrailingLink<Destination>(title: title, destination: destination, trailingText: trailingText))
         }
        
+    }
+}
+
+@available(iOS 14,*)
+struct NavigationTitleAndToolbarButton:ViewModifier {
+    let title : String
+    let action : () -> Void
+    let trailingText : String
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationTitle(title)
+            .toolbar{ ToolbarItem(placement:.navigationBarTrailing) {
+                        Button(action:action){
+                            Text(trailingText)
+                        }
+                }
+            }
+    }
+}
+
+struct NavigationTitleAndTrailingButton:ViewModifier {
+    let title : String
+    let action : () -> Void
+    let trailingText : String
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle(title)
+            .navigationBarItems(trailing: Button(action:action){
+                Text(trailingText)
+            })
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func changeNavigationTitleAndTrailingButton(title:String, trailingText:String, action: @escaping () -> Void) -> some View {
+        if #available(iOS 14, *) {
+            self.modifier(NavigationTitleAndToolbarButton(title: title, action: action, trailingText: trailingText))
+        } else {
+            self.modifier(NavigationTitleAndTrailingButton(title: title, action: action, trailingText: trailingText))
+        }
     }
 }
