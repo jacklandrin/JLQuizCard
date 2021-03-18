@@ -18,19 +18,9 @@ struct CardList: View {
             NSSortDescriptor(keyPath: \CardInfo.id, ascending: true)
         ]
     ) var cards: FetchedResults<CardInfo>
-    
+
     var body: some View {
             List {
-
-//                ForEach(self.cardPileViewModel.pile.indices, id: \.id) { i in
-//                    NavigationLink(destination:
-//                        CardEditor(isNewOne: false, card: self.cardPileViewModel.pile[i], finishEditCard: { c in
-//                            self.modifyCard(card: c, index: i)
-//                        }))
-//                    {
-//                        Text(self.cellText(card: self.cardPileViewModel.pile[i]))
-//                    }
-//                }.onDelete(perform: delete)
                 ForEach(cards.indices, id:\.id) { i in
                     NavigationLink(destination: CardEditor(isNewOne: false, card: cards[i], finishEditCard: { c in
                             self.modifyCard(card: c, index: i)
@@ -39,8 +29,7 @@ struct CardList: View {
                     }
 
                 }.onDelete(perform: delete)
-                
-
+            
             }.changeNavigationTitleAndTrailingLink(title: "Card List", destination:CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
                                     self.addCard(card: c)
             })
@@ -54,7 +43,6 @@ struct CardList: View {
     }
     
     func delete(at offset: IndexSet) {
-//        self.cardPileViewModel.deleteCard(at: offset.first!)
         offset.forEach{ index in
             let card = self.cards[index]
             self.managedObjectContext.delete(card)
@@ -63,7 +51,7 @@ struct CardList: View {
     }
     
     func addCard(card: Card) {
-//        self.cardPileViewModel.addCard(card: card)
+
         let newCard = CardInfo(context:managedObjectContext)
         newCard.question = card.question
         newCard.answer = card.answer
@@ -74,7 +62,6 @@ struct CardList: View {
     }
     
     func modifyCard(card: Card, index: Int) {
-//        self.cardPileViewModel.modifyCard(card: card, index: index)
         let newCard = cards[index]
         newCard.question = card.question
         newCard.answer = card.answer

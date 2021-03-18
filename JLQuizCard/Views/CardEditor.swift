@@ -13,6 +13,7 @@ struct CardEditor: View {
     
     var isNewOne: Bool
     var card : CardInfo?
+    @State var isMakingNewCard = false
     @State var isTextMode:Bool = true
     @State var question: String = ""
     @State var answer: String = ""
@@ -60,6 +61,13 @@ struct CardEditor: View {
             }
             .changeNavigationTitleAndTrailingButton(title: "Card Editor", trailingText: "Done", action: makeNewCard)
             .onAppear(perform: onAppearUpdateData)
+            .onDisappear(perform: {
+                if isNewOne && isMakingNewCard {
+                    let card = Card(question: self.question, answer: self.answer, example:self.example, languageCode:"en-US", type: self.isTextMode ? .showText : .speech)
+                        self.finishEditCard(card)
+                } //add data after popping animation, unless list page will update View in animation, then go back this view in iOS 14
+                
+            })
             .padding(10.0)
                 .alert(isPresented: self.$isShowAlert) {
             Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
@@ -83,10 +91,7 @@ struct CardEditor: View {
         }
 
         self.presentationMode.wrappedValue.dismiss()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-        let card = Card(question: self.question, answer: self.answer, example:self.example, languageCode:"en-US", type: self.isTextMode ? .showText : .speech)
-            self.finishEditCard(card)
-        }
+        self.isMakingNewCard = true
     }
 }
 
