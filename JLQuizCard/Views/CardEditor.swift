@@ -38,7 +38,6 @@ struct CardEditor: View {
             self.question = self.card?.question ?? ""
             self.answer = self.card?.answer ?? ""
         }
-        return
     }
     
     var body: some View {
@@ -53,12 +52,10 @@ struct CardEditor: View {
                 TextField("Write answer here...", text: self.$answer)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 Spacer()
-            }.navigationBarTitle("Card Editor")
-                .navigationBarItems(trailing: Button(action:makeNewCard){
-                    Text("Done")
-                })
-                .onAppear(perform: onAppearUpdateData)
-        .padding(10.0)
+            }
+            .changeNavigationTitleAndTrailingButton(title: "Card Editor", trailingText: "Done", action: makeNewCard)
+            .onAppear(perform: onAppearUpdateData)
+            .padding(10.0)
                 .alert(isPresented: self.$isShowAlert) {
             Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
         }
@@ -74,10 +71,11 @@ struct CardEditor: View {
             self.isShowAlert = true
             return
         }
-        
-       let card = Card(question: self.question, answer: self.answer, type: self.isTextMode ? .showText : .speech)
-        self.finishEditCard(card)
         self.presentationMode.wrappedValue.dismiss()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let card = Card(question: self.question, answer: self.answer, type: self.isTextMode ? .showText : .speech)
+            self.finishEditCard(card)
+        }
     }
 }
 
