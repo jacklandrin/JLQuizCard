@@ -10,16 +10,23 @@ import SwiftUI
 import CoreData
 
 struct CardList: View {
-    @EnvironmentObject var cardPileViewModel: CardsPileViewModel
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(
-        entity: CardInfo.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \CardInfo.id, ascending: true)
-        ]
-    ) var cards: FetchedResults<CardInfo>
-
+    //@FetchRequest(fetchRequest: CardInfo.defaultFetchRequest)
+    var cards:FetchedResults<CardInfo>
+    @State var isShowEditor = false
+    
+    
     var body: some View {
+        VStack {
+//            Button(action:testAddCard){
+//                Text("test")
+//            }
+            NavigationLink(destination: CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
+                 self.addCard(card: c)
+            }), isActive: $isShowEditor) {
+                Text("")
+            }.frame(width: 0, height: 0)
+            .hidden()
             List {
                 ForEach(cards.indices, id:\.id) { i in
                     NavigationLink(destination: CardEditor(isNewOne: false, card: cards[i], finishEditCard: { c in
@@ -30,12 +37,18 @@ struct CardList: View {
 
                 }.onDelete(perform: delete)
             
-            }.changeNavigationTitleAndTrailingLink(title: "Card List", destination:CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
-                                    self.addCard(card: c)
+            } .listStyle(PlainListStyle())
+            .changeNavigationTitleAndTrailingButton(title: "Card List", trailingText: "Add", action: {
+                self.isShowEditor = true
             })
-            , trailingText:"Add")
-        
+
+        }
     }
+    
+//    func testAddCard() -> Void {
+//        let card = Card(id: UUID(), question: "test", answer: "test", example: "test", languageCode: "en-GB", type: .showText)
+//        self.addCard(card: card)
+//    }
     
     func cellText(card: CardInfo) -> String {
         let prefix = (card.type == CardType.speech.rawValue) ? "🗣:" : "Text:"
@@ -51,14 +64,16 @@ struct CardList: View {
     }
     
     func addCard(card: Card) {
-
-        let newCard = CardInfo(context:managedObjectContext)
-        newCard.question = card.question
-        newCard.answer = card.answer
-        newCard.languageCode = card.languageCode
-        newCard.example = card.example
-        newCard.type = card.type.rawValue
-        saveContext()
+        withAnimation{
+            let newCard = CardInfo(context:managedObjectContext)
+            newCard.question = card.question
+            newCard.answer = card.answer
+            newCard.languageCode = card.languageCode
+            newCard.example = card.example
+            newCard.type = card.type.rawValue
+            saveContext()
+        }
+        
     }
     
     func modifyCard(card: Card, index: Int) {
@@ -81,8 +96,8 @@ struct CardList: View {
 }
 
 
-struct CardList_Previews: PreviewProvider {
-    static var previews: some View {
-        CardList().environmentObject(CardsPileViewModel())
-    }
-}
+//struct CardList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardList().environmentObject(CardsPileViewModel())
+//    }
+//}

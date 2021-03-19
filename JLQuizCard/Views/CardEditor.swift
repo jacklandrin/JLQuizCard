@@ -20,6 +20,8 @@ struct CardEditor: View {
     @State var example: String = ""
     @State var isShowAlert: Bool = false
     
+    @State private var languageCode = "en-GB"
+    
     var finishEditCard : (Card) -> Void
     
     init(isNewOne: Bool, card: CardInfo?, finishEditCard:@escaping (Card) -> Void) {
@@ -40,6 +42,7 @@ struct CardEditor: View {
             self.question = self.card?.question ?? ""
             self.answer = self.card?.answer ?? ""
             self.example = self.card?.example ?? ""
+            self.languageCode = card?.languageCode ?? "en-GB"
         }
     }
     
@@ -57,15 +60,22 @@ struct CardEditor: View {
                 Text("Answer:")
                 TextField("Write answer here...", text: self.$answer)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                Picker("Please choose a language code", selection:$languageCode) {
+                    ForEach(Locale.preferredLanguages, id:\.self) {
+                        Text($0)
+                    }
+                }
                 Spacer()
             }
             .changeNavigationTitleAndTrailingButton(title: "Card Editor", trailingText: "Done", action: makeNewCard)
             .onAppear(perform: onAppearUpdateData)
             .onDisappear(perform: {
-                if isNewOne && isMakingNewCard {
-                    let card = Card(question: self.question, answer: self.answer, example:self.example, languageCode:"en-US", type: self.isTextMode ? .showText : .speech)
+                if isMakingNewCard {
+                    let card = Card(question: self.question, answer: self.answer, example:self.example, languageCode:self.languageCode, type: self.isTextMode ? .showText : .speech)
+//                    DispatchQueue.main.asyncAfter(deadline:.now() + 2) {
                         self.finishEditCard(card)
-                } //add data after popping animation, unless list page will update View in animation, then go back this view in iOS 14
+//                    }
+                } 
                 
             })
             .padding(10.0)
@@ -92,6 +102,7 @@ struct CardEditor: View {
 
         self.presentationMode.wrappedValue.dismiss()
         self.isMakingNewCard = true
+
     }
 }
 

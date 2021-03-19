@@ -31,6 +31,7 @@ struct NavigationTitleAndToolbarLink<Destination> : ViewModifier where Destinati
     let title: String
     let destination:Destination
     let trailingText: String
+    @State var isActive = false
     
     func body(content: Content) -> some View {
 
@@ -38,7 +39,7 @@ struct NavigationTitleAndToolbarLink<Destination> : ViewModifier where Destinati
                     .navigationTitle(title)
                 .toolbar{ ToolbarItem(placement:.navigationBarTrailing) {
                         NavigationLink(destination:
-                                       destination, label:{
+                                        destination, isActive:$isActive ,label:{
                                             Text(trailingText)
                                         })
 

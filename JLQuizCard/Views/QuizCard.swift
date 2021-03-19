@@ -11,12 +11,27 @@ import AVFoundation
 
 struct QuizCard: View {
     
-    public let card : Card
+    let cardInfo : CardInfo?
+    var card : Card
     let onDragOut:(CGFloat) -> Void
     @State var zRotation: Angle = .degrees(0.0)
 //    @State var opacity: Double = 1.0
 //    @State var hasDraggedback:Bool = false
     let sequence: Int
+    
+    init(cardInfo:CardInfo, onDragOut: @escaping (CGFloat) -> Void, sequence:Int) {
+        self.cardInfo = cardInfo
+        self.onDragOut = onDragOut
+        self.sequence = sequence
+        card = Card(id: UUID(), question: cardInfo.question ?? "Question", answer: cardInfo.answer ?? "Answer", example: cardInfo.example ?? "", languageCode: cardInfo.languageCode ?? "en-US" , type: CardType(rawValue: cardInfo.type ?? "showText") ?? .showText)
+    }
+    
+    init(card:Card, onDragOut: @escaping (CGFloat) -> Void, sequence:Int) {
+        self.card = card
+        self.onDragOut = onDragOut
+        self.sequence = sequence
+        self.cardInfo = nil
+    }
     
     var body: some View {
         FlipView (
@@ -38,6 +53,10 @@ struct QuizCard: View {
                             synthesizer.speak(utterance)
                         }
                     }
+                    Spacer().frame(height:20)
+                    Text(card.example)
+                        .font(Font.system(size: 24.0, design: .rounded))
+                        .foregroundColor(.gray)
                 }
                 
             },

@@ -9,26 +9,32 @@
 import SwiftUI
 
 struct CardPile: View {
-    @EnvironmentObject var cardPileViewModel: CardsPileViewModel
+//    @EnvironmentObject var cardPileViewModel: CardsPileViewModel
     @State var currentIndex = 0.0
     @State var isAnimation:Bool = false
+    @State var isShowList = false
+    
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(
-        entity: CardInfo.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \CardInfo.id, ascending:true)]
-    ) var cards:FetchedResults<CardInfo>
+    
+    @FetchRequest(fetchRequest: CardInfo.defaultFetchRequest)
+    var cards:FetchedResults<CardInfo>
     
     var body: some View {
         NavigationView {
             VStack {
-                Text(cardPileViewModel.title)
+                NavigationLink(destination: CardList(cards: cards), isActive: $isShowList){
+                    Text("")
+                }
+                    .frame(width: 0, height: 0)
+                    .hidden()//add data after popping animation, unless list page will update View in animation, then go back this view in iOS 14
+                Text("Ready? Let's review!")
                     .multilineTextAlignment(.center)
                     .font(.headline)
                 Divider()
                 ZStack {
-                    ForEach((0..<self.cardPileViewModel.pile.count).reversed()) { index in
-                        QuizCard(card: self.cardPileViewModel.pile[index], onDragOut:{ d in
-                            if (d < 0 && self.currentIndex == 0) || (d > 0 && Int(self.currentIndex) == self.cardPileViewModel.pile.count - 1) || self.isAnimation || d == 0 {
+                    ForEach((0..<self.cards.count).reversed(), id: \.id) { index in
+                        QuizCard(cardInfo: cards[index], onDragOut:{ d in
+                            if (d < 0 && self.currentIndex == 0) || (d > 0 && Int(self.currentIndex) == self.cards.count - 1) || self.isAnimation || d == 0 {
                                 return
                             }
                             
@@ -51,9 +57,10 @@ struct CardPile: View {
                 }.padding(.vertical,80)
                 .padding(.horizontal, 14)
                 Spacer()
-            }.changeNavigationTitleAndTrailingLink(title: "QuizCard", destination: CardList().environmentObject(self.cardPileViewModel).environment(\.managedObjectContext, managedObjectContext), trailingText: "Edit")
-
-            
+            }
+            .changeNavigationTitleAndTrailingButton(title: "QuizCard", trailingText: "Edit", action: {
+                self.isShowList = true
+            })
         }.navigationViewStyle(StackNavigationViewStyle())
         .padding(0)
     }
@@ -61,8 +68,8 @@ struct CardPile: View {
 }
 
 
-struct CardPile_Previews: PreviewProvider {
-    static var previews: some View {
-        CardPile().environmentObject(CardsPileViewModel())
-    }
-}
+//struct CardPile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardPile().environmentObject(CardsPileViewModel())
+//    }
+//}

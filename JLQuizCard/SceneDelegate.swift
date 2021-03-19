@@ -14,7 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     lazy var persistenContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CardInfoModel")
+        let container = NSPersistentCloudKitContainer(name: "CardInfoModel")
+        
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -25,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func saveContext() {
         let context = persistenContainer.viewContext
+        context.automaticallyMergesChangesFromParent = true
         if context.hasChanges {
             do {
                 try context.save()
@@ -42,8 +44,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let context = persistenContainer.viewContext
-        let contentView = CardPile().environmentObject(CardsPileViewModel()).environment(\.managedObjectContext, context)//ContentView()
-
+        let contentView = CardPile().environment(\.managedObjectContext, context)
+        
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
