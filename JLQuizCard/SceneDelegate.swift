@@ -13,7 +13,7 @@ import CoreData
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    lazy var persistenContainer: NSPersistentContainer = {
+    static var persistenContainer: NSPersistentContainer = {
         let container = NSPersistentCloudKitContainer(name: "CardInfoModel")
         
         container.loadPersistentStores { _, error in
@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }()
     
     func saveContext() {
-        let context = persistenContainer.viewContext
+        let context = SceneDelegate.persistenContainer.viewContext
         context.automaticallyMergesChangesFromParent = true
         if context.hasChanges {
             do {
@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let context = persistenContainer.viewContext
+        let context = SceneDelegate.persistenContainer.viewContext
         let contentView = CardPile().environment(\.managedObjectContext, context)
         
         // Use a UIHostingController as window root view controller.

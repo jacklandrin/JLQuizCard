@@ -8,19 +8,21 @@
 
 import SwiftUI
 import CoreData
+import UniformTypeIdentifiers
 
 struct CardList: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     //@FetchRequest(fetchRequest: CardInfo.defaultFetchRequest)
     var cards:FetchedResults<CardInfo>
     @State var isShowEditor = false
-    
+    @State var isDocumentPickerPresented = false
+    @State var CSVFileReader = CSVFileReaderModel()
     
     var body: some View {
         VStack {
-//            Button(action:testAddCard){
-//                Text("test")
-//            }
+            Button(action:importFromCSV){
+                Text("Import from csv")
+            }
             NavigationLink(destination: CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
                  self.addCard(card: c)
             }), isActive: $isShowEditor) {
@@ -38,17 +40,34 @@ struct CardList: View {
                 }.onDelete(perform: delete)
             
             } .listStyle(PlainListStyle())
-            .changeNavigationTitleAndTrailingButton(title: "Card List", trailingText: "Add", action: {
+            .changeNavigationTitleAndTrailingButton(title: "Card List", trailingText: "Add One", action: {
                 self.isShowEditor = true
             })
 
         }
     }
     
-//    func testAddCard() -> Void {
-//        let card = Card(id: UUID(), question: "test", answer: "test", example: "test", languageCode: "en-GB", type: .showText)
-//        self.addCard(card: card)
-//    }
+    func importFromCSV() -> Void {
+        let picker = DocumentPickerViewController(
+            supportedTypes: ["public.comma-separated-values-text"],
+            onPick: { url in
+                print("file url : \(url)")
+                let fileUrlAuthozied = url.startAccessingSecurityScopedResource()
+                if fileUrlAuthozied {
+                    CSVFileReader.readFileFromUrl(url: url) { cards in
+                        for card in cards {
+                            self.addCard(card: card)
+                        }
+                    }
+                    url.stopAccessingSecurityScopedResource()
+                }
+            },
+            onDismiss: {
+                print("dismiss")
+            }
+        )
+        UIApplication.shared.windows.first?.rootViewController?.present(picker, animated: true)
+    }
     
     func cellText(card: CardInfo) -> String {
         let prefix = (card.type == CardType.speech.rawValue) ? "🗣:" : "Text:"

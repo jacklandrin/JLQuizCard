@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6928A7D20C4E89D6B527BED1 /* Pods_JLQuizCardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079CA872A1D109D05AC41A63 /* Pods_JLQuizCardTests.framework */; };
+		7741A998B49D1539B4004EEB /* Pods_JLQuizCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50384DE357FDB127233A9A4 /* Pods_JLQuizCard.framework */; };
 		CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA72439AEC300ECF53C /* AppDelegate.swift */; };
 		CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA92439AEC300ECF53C /* SceneDelegate.swift */; };
 		CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FAB2439AEC300ECF53C /* ContentView.swift */; };
@@ -26,6 +28,9 @@
 		CC3E08C6260110C200381C79 /* CardInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */; };
 		CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CCF243AF5FF00F78AD4 /* CardList.swift */; };
 		CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CD3243B148E00F78AD4 /* CardEditor.swift */; };
+		CC4D48F926065C0900C6CAAE /* CSVFileReaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4D48F826065C0900C6CAAE /* CSVFileReaderModel.swift */; };
+		CCF05CFD26064E8500933A06 /* DocumentPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */; };
+		CF2BCF5BE2BD906F2EF0871D /* Pods_JLQuizCard_JLQuizCardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492C61FC0BA3FFE1124502E2 /* Pods_JLQuizCard_JLQuizCardUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		079CA872A1D109D05AC41A63 /* Pods_JLQuizCardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLQuizCardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A312FEB89B0916EF73E1F7 /* Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig"; path = "Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		492C61FC0BA3FFE1124502E2 /* Pods_JLQuizCard_JLQuizCardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLQuizCard_JLQuizCardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BDE9DF0A3CAAFDD8C270FEA /* Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig"; path = "Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig"; sourceTree = "<group>"; };
+		80364459F6D261CA97D3AC50 /* Pods-JLQuizCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard.release.xcconfig"; path = "Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard.release.xcconfig"; sourceTree = "<group>"; };
+		B50384DE357FDB127233A9A4 /* Pods_JLQuizCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLQuizCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B77B19EF510DEBE06B38706B /* Pods-JLQuizCardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCardTests.debug.xcconfig"; path = "Target Support Files/Pods-JLQuizCardTests/Pods-JLQuizCardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC173FA42439AEC300ECF53C /* QuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC173FA72439AEC300ECF53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC173FA92439AEC300ECF53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +84,10 @@
 		CC3E08C5260110C200381C79 /* CardInfoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardInfoModel.xcdatamodel; sourceTree = "<group>"; };
 		CC414CCF243AF5FF00F78AD4 /* CardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardList.swift; sourceTree = "<group>"; };
 		CC414CD3243B148E00F78AD4 /* CardEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditor.swift; sourceTree = "<group>"; };
+		CC4D48F826065C0900C6CAAE /* CSVFileReaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFileReaderModel.swift; sourceTree = "<group>"; };
+		CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerViewController.swift; sourceTree = "<group>"; };
+		E09D70D970FBB9D3EAA375F7 /* Pods-JLQuizCardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCardTests.release.xcconfig"; path = "Target Support Files/Pods-JLQuizCardTests/Pods-JLQuizCardTests.release.xcconfig"; sourceTree = "<group>"; };
+		EFC7FC78E65A8FCF4851B12B /* Pods-JLQuizCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard.debug.xcconfig"; path = "Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC3E08B126002B1200381C79 /* CloudKit.framework in Frameworks */,
+				7741A998B49D1539B4004EEB /* Pods_JLQuizCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6928A7D20C4E89D6B527BED1 /* Pods_JLQuizCardTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2BCF5BE2BD906F2EF0871D /* Pods_JLQuizCard_JLQuizCardUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +127,7 @@
 				CC173FC82439AEC500ECF53C /* JLQuizCardUITests */,
 				CC173FA52439AEC300ECF53C /* Products */,
 				CC3E08AF26002B1200381C79 /* Frameworks */,
+				DDEE4EF38B7ED0C409350802 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				CC173FD82439B25D00ECF53C /* QuizCardModel.swift */,
+				CC4D48F826065C0900C6CAAE /* CSVFileReaderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +203,7 @@
 				CC414CCF243AF5FF00F78AD4 /* CardList.swift */,
 				CC414CD3243B148E00F78AD4 /* CardEditor.swift */,
 				CC3E08A6260028E000381C79 /* ViewToolkit.swift */,
+				CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,8 +222,24 @@
 			isa = PBXGroup;
 			children = (
 				CC3E08B026002B1200381C79 /* CloudKit.framework */,
+				B50384DE357FDB127233A9A4 /* Pods_JLQuizCard.framework */,
+				492C61FC0BA3FFE1124502E2 /* Pods_JLQuizCard_JLQuizCardUITests.framework */,
+				079CA872A1D109D05AC41A63 /* Pods_JLQuizCardTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDEE4EF38B7ED0C409350802 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFC7FC78E65A8FCF4851B12B /* Pods-JLQuizCard.debug.xcconfig */,
+				80364459F6D261CA97D3AC50 /* Pods-JLQuizCard.release.xcconfig */,
+				37A312FEB89B0916EF73E1F7 /* Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig */,
+				5BDE9DF0A3CAAFDD8C270FEA /* Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig */,
+				B77B19EF510DEBE06B38706B /* Pods-JLQuizCardTests.debug.xcconfig */,
+				E09D70D970FBB9D3EAA375F7 /* Pods-JLQuizCardTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC173FCE2439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCard" */;
 			buildPhases = (
+				8354FDB529855DADE7261DB1 /* [CP] Check Pods Manifest.lock */,
 				CC173FA02439AEC300ECF53C /* Sources */,
 				CC173FA12439AEC300ECF53C /* Frameworks */,
 				CC173FA22439AEC300ECF53C /* Resources */,
+				EAC0125E53F5689B2E36FF53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,6 +268,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC173FD12439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardTests" */;
 			buildPhases = (
+				0809EBF71B1E28C352657F3A /* [CP] Check Pods Manifest.lock */,
 				CC173FB62439AEC500ECF53C /* Sources */,
 				CC173FB72439AEC500ECF53C /* Frameworks */,
 				CC173FB82439AEC500ECF53C /* Resources */,
@@ -246,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC173FD42439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardUITests" */;
 			buildPhases = (
+				17F11B63428C7422B69E9B02 /* [CP] Check Pods Manifest.lock */,
 				CC173FC12439AEC500ECF53C /* Sources */,
 				CC173FC22439AEC500ECF53C /* Frameworks */,
 				CC173FC32439AEC500ECF53C /* Resources */,
+				70BDEDCB1385B481B667F19E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,6 +373,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0809EBF71B1E28C352657F3A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JLQuizCardTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17F11B63428C7422B69E9B02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JLQuizCard-JLQuizCardUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70BDEDCB1385B481B667F19E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8354FDB529855DADE7261DB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JLQuizCard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAC0125E53F5689B2E36FF53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC173FA02439AEC300ECF53C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -342,10 +488,12 @@
 				CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */,
 				CC3E08A7260028E000381C79 /* ViewToolkit.swift in Sources */,
 				CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */,
+				CCF05CFD26064E8500933A06 /* DocumentPickerViewController.swift in Sources */,
 				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
 				CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */,
 				CC173FE12439C36A00ECF53C /* FiipView.swift in Sources */,
 				CC3E08C6260110C200381C79 /* CardInfoModel.xcdatamodeld in Sources */,
+				CC4D48F926065C0900C6CAAE /* CSVFileReaderModel.swift in Sources */,
 				CC173FDF2439C0E300ECF53C /* CardSide.swift in Sources */,
 				CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */,
 			);
@@ -510,6 +658,7 @@
 		};
 		CC173FCF2439AEC500ECF53C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFC7FC78E65A8FCF4851B12B /* Pods-JLQuizCard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JLQuizCard/QuizCardDebug.entitlements;
@@ -532,6 +681,7 @@
 		};
 		CC173FD02439AEC500ECF53C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80364459F6D261CA97D3AC50 /* Pods-JLQuizCard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -553,6 +703,7 @@
 		};
 		CC173FD22439AEC500ECF53C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B77B19EF510DEBE06B38706B /* Pods-JLQuizCardTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -575,6 +726,7 @@
 		};
 		CC173FD32439AEC500ECF53C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E09D70D970FBB9D3EAA375F7 /* Pods-JLQuizCardTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -597,6 +749,7 @@
 		};
 		CC173FD52439AEC500ECF53C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37A312FEB89B0916EF73E1F7 /* Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -617,6 +770,7 @@
 		};
 		CC173FD62439AEC500ECF53C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BDE9DF0A3CAAFDD8C270FEA /* Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

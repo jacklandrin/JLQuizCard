@@ -24,14 +24,21 @@ enum CardType: String, Codable {
     case speech = "Speech"
 }
 
-struct Card : Codable, Identifiable, Hashable  {
+struct Card : Identifiable  {
     var id = UUID()
     var question: String
     var answer: String
     var example: String
     var languageCode: String
     var type: CardType
+}
 
+struct CardData: Decodable {
+    var question: String
+    var answer: String
+    var example: String
+    var group: String
+    var tag: String
 }
 
 private let defaultCardPile:[Card] = [
