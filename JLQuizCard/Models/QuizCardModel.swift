@@ -24,13 +24,35 @@ enum CardType: String, Codable {
     case speech = "Speech"
 }
 
-struct Card : Identifiable  {
+class Card : ObservableObject,Identifiable  {
     var id = UUID()
-    var question: String
-    var answer: String
-    var example: String
-    var languageCode: String
-    var type: CardType
+    @Published var question: String = ""
+    @Published var answer: String = ""
+    @Published var example: String = ""
+    @Published var languageCode: String = ""
+    @Published var type: CardType = .showText
+//    {
+//        didSet {
+//            isTextMode = (type == .showText)
+//        }
+//    }
+    @Published var isTextMode = true
+    {
+        didSet {
+            type = isTextMode ? .showText : .speech
+        }
+    }
+    init(question:String, answer:String, example: String, languageCode: String, type:CardType) {
+        self.question = question
+        self.answer = answer
+        self.example = example
+        self.languageCode = languageCode
+        self.type = type
+    }
+    
+   static func convertCard(cardInfo:CardInfo) -> Card {
+        return Card(question: cardInfo.question!, answer: cardInfo.answer!, example: cardInfo.example!, languageCode: cardInfo.languageCode!, type: CardType(rawValue: cardInfo.type!) ?? .speech)
+    }
 }
 
 struct CardData: Decodable {

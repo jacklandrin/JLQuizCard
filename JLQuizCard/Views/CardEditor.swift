@@ -14,22 +14,26 @@ struct CardEditor: View {
     var isNewOne: Bool
     var card : CardInfo?
     @State var isMakingNewCard = false
-    @State var isTextMode:Bool = true
-    @State var question: String = ""
-    @State var answer: String = ""
-    @State var example: String = ""
+//    @State var isTextMode:Bool = true
+//    {
+//        willSet {
+//            sampleCard.type = isTextMode ? .showText : .speech
+//        }
+//    }
+//    @State var question: String = ""
+//    @State var answer: String = ""
+//    @State var example: String = ""
     @State var isShowAlert: Bool = false
-    
     @State private var languageCode = "en-GB"
+    
+    @State var sampleCard: Card = Card(question: "", answer: "", example: "", languageCode: "", type: .showText)
     
     var finishEditCard : (Card) -> Void
     
     init(isNewOne: Bool, card: CardInfo?, finishEditCard:@escaping (Card) -> Void) {
-        
         self.isNewOne = isNewOne
         self.finishEditCard = finishEditCard
         self.card = card
-        
     }
     
     func onAppearUpdateData() {
@@ -38,64 +42,75 @@ struct CardEditor: View {
         }
         
         if !isNewOne {
-            self.isTextMode = (self.card?.type == CardType.showText.rawValue)
-            self.question = self.card?.question ?? ""
-            self.answer = self.card?.answer ?? ""
-            self.example = self.card?.example ?? ""
-            self.languageCode = card?.languageCode ?? "en-GB"
+            self.sampleCard.isTextMode = (self.card?.type == CardType.showText.rawValue)
+            self.sampleCard.question = self.card?.question ?? ""
+            self.sampleCard.type = CardType(rawValue: self.card?.type ?? "showText") ?? .showText
+            self.sampleCard.answer = self.card?.answer ?? ""
+            self.sampleCard.example = self.card?.example ?? ""
+            self.sampleCard.languageCode = card?.languageCode ?? "en-GB"
         }
     }
     
     var body: some View {
-            VStack(alignment:.leading) {
-                Toggle(isOn: self.$isTextMode.animation()) {
-                    Text("Text Mode")
-                }
-                Text("Question:")
-                TextField("Write question here...", text: self.$question)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                Text("Example:")
-                TextField("Write example here...", text: self.$example)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                Text("Answer:")
-                TextField("Write answer here...", text: self.$answer)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                Picker("Please choose a language code", selection:$languageCode) {
-                    ForEach(Locale.preferredLanguages, id:\.self) {
-                        Text($0)
+        VStack {
+            QuizCard(onDragOut: {_ in}, sequence: 1)
+                .environmentObject(sampleCard)
+                .frame(minHeight:400)
+                .padding(.top,-150)
+                .padding(.horizontal,10)
+            Spacer().frame(height:150)
+            List{
+                VStack(alignment:.leading) {
+                    Toggle(isOn: self.$sampleCard.isTextMode.animation()) {
+                        Text("Text Mode")
                     }
+                    Text("Question:")
+                    TextField("Write question here...", text: self.$sampleCard.question)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Text("Example:")
+                    TextField("Write example here...", text: self.$sampleCard.example)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Text("Answer:")
+                    TextField("Write answer here...", text: self.$sampleCard.answer)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Picker("Please choose a language code", selection:$sampleCard.languageCode) {
+                        ForEach(Locale.preferredLanguages, id:\.self) {
+                            Text($0)
+                        }
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            .changeNavigationTitleAndTrailingButton(title: "Card Editor", trailingText: "Done", action: makeNewCard)
-            .onAppear(perform: onAppearUpdateData)
-            .onDisappear(perform: {
-                if isMakingNewCard {
-                    let card = Card(question: self.question, answer: self.answer, example:self.example, languageCode:self.languageCode, type: self.isTextMode ? .showText : .speech)
-//                    DispatchQueue.main.asyncAfter(deadline:.now() + 2) {
-                        self.finishEditCard(card)
-//                    }
-                } 
                 
-            })
-            .padding(10.0)
-                .alert(isPresented: self.$isShowAlert) {
-            Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
+            }
         }
+        .changeNavigationTitleAndTrailingButton(title: "Card Editor", trailingText: "Done", action: makeNewCard)
+        .onAppear(perform: onAppearUpdateData)
+        .onDisappear(perform: {
+            if isMakingNewCard {
+                let card = sampleCard//Card(question: self.sampleCard.question, answer: self.sampleCard.answer, example:self.sampleCard.example, languageCode:self.sampleCard.languageCode, type:self.sampleCard.type)
+                    self.finishEditCard(card)
+            }
+            
+        })
+        .padding(10.0)
+            .alert(isPresented: self.$isShowAlert) {
+        Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
+        }
+        
     }
     
     func makeNewCard() {
-        guard self.question != "" else {
+        guard self.sampleCard.question != "" else {
             self.isShowAlert = true
             return
         }
         
-        guard self.example != "" else {
+        guard self.sampleCard.example != "" else {
             self.isShowAlert = true
             return
         }
         
-        guard self.answer != "" else {
+        guard self.sampleCard.answer != "" else {
             self.isShowAlert = true
             return
         }

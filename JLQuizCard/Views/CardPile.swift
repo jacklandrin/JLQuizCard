@@ -33,7 +33,7 @@ struct CardPile: View {
                 Divider()
                 ZStack {
                     ForEach((0..<self.cards.count).reversed(), id: \.id) { index in
-                        QuizCard(cardInfo: cards[index], onDragOut:{ d in
+                        QuizCard(onDragOut:{ d in
                             if (d < 0 && self.currentIndex == 0) || (d > 0 && Int(self.currentIndex) == self.cards.count - 1) || self.isAnimation || d == 0 {
                                 return
                             }
@@ -51,8 +51,9 @@ struct CardPile: View {
                                 print("current index\(self.currentIndex)")
                             }
                         }, sequence: Int(index + 1))
-                            .cardTransformed(self.currentIndex, card: index)
-                        }
+                        .environmentObject(Card.convertCard(cardInfo: self.cards[index]))
+                        .cardTransformed(self.currentIndex, card: index)
+                    }
                             
                 }.padding(.vertical,80)
                 .padding(.horizontal, 14)
@@ -64,9 +65,9 @@ struct CardPile: View {
         }.navigationViewStyle(StackNavigationViewStyle())
         .padding(0)
     }
+
     
 }
-
 
 //struct CardPile_Previews: PreviewProvider {
 //    static var previews: some View {

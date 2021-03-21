@@ -27,7 +27,7 @@ class CSVFileReaderModel: ObservableObject {
             
             var importingCards = [Card]()
             for item in importingCardData {
-                let card = Card(id: UUID(), question: item.question, answer: item.answer, example: item.example, languageCode: "de", type: .speech)
+                let card = Card(question: item.question, answer: item.answer, example: item.example, languageCode: "de", type: .speech)
                 importingCards.append(card)
             }
             importNewCards(importingCards)

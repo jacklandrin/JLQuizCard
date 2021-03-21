@@ -11,26 +11,14 @@ import AVFoundation
 
 struct QuizCard: View {
     
-    let cardInfo : CardInfo?
-    var card : Card
+    @EnvironmentObject var card : Card
     let onDragOut:(CGFloat) -> Void
     @State var zRotation: Angle = .degrees(0.0)
-//    @State var opacity: Double = 1.0
-//    @State var hasDraggedback:Bool = false
     let sequence: Int
     
-    init(cardInfo:CardInfo, onDragOut: @escaping (CGFloat) -> Void, sequence:Int) {
-        self.cardInfo = cardInfo
+    init(onDragOut:@escaping (CGFloat) -> Void, sequence:Int) {
         self.onDragOut = onDragOut
         self.sequence = sequence
-        card = Card(id: UUID(), question: cardInfo.question ?? "Question", answer: cardInfo.answer ?? "Answer", example: cardInfo.example ?? "", languageCode: cardInfo.languageCode ?? "en-US" , type: CardType(rawValue: cardInfo.type ?? "showText") ?? .showText)
-    }
-    
-    init(card:Card, onDragOut: @escaping (CGFloat) -> Void, sequence:Int) {
-        self.card = card
-        self.onDragOut = onDragOut
-        self.sequence = sequence
-        self.cardInfo = nil
     }
     
     var body: some View {
@@ -41,7 +29,7 @@ struct QuizCard: View {
                         .font(Font.system(size: 20.0, design: .rounded))
                     Spacer().frame(height:30)
                     if card.type == .showText {
-                        Text(card.question)
+                        Text(card.question == "" ? "This is a Question." : card.question)
                     }
                     else {
                         Button("🗣") {
@@ -54,7 +42,7 @@ struct QuizCard: View {
                         }
                     }
                     Spacer().frame(height:20)
-                    Text(card.example)
+                    Text(card.example == "" ? "This is an Example." : card.example)
                         .font(Font.system(size: 24.0, design: .rounded))
                         .foregroundColor(.gray)
                 }
@@ -65,7 +53,8 @@ struct QuizCard: View {
                     Text("Answer:\(sequence)")
                         .font(Font.system(size: 20.0, design: .rounded))
                     Spacer().frame(height:30)
-                    Text((card.type == .showText) ? card.answer : card.question)
+//                    Text((card.type == .showText) ? card.answer : card.question)
+                    Text(card.answer == "" ? "This is an Answer." : card.answer)
                 }
             }
         )
@@ -104,7 +93,7 @@ struct QuizCard: View {
 
 struct QuizCard_Previews: PreviewProvider {
     static var previews: some View {
-        QuizCard(card: Card.previewCard, onDragOut: {_ in}, sequence: 1 )
+        QuizCard(onDragOut: {_ in}, sequence: 1 ).environmentObject(Card.previewCard)
     }
 }
 
