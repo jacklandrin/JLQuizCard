@@ -12,7 +12,7 @@ import UniformTypeIdentifiers
 
 struct CardList: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    //@FetchRequest(fetchRequest: CardInfo.defaultFetchRequest)
+    
     var cards:FetchedResults<CardInfo>
     @State var isShowEditor = false
     @State var isDocumentPickerPresented = false
@@ -36,7 +36,6 @@ struct CardList: View {
                         })){
                            Text(cellText(card: cards[i]))
                     }
-
                 }.onDelete(perform: delete)
             
             } .listStyle(PlainListStyle())
@@ -90,6 +89,7 @@ struct CardList: View {
             newCard.languageCode = card.languageCode
             newCard.example = card.example
             newCard.type = card.type.rawValue
+            newCard.weight = 0
             saveContext()
         }
         

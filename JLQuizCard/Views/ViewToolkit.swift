@@ -124,3 +124,21 @@ extension View {
         }
     }
 }
+
+struct ButtonStyle : ViewModifier{
+    let color : Color
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: 120, minHeight:50)
+            .background(color)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .padding(.horizontal,20)
+    }
+}
+
+extension Button {
+    @ViewBuilder
+    func remenberButtonStyle(color:Color) -> some View {
+        self.modifier(ButtonStyle(color: color))
+    }
+}

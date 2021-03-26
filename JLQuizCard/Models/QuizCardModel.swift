@@ -31,17 +31,14 @@ class Card : ObservableObject,Identifiable  {
     @Published var example: String = ""
     @Published var languageCode: String = ""
     @Published var type: CardType = .showText
-//    {
-//        didSet {
-//            isTextMode = (type == .showText)
-//        }
-//    }
+    var weight: Int = 0
     @Published var isTextMode = true
     {
         didSet {
             type = isTextMode ? .showText : .speech
         }
     }
+    
     init(question:String, answer:String, example: String, languageCode: String, type:CardType) {
         self.question = question
         self.answer = answer
@@ -50,8 +47,13 @@ class Card : ObservableObject,Identifiable  {
         self.type = type
     }
     
+    convenience init(question:String, answer:String, example: String, languageCode: String, type:CardType, weight:Int) {
+        self.init(question:question, answer:answer, example: example, languageCode: languageCode, type:type)
+        self.weight = weight
+    }
+    
    static func convertCard(cardInfo:CardInfo) -> Card {
-        return Card(question: cardInfo.question!, answer: cardInfo.answer!, example: cardInfo.example!, languageCode: cardInfo.languageCode!, type: CardType(rawValue: cardInfo.type!) ?? .speech)
+    return Card(question: cardInfo.question!, answer: cardInfo.answer!, example: cardInfo.example!, languageCode: cardInfo.languageCode!, type: CardType(rawValue: cardInfo.type!) ?? .speech, weight: Int(cardInfo.weight))
     }
 }
 
@@ -73,9 +75,11 @@ private let defaultCardPile:[Card] = [
 
 
 extension CardInfo {
+    
     static var defaultFetchRequest:NSFetchRequest<CardInfo> {
         let request: NSFetchRequest<CardInfo> = CardInfo.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardInfo.id, ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardInfo.weight, ascending: true)]
+        print("fetched the cards")
         return request
     }
 }

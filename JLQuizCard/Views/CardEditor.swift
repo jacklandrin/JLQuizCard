@@ -14,19 +14,10 @@ struct CardEditor: View {
     var isNewOne: Bool
     var card : CardInfo?
     @State var isMakingNewCard = false
-//    @State var isTextMode:Bool = true
-//    {
-//        willSet {
-//            sampleCard.type = isTextMode ? .showText : .speech
-//        }
-//    }
-//    @State var question: String = ""
-//    @State var answer: String = ""
-//    @State var example: String = ""
     @State var isShowAlert: Bool = false
     @State private var languageCode = "en-GB"
     
-    @State var sampleCard: Card = Card(question: "", answer: "", example: "", languageCode: "", type: .showText)
+    @State var sampleCard: Card = Card(question: "", answer: "", example: "", languageCode: "", type: .showText, weight: 0)
     
     var finishEditCard : (Card) -> Void
     
@@ -73,6 +64,8 @@ struct CardEditor: View {
                     Text("Answer:")
                     TextField("Write answer here...", text: self.$sampleCard.answer)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Text("Please choose a language code")
                     Picker("Please choose a language code", selection:$sampleCard.languageCode) {
                         ForEach(Locale.preferredLanguages, id:\.self) {
                             Text($0)
@@ -87,8 +80,8 @@ struct CardEditor: View {
         .onAppear(perform: onAppearUpdateData)
         .onDisappear(perform: {
             if isMakingNewCard {
-                let card = sampleCard//Card(question: self.sampleCard.question, answer: self.sampleCard.answer, example:self.sampleCard.example, languageCode:self.sampleCard.languageCode, type:self.sampleCard.type)
-                    self.finishEditCard(card)
+                let card = sampleCard
+                self.finishEditCard(card)
             }
             
         })

@@ -21,6 +21,7 @@ struct QuizCard: View {
         self.sequence = sequence
     }
     
+    
     var body: some View {
         FlipView (
             CardSide{
@@ -45,6 +46,7 @@ struct QuizCard: View {
                     Text(card.example == "" ? "This is an Example." : card.example)
                         .font(Font.system(size: 24.0, design: .rounded))
                         .foregroundColor(.gray)
+                        .multilineTextAlignment(.leading)
                 }
                 
             },
@@ -53,7 +55,6 @@ struct QuizCard: View {
                     Text("Answer:\(sequence)")
                         .font(Font.system(size: 20.0, design: .rounded))
                     Spacer().frame(height:30)
-//                    Text((card.type == .showText) ? card.answer : card.question)
                     Text(card.answer == "" ? "This is an Answer." : card.answer)
                 }
             }
@@ -70,7 +71,7 @@ struct QuizCard: View {
                         let validRange = Double(dragDistance) / dragOutDistance
                             if abs(dragDistance) < 1000   {
                                 if abs(validRange) < 1 && validRange > 0{
-                                    self.zRotation = .degrees(validRange * 90.0)
+                                    self.zRotation = .degrees(validRange * -90.0)
                                 }
                             }
                     }
