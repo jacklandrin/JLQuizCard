@@ -11,6 +11,8 @@ import CSV
 import CoreData
 
 class CSVFileReaderModel: ObservableObject {
+    @Published var isShowAlert = false
+    @Published var errorMessage = "error"
     func readFileFromUrl(url:URL, importNewCards:@escaping ([Card]) -> Void ) -> Void {
         do {
             var importingCardData = [CardData]()
@@ -27,13 +29,15 @@ class CSVFileReaderModel: ObservableObject {
             
             var importingCards = [Card]()
             for item in importingCardData {
-                let card = Card(question: item.question, answer: item.answer, example: item.example, languageCode: "de", type: .speech)
+                let card = Card(question: item.question, answer: item.answer, example: item.example, languageCode: "de", type: .showText, group:item.group)
                 importingCards.append(card)
             }
             importNewCards(importingCards)
         } catch {
             let nserror = error as NSError
-            fatalError("decode error:\(nserror)")
+//            fatalError("decode error:\(nserror)")
+            errorMessage = nserror.description
+            isShowAlert = true
         }
         
     }

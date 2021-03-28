@@ -25,12 +25,13 @@ enum CardType: String, Codable {
 }
 
 class Card : ObservableObject,Identifiable  {
-    var id = UUID()
+//    var id = UUID()
     @Published var question: String = ""
     @Published var answer: String = ""
     @Published var example: String = ""
     @Published var languageCode: String = ""
     @Published var type: CardType = .showText
+    @Published var group: String = ""
     var weight: Int = 0
     @Published var isTextMode = true
     {
@@ -52,6 +53,11 @@ class Card : ObservableObject,Identifiable  {
         self.weight = weight
     }
     
+    convenience init(question:String, answer:String, example: String, languageCode: String, type:CardType, group:String) {
+        self.init(question:question, answer:answer, example: example, languageCode: languageCode, type:type)
+        self.group = group
+    }
+    
    static func convertCard(cardInfo:CardInfo) -> Card {
     return Card(question: cardInfo.question!, answer: cardInfo.answer!, example: cardInfo.example!, languageCode: cardInfo.languageCode!, type: CardType(rawValue: cardInfo.type!) ?? .speech, weight: Int(cardInfo.weight))
     }
@@ -62,7 +68,6 @@ struct CardData: Decodable {
     var answer: String
     var example: String
     var group: String
-    var tag: String
 }
 
 private let defaultCardPile:[Card] = [
@@ -78,15 +83,74 @@ extension CardInfo {
     
     static var defaultFetchRequest:NSFetchRequest<CardInfo> {
         let request: NSFetchRequest<CardInfo> = CardInfo.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardInfo.weight, ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardInfo.weight, ascending: false)]
         print("fetched the cards")
         return request
+    }
+}
+
+extension CardGroup {
+    static var defaultFetchRequest:NSFetchRequest<CardGroup> {
+        let request: NSFetchRequest<CardGroup> = CardGroup.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardGroup.groupname, ascending: true)]
+        print("fetched the card group")
+        return request
+    }
+    
+    static var fetchResult: [CardGroup] {
+        do {
+            let fetchResults = try SceneDelegate.persistenContainer.viewContext.fetch(CardGroup.defaultFetchRequest)
+            if  fetchResults.count > 0 {
+                return fetchResults
+            }
+        } catch {
+            
+        }
+        return [CardGroup]()
+    }
+    
+    public var cardArray:[CardInfo] {
+        let set = cards as? Set<CardInfo> ?? []
+        let array = set.sorted{
+            ($0.weight, $0.id) > ($1.weight, $1.id)
+        }
+        return array
+    }
+    
+    public var wrappedName:String {
+        groupname ?? "default group"
     }
 }
 
 extension Card {
     static let previewCard = Card(question: "This is a English question.", answer: "Answer", example:"example", languageCode:"en-US" , type: .showText)
 }
+
+class CardPileViewModel: ObservableObject {
+    var groupNames:[String] {
+        CardGroup.fetchResult.map{$0.wrappedName}
+    }
+    
+    var currentGroupIndex : Int = CardGroup.fetchResult.indices.filter{CardGroup.fetchResult[$0].showing == true}.first ?? 0
+    {
+        didSet {
+            for group in CardGroup.fetchResult {
+                group.showing = false
+            }
+            CardGroup.fetchResult[currentGroupIndex].showing = true
+            
+            func saveContext() {
+              do {
+                try SceneDelegate.persistenContainer.viewContext.save()
+              } catch {
+                print("Error saving managed object context: \(error)")
+              }
+            }
+        }
+        
+    }
+}
+
 
 @propertyWrapper
 struct UserDefaultValue<Value: Codable> {

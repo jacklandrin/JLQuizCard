@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CardGroup" representedClassName="CardGroup" syncable="YES" codeGenerationType="class">
+        <attribute name="groupname" optional="YES" attributeType="String"/>
+        <attribute name="showing" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardInfo" inverseName="ofGroup" inverseEntity="CardInfo"/>
+    </entity>
     <entity name="CardInfo" representedClassName="CardInfo" syncable="YES" codeGenerationType="class">
         <attribute name="answer" optional="YES" attributeType="String"/>
         <attribute name="example" optional="YES" attributeType="String"/>
@@ -8,12 +13,15 @@
         <attribute name="question" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ofGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CardGroup" inverseName="cards" inverseEntity="CardGroup"/>
     </entity>
     <configuration name="Cloud" usedWithCloudKit="YES">
         <memberEntity name="CardInfo"/>
+        <memberEntity name="CardGroup"/>
     </configuration>
     <configuration name="Local"/>
     <elements>
-        <element name="CardInfo" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="CardInfo" positionX="-467.9774780273438" positionY="-158.0437927246094" width="128" height="149"/>
+        <element name="CardGroup" positionX="-55.108154296875" positionY="-68.6236572265625" width="128" height="88"/>
     </elements>
 </model>

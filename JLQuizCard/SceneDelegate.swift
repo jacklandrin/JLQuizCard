@@ -27,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func saveContext() {
         let context = SceneDelegate.persistenContainer.viewContext
         context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         if context.hasChanges {
             do {
                 try context.save()

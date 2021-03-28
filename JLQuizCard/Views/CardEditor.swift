@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct CardEditor: View {
+    private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
+    private var isPortrait : Bool { UIDevice.current.orientation.isPortrait }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
+    var groups:FetchedResults<CardGroup>
     var isNewOne: Bool
     var card : CardInfo?
     @State var isMakingNewCard = false
     @State var isShowAlert: Bool = false
-    @State private var languageCode = "en-GB"
+    @State var languageCode = "en-GB"
     
     @State var sampleCard: Card = Card(question: "", answer: "", example: "", languageCode: "", type: .showText, weight: 0)
     
@@ -39,6 +42,7 @@ struct CardEditor: View {
             self.sampleCard.answer = self.card?.answer ?? ""
             self.sampleCard.example = self.card?.example ?? ""
             self.sampleCard.languageCode = card?.languageCode ?? "en-GB"
+            self.sampleCard.group = card?.ofGroup?.groupname ?? ""
         }
     }
     
@@ -49,7 +53,8 @@ struct CardEditor: View {
                 .frame(minHeight:400)
                 .padding(.top,-150)
                 .padding(.horizontal,10)
-            Spacer().frame(height:150)
+                .scaleEffect(UIDevice.current.orientation.isPortrait ? 1.0 : 0.8)
+            Spacer().frame(height:UIDevice.current.orientation.isPortrait ? 160 : 100)
             List{
                 VStack(alignment:.leading) {
                     Toggle(isOn: self.$sampleCard.isTextMode.animation()) {
@@ -64,11 +69,40 @@ struct CardEditor: View {
                     Text("Answer:")
                     TextField("Write answer here...", text: self.$sampleCard.answer)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    Text("Please choose a language code")
-                    Picker("Please choose a language code", selection:$sampleCard.languageCode) {
-                        ForEach(Locale.preferredLanguages, id:\.self) {
-                            Text($0)
+                        .padding(.bottom,20)
+                    if idiom == .pad {
+                        HStack {
+                            VStack {
+                                Text("Please choose a language code")
+                                Picker("Please choose a language code", selection:$sampleCard.languageCode) {
+                                    ForEach(languages(), id:\.self) {
+                                        Text($0)
+                                    }
+                                }
+                            }
+                            VStack {
+                                Text("Please choose a group")
+                                Picker("Please choose a group", selection:$sampleCard.group) {
+                                    ForEach(groups.map{($0.groupname ?? "")}, id:\.self) {
+                                        Text($0)
+                                    }
+                                }
+                            }
+                            
+                        }
+                    } else {
+                        Text("Please choose a language code")
+                        Picker("Please choose a language code", selection:$sampleCard.languageCode) {
+                            ForEach(languages(), id:\.self) {
+                                Text($0)
+                            }
+                        }
+                        
+                        Text("Please choose a group")
+                        Picker("Please choose a group", selection:$sampleCard.group) {
+                            ForEach(groups.map{($0.groupname ?? "")}, id:\.self) {
+                                Text($0)
+                            }
                         }
                     }
                     Spacer()
@@ -87,9 +121,24 @@ struct CardEditor: View {
         })
         .padding(10.0)
             .alert(isPresented: self.$isShowAlert) {
-        Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
+                Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
         }
         
+    }
+    
+    func languages() -> [String] {
+        var lang = [String]()
+        if !Locale.preferredLanguages.contains("en-GB") {
+            lang.append("en-GB")
+        }
+        if !Locale.preferredLanguages.contains("de") {
+            lang.append("de")
+        }
+        if !Locale.preferredLanguages.contains("zh-Hans-CN") {
+            lang.append("zh-Hans-CN")
+        }
+        lang += Locale.preferredLanguages
+        return lang
     }
     
     func makeNewCard() {
@@ -110,7 +159,7 @@ struct CardEditor: View {
 
         self.presentationMode.wrappedValue.dismiss()
         self.isMakingNewCard = true
-
+        
     }
 }
 

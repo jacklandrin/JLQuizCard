@@ -29,6 +29,7 @@
 		CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CCF243AF5FF00F78AD4 /* CardList.swift */; };
 		CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC414CD3243B148E00F78AD4 /* CardEditor.swift */; };
 		CC4D48F926065C0900C6CAAE /* CSVFileReaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4D48F826065C0900C6CAAE /* CSVFileReaderModel.swift */; };
+		CC663133260FE41200E52BC1 /* GroupEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC663132260FE41200E52BC1 /* GroupEditor.swift */; };
 		CCF05CFD26064E8500933A06 /* DocumentPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */; };
 		CF2BCF5BE2BD906F2EF0871D /* Pods_JLQuizCard_JLQuizCardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492C61FC0BA3FFE1124502E2 /* Pods_JLQuizCard_JLQuizCardUITests.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		CC414CCF243AF5FF00F78AD4 /* CardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardList.swift; sourceTree = "<group>"; };
 		CC414CD3243B148E00F78AD4 /* CardEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditor.swift; sourceTree = "<group>"; };
 		CC4D48F826065C0900C6CAAE /* CSVFileReaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFileReaderModel.swift; sourceTree = "<group>"; };
+		CC663132260FE41200E52BC1 /* GroupEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditor.swift; sourceTree = "<group>"; };
 		CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerViewController.swift; sourceTree = "<group>"; };
 		E09D70D970FBB9D3EAA375F7 /* Pods-JLQuizCardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCardTests.release.xcconfig"; path = "Target Support Files/Pods-JLQuizCardTests/Pods-JLQuizCardTests.release.xcconfig"; sourceTree = "<group>"; };
 		EFC7FC78E65A8FCF4851B12B /* Pods-JLQuizCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard.debug.xcconfig"; path = "Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				CC414CD3243B148E00F78AD4 /* CardEditor.swift */,
 				CC3E08A6260028E000381C79 /* ViewToolkit.swift */,
 				CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */,
+				CC663132260FE41200E52BC1 /* GroupEditor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC663133260FE41200E52BC1 /* GroupEditor.swift in Sources */,
 				CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */,
 				CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */,
 				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,

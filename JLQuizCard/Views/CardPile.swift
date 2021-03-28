@@ -18,13 +18,17 @@ struct CardPile: View {
     
     @FetchRequest(fetchRequest: CardInfo.defaultFetchRequest)
     var cards:FetchedResults<CardInfo>
+    @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
+    var groups:FetchedResults<CardGroup>
+    
     @State var cardPile:[Card] = [Card]()
-    @State var shouldRotate = false
+    @State var showGroupSheet = false
+    @State var cardPileModel = CardPileViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: CardList(cards: cards), isActive: $isShowList){
+                NavigationLink(destination: CardList(cards: cards).environmentObject(CSVFileReaderModel()), isActive: $isShowList){
                     Text("")
                 }
                 .frame(width: 0, height: 0)
@@ -33,6 +37,32 @@ struct CardPile: View {
                     .multilineTextAlignment(.center)
                     .font(.headline)
                 Divider()
+                Button(action:{
+                    showGroupSheet = true
+                }){
+                    Text(selectingGroupButtonName()).foregroundColor(Color.white)
+                }.frame(maxWidth:150, minHeight: 44)
+                .background(Color.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 22))
+                .sheet(isPresented: $showGroupSheet, content: {
+                    VStack {
+                        Text("Please select a group:")
+                        Picker("Please select a group", selection:$cardPileModel.currentGroupIndex) {
+                            ForEach(cardPileModel.groupNames.indices, id:\.self) {
+                                Text(cardPileModel.groupNames[$0])
+                            }
+                        }
+                        Button(action: {
+                            showGroupSheet = false
+                            print("currenGroup:\(String(describing: groups[cardPileModel.currentGroupIndex].groupname))")
+                            convertToShowCards()
+                            currentIndex = 0
+                        }) {
+                            Text("Done").foregroundColor(Color.white)
+                        }.remenberButtonStyle(color: Color.blue)
+                    }
+                    
+                })
                 ZStack {
                     ForEach((0..<self.cardPile.count).reversed()) { index in
                         QuizCard(onDragOut:{ d in
@@ -57,7 +87,8 @@ struct CardPile: View {
                         .cardTransformed(Double(self.currentIndex), card: index)
                     }
                             
-                }.padding(.vertical,80)
+                }.padding(.bottom,80)
+                .padding(.top, 20)
                 .padding(.horizontal, 14)
                 
                 Spacer()
@@ -69,7 +100,6 @@ struct CardPile: View {
                         Text("Hard").foregroundColor(Color.white)
                     }
                     .remenberButtonStyle(color: Color.red)
-                    
                     
                     Button(action:{
                         cards[currentIndex].weight += 1
@@ -90,11 +120,7 @@ struct CardPile: View {
                 }
                 Spacer().frame(height:60)
             }.onAppear(){
-                self.cardPile = [Card]()
-                for item in cards {
-                    let card = Card.convertCard(cardInfo: item)
-                    self.cardPile.append(card)
-                }
+                convertToShowCards()
                 print("card pile onAppear fired")
             }
             .changeNavigationTitleAndTrailingButton(title: "QuizCard", trailingText: "Edit", action: {
@@ -102,7 +128,24 @@ struct CardPile: View {
             })
         }.navigationViewStyle(StackNavigationViewStyle())
         .padding(0)
-        
+    }
+    
+    func convertToShowCards() {
+        self.cardPile = [Card]()
+        guard groups.count > 0 else {
+            return
+        }
+        for item in groups[cardPileModel.currentGroupIndex].cardArray {
+            let card = Card.convertCard(cardInfo: item)
+            self.cardPile.append(card)
+        }
+    }
+    
+    func selectingGroupButtonName() -> String {
+        guard groups.count > 0 else {
+            return "Group"
+        }
+        return cardPileModel.groupNames[cardPileModel.currentGroupIndex]
     }
     
     func flipNextCard() {
@@ -114,10 +157,17 @@ struct CardPile: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
                 self.isAnimation = false
             }
-            
+            saveContext()
         }
     }
     
+    func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
+    }
 }
 
 //struct CardPile_Previews: PreviewProvider {
