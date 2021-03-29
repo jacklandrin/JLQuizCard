@@ -94,7 +94,7 @@ struct CardPile: View {
                 Spacer()
                 HStack{
                     Button(action:{
-                        cards[currentIndex].weight += 2
+                        groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight += 2
                         flipNextCard()
                     }) {
                         Text("Hard").foregroundColor(Color.white)
@@ -102,7 +102,7 @@ struct CardPile: View {
                     .remenberButtonStyle(color: Color.red)
                     
                     Button(action:{
-                        cards[currentIndex].weight += 1
+                        groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight += 1
                         flipNextCard()
                     }) {
                         Text("Good").foregroundColor(Color.white)
@@ -110,7 +110,7 @@ struct CardPile: View {
                     .remenberButtonStyle(color: Color.green)
                     
                     Button(action:{
-                        cards[currentIndex].weight -= 1
+                        groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight -= 1
                         flipNextCard()
                     }) {
                         Text("Easy").foregroundColor(Color.white)
