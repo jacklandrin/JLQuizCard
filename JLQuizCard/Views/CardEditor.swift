@@ -19,6 +19,7 @@ struct CardEditor: View {
     @State var isMakingNewCard = false
     @State var isShowAlert: Bool = false
     @State var languageCode = "en-GB"
+    @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     
     @State var sampleCard: Card = Card(question: "", answer: "", example: "", languageCode: "", type: .showText, weight: 0)
     
@@ -47,14 +48,18 @@ struct CardEditor: View {
     }
     
     var body: some View {
+        
         VStack {
             QuizCard(onDragOut: {_ in}, sequence: 1)
                 .environmentObject(sampleCard)
-                .frame(minHeight:400)
-                .padding(.top,-150)
+                .frame(height:self.keyboardHeightHelper.isShowingKeyboard ? 300 : 400)
+                .padding(.top, self.keyboardHeightHelper.isShowingKeyboard ? -100 : -150)
                 .padding(.horizontal,10)
-                .scaleEffect(UIDevice.current.orientation.isPortrait ? 1.0 : 0.8)
-            Spacer().frame(height:UIDevice.current.orientation.isPortrait ? 160 : 100)
+                .offset(y: -self.keyboardHeightHelper.cardOffset)
+                .scaleEffect(quizCardScale())
+            
+            Spacer().frame(maxHeight:UIDevice.current.orientation.isPortrait ? 160 : 100)
+                
             List{
                 VStack(alignment:.leading) {
                     Toggle(isOn: self.$sampleCard.isTextMode.animation()) {
@@ -120,10 +125,29 @@ struct CardEditor: View {
             
         })
         .padding(10.0)
-            .alert(isPresented: self.$isShowAlert) {
+        .alert(isPresented: self.$isShowAlert) {
                 Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
         }
         
+    }
+    
+    func quizCardScale() -> CGFloat {
+        let orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+
+        if orientation!.isPortrait {
+            if self.keyboardHeightHelper.isShowingKeyboard {
+                return 0.8
+            } else {
+                return 1.0
+            }
+            
+        } else {
+            if self.keyboardHeightHelper.isShowingKeyboard {
+                return 0.6
+            } else {
+                return 0.8
+            }
+        }
     }
     
     func languages() -> [String] {

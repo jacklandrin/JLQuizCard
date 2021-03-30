@@ -125,6 +125,51 @@ extension View {
     }
 }
 
+
+@available(iOS 14,*)
+struct NavigationTitleInlineAndToolbarButton:ViewModifier {
+    let title : String
+    let action : () -> Void
+    let trailingText : String
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{ ToolbarItem(placement:.navigationBarTrailing) {
+                        Button(action:action){
+                            Text(trailingText)
+                        }
+                }
+            }
+    }
+}
+
+struct NavigationTitleInlineAndTrailingButton:ViewModifier {
+    let title : String
+    let action : () -> Void
+    let trailingText : String
+    
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle(Text(title), displayMode: .inline)
+            .navigationBarItems(trailing: Button(action:action){
+                Text(trailingText)
+            })
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func changeNavigationTitleInlineAndTrailingButton(title:String, trailingText:String, action: @escaping () -> Void) -> some View {
+        if #available(iOS 14, *) {
+            self.modifier(NavigationTitleInlineAndToolbarButton(title: title, action: action, trailingText: trailingText))
+        } else {
+            self.modifier(NavigationTitleInlineAndTrailingButton(title: title, action: action, trailingText: trailingText))
+        }
+    }
+}
+
 struct ListWithPlainStyle:ViewModifier {
     func body(content: Content) -> some View {
         content.listStyle(PlainListStyle())
@@ -145,6 +190,30 @@ extension List {
             self.modifier(ListWithSidebarStyle())
         } else {
             self.modifier(ListWithPlainStyle())
+        }
+    }
+}
+
+@available(iOS 14, *)
+struct keyboardBottonIgnore:ViewModifier {
+    func body(content: Content) -> some View {
+        content.ignoresSafeArea(.keyboard,edges: .bottom)
+    }
+}
+
+struct keyboardBottonLift:ViewModifier {
+    func body(content: Content) -> some View {
+        content
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func ignoreKeyboardArea() -> some View {
+        if #available(iOS 14, *) {
+            self.modifier(keyboardBottonIgnore())
+        } else {
+            self.modifier(keyboardBottonLift())
         }
     }
 }
