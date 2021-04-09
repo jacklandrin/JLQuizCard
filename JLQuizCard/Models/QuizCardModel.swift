@@ -87,6 +87,26 @@ extension CardInfo {
         print("fetched the cards")
         return request
     }
+    
+    static func searchFetchRequest(question:String) -> NSFetchRequest<CardInfo> {
+        let request: NSFetchRequest<CardInfo> = CardInfo.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardInfo.weight, ascending: false)]
+        request.predicate = NSPredicate(format: "question CONTAINS %@", question)
+        print("fetched the searched cards")
+        return request
+    }
+    
+    static func searchedResult(question:String) -> [CardInfo] {
+        do {
+            let fetchResults = try SceneDelegate.persistenContainer.viewContext.fetch(CardInfo.searchFetchRequest(question: question))
+            if  fetchResults.count > 0 {
+                return fetchResults
+            }
+        } catch {
+            
+        }
+        return [CardInfo]()
+    }
 }
 
 extension CardGroup {

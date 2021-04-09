@@ -17,10 +17,12 @@ struct CardList: View {
     var groups:FetchedResults<CardGroup>
     
     var cards:FetchedResults<CardInfo>
+    
     @State var isShowEditor = false
     @State var isDocumentPickerPresented = false
     @EnvironmentObject var CSVFileReader:CSVFileReaderModel 
     @State var showEditGroup = false
+    @State var searchText = ""
     
     var body: some View {
         VStack {
@@ -52,28 +54,55 @@ struct CardList: View {
                 Text("")
             }.frame(width: 0, height: 0)
             .hidden()
+            
+            TextField("",text: $searchText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(height:44)
+            
             List {
-                ForEach(groups.indices, id:\.self) { section in
-                    Section(header: Text(groups[section].wrappedName)) {
-                        ForEach(groups[section].cardArray.indices, id:\.self) { i in
-                            NavigationLink(destination: CardEditor(isNewOne: false, card: groups[section].cardArray[i], finishEditCard: { c in
-                                    withAnimation{
-                                        self.modifyCard(card: c, index: i, in: section)
+                if searchText == "" {
+                    ForEach(groups.indices, id:\.self) { section in
+                        Section(header: Text(groups[section].wrappedName)) {
+                            ForEach(groups[section].cardArray.indices, id:\.self) { i in
+                                NavigationLink(destination: CardEditor(isNewOne: false, card: groups[section].cardArray[i], finishEditCard: { c in
+                                        withAnimation{
+                                            self.modifyCard(card: c, index: i, in: section)
+                                        }
+                                })
+                                ){
+                                    HStack{
+                                        Text(cellText(card: groups[section].cardArray[i]))
+                                        Spacer()
+                                        Text(String(groups[section].cardArray[i].weight))
                                     }
-                            })
-                            ){
-                                HStack{
-                                    Text(cellText(card: groups[section].cardArray[i]))
-                                    Spacer()
-                                    Text(String(groups[section].cardArray[i].weight))
                                 }
+                                .buttonStyle(PlainButtonStyle())
+                                
+                            }.onDelete{delete(at: $0, in: section)}
+                        }
+                    }
+                } else {
+                    ForEach(searchedCards.indices,id:\.self) { index in
+                        NavigationLink(destination: CardEditor(isNewOne: false, card: searchedCards[index], finishEditCard: { c in
+                                withAnimation{
+                                    self.modifyCard(card: c, index: index, in: 0)
+                                }
+                        })
+                        ){
+                            HStack{
+                                Text(cellText(card: searchedCards[index]))
+                                Spacer()
+                                Text(String(searchedCards[index].weight))
                             }
-                            .buttonStyle(PlainButtonStyle())
-                            
-                        }.onDelete{delete(at: $0, in: section)}
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }.defaultListStyle()
+            .simultaneousGesture(DragGesture().onChanged({ gesture in
+                print("offset Y:\(gesture.location.y)")
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }))
             .onAppear{
                 for index in groups.indices {
                    let _ = groups[index].cardArray.map{print("appear group:\(groups[index].wrappedName) card:\($0.question!)")}
@@ -179,6 +208,10 @@ struct CardList: View {
       } catch {
         print("Error saving managed object context: \(error)")
       }
+    }
+    
+    var searchedCards:[CardInfo] {
+        CardInfo.searchedResult(question: searchText)
     }
 }
 
