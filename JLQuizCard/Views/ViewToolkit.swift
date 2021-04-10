@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 
+// MARK: about device rotation
 struct DeviceRotationViewModifier: ViewModifier {
     let action: (UIDeviceOrientation) -> Void
 
@@ -26,6 +27,8 @@ extension View {
         self.modifier(DeviceRotationViewModifier(action: action))
     }
 }
+
+// MARK: - a navigationbar with title and a trailing link, compatible with iOS 14 & 13
 @available(iOS 14.0, *)
 struct NavigationTitleAndToolbarLink<Destination> : ViewModifier where Destination:View {
     let title: String
@@ -82,6 +85,7 @@ extension View {
     }
 }
 
+// MARK: - a navigationbar with title and a trailing button, compatible with iOS 14 & 13
 @available(iOS 14,*)
 struct NavigationTitleAndToolbarButton:ViewModifier {
     let title : String
@@ -125,7 +129,7 @@ extension View {
     }
 }
 
-
+// MARK: - a inline navigationbar with title and a trailing link, compatible with iOS 14 & 13
 @available(iOS 14,*)
 struct NavigationTitleInlineAndToolbarButton:ViewModifier {
     let title : String
@@ -170,6 +174,7 @@ extension View {
     }
 }
 
+// MARK: - plain style list
 struct ListWithPlainStyle:ViewModifier {
     func body(content: Content) -> some View {
         content.listStyle(PlainListStyle())
@@ -194,6 +199,7 @@ extension List {
     }
 }
 
+// MARK: - for keyboard botton ignored area
 @available(iOS 14, *)
 struct keyboardBottonIgnore:ViewModifier {
     func body(content: Content) -> some View {
@@ -218,6 +224,7 @@ extension View {
     }
 }
 
+// MARK: - for CardPile view's buttons
 struct ButtonStyle : ViewModifier{
     let color : Color
     func body(content: Content) -> some View {
@@ -236,6 +243,7 @@ extension Button {
     }
 }
 
+// MARK: - observe changes in orientation
 final class OrientationInfo: ObservableObject {
     enum Orientation {
         case portrait
@@ -276,6 +284,7 @@ final class OrientationInfo: ObservableObject {
     }
 }
 
+// MARK: - hidden with a boolean parameter.
 extension View {
     @ViewBuilder func hidden(_ shouldHide: Bool) -> some View {
         if shouldHide {
