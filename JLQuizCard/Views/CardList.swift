@@ -23,6 +23,7 @@ struct CardList: View {
     @EnvironmentObject var CSVFileReader:CSVFileReaderModel 
     @State var showEditGroup = false
     @State var searchText = ""
+    @State var showSearchbar = false
     
     var body: some View {
         VStack {
@@ -57,8 +58,11 @@ struct CardList: View {
             
             TextField("",text: $searchText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(height:44)
-            
+                .frame(height:showSearchbar ? 44 : 0)
+                .padding(.horizontal,10)
+                .hidden(!showSearchbar)
+                .animation(.easeIn)
+                
             List {
                 if searchText == "" {
                     ForEach(groups.indices, id:\.self) { section in
@@ -100,8 +104,14 @@ struct CardList: View {
                 }
             }.defaultListStyle()
             .simultaneousGesture(DragGesture().onChanged({ gesture in
-                print("offset Y:\(gesture.location.y)")
+                print("translate:\(gesture.translation.height)")
+                if gesture.translation.height > 0 {
+                    showSearchbar = true
+                } else {
+                    showSearchbar = false
+                }
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                
             }))
             .onAppear{
                 for index in groups.indices {
