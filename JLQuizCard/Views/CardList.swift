@@ -12,18 +12,18 @@ import UniformTypeIdentifiers
 
 struct CardList: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var cardPile:CardPileViewModel
+    @ObservedObject var CSVFileReader:CSVFileReaderModel = CSVFileReaderModel()
     
     @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
     var groups:FetchedResults<CardGroup>
     
-    var cards:FetchedResults<CardInfo>
     
     @State var isShowEditor = false
     @State var isDocumentPickerPresented = false
-    @EnvironmentObject var CSVFileReader:CSVFileReaderModel 
     @State var showEditGroup = false
     @State var searchText = ""
-    @State var showSearchbar = false
+    @State var showSearchbar = true
     
     var body: some View {
         VStack {
@@ -45,7 +45,7 @@ struct CardList: View {
                 .background(Color.gray)
                 .clipShape(RoundedRectangle(cornerRadius: 22))
                 .sheet(isPresented: $showEditGroup) {
-                    GroupEditor().environment(\.managedObjectContext, managedObjectContext).padding(20)
+                    GroupEditor().environmentObject(cardPile).environment(\.managedObjectContext, managedObjectContext).padding(20)
                 }
             }.padding(15)
             
@@ -62,8 +62,11 @@ struct CardList: View {
                 .padding(.horizontal,10)
                 .hidden(!showSearchbar)
                 .animation(.easeIn)
-                
-            List {
+            
+            ListWithOffset(onOffsetChange: {
+                print($0)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }) {
                 if searchText == "" {
                     ForEach(groups.indices, id:\.self) { section in
                         Section(header: Text(groups[section].wrappedName)) {
@@ -103,16 +106,6 @@ struct CardList: View {
                     }
                 }
             }.defaultListStyle()
-            .simultaneousGesture(DragGesture().onChanged({ gesture in
-                print("translate:\(gesture.translation.height)")
-                if gesture.translation.height > 0 {
-                    showSearchbar = true
-                } else {
-                    showSearchbar = false
-                }
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                
-            }))
             .onAppear{
                 for index in groups.indices {
                    let _ = groups[index].cardArray.map{print("appear group:\(groups[index].wrappedName) card:\($0.question!)")}
@@ -121,7 +114,7 @@ struct CardList: View {
             .changeNavigationTitleAndTrailingButton(title: "Card List", trailingText: "Add One", action: {
                 self.isShowEditor = true
             })
-            
+        
         }.alert(isPresented: self.$CSVFileReader.isShowAlert) {
             Alert(title: Text("Error"), message: Text(self.CSVFileReader.errorMessage), dismissButton: .default(Text("Got it!")))
         }

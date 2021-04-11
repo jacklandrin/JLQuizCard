@@ -12,6 +12,7 @@ import CoreData
 struct GroupEditor: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var cardPile:CardPileViewModel
     @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
     var groups:FetchedResults<CardGroup>
     @State var newGroupName:String = ""
@@ -42,6 +43,7 @@ struct GroupEditor: View {
         offset.forEach{ index in
             let group = self.groups[index]
             self.managedObjectContext.delete(group)
+            cardPile.currentGroupIndex = 0
         }
     }
     

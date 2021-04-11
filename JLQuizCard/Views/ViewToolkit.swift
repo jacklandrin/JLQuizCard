@@ -188,7 +188,7 @@ struct ListWithSidebarStyle:ViewModifier {
     }
 }
 
-extension List {
+extension View {
     @ViewBuilder
     func defaultListStyle() -> some View {
         if #available(iOS 14, *) {
@@ -293,4 +293,34 @@ extension View {
             self
         }
     }
+}
+
+struct ListWithOffset<Content:View>:View {
+    let onOffsetChange:(CGFloat) -> Void
+    let content:Content
+    
+    init(onOffsetChange:@escaping (CGFloat) -> Void, @ViewBuilder content: () -> Content) {
+        self.onOffsetChange = onOffsetChange
+        self.content = content()
+    }
+    
+    var body: some View {
+        List {
+            GeometryReader{ geo in
+                Color.clear
+                    .id(UUID())
+                    .padding(0)
+                preference(key: OffsetPreferenceKey.self, value: geo.frame(in: .named("list")).origin.y)
+            }.frame(width: 0, height: 0)
+            content
+        }.coordinateSpace(name: "list")
+        .onPreferenceChange(OffsetPreferenceKey.self, perform:onOffsetChange)
+    }
+    
+    
+}
+
+private struct OffsetPreferenceKey: PreferenceKey {
+  static var defaultValue: CGFloat = .zero
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
 }

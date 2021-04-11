@@ -28,7 +28,7 @@ struct CardPile: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: CardList(cards: cards).environmentObject(CSVFileReaderModel()), isActive: $isShowList){
+                NavigationLink(destination: CardList().environmentObject(cardPileModel), isActive: $isShowList){
                     Text("")
                 }
                 .frame(width: 0, height: 0)
