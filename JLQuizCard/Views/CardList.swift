@@ -63,10 +63,7 @@ struct CardList: View {
                 .hidden(!showSearchbar)
                 .animation(.easeIn)
             
-            ListWithOffset(onOffsetChange: {
-                print($0)
-//                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-            }) {
+            List {
                 if searchText == "" {
                     ForEach(groups.indices, id:\.self) { section in
                         Section(header: Text(groups[section].wrappedName)) {
