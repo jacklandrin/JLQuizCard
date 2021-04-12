@@ -1,7 +1,7 @@
 # JLQuizCard
 ![](http://www.jacklandrin.com/wp-content/uploads/2020/04/quiz-card-icon-2.jpg)
 ## What is JLQuizCard?
-**JLQuizCard** is little quiz game developed with SwiftUI. You can swipe the card to shift questions, and edit your questions and answers. The flippable effect derives from an Apple watchkit sample, PopQuiz. 
+**JLQuizCard** is little Anki card app developed with SwiftUI. You can swipe the card to shift questions, and edit your questions and answers. The flippable effect derives from an Apple watchkit sample, PopQuiz. 
 
 ![](http://www.jacklandrin.com/wp-content/uploads/2021/03/IMG_6708-1.png)
 
