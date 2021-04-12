@@ -196,8 +196,10 @@ struct CardList: View {
         newCard.example = card.example
         newCard.type = card.type.rawValue
         if (newCard.ofGroup != nil) {
+            let modifiedCard = newCard
             newCard.ofGroup?.removeFromCards(newCard)
-            addCardIntoGroup(card: newCard, groupName: card.group)
+            managedObjectContext.delete(newCard)
+            addCardIntoGroup(card: modifiedCard, groupName: card.group)
         } else {
             addCardIntoGroup(card: newCard, groupName: card.group)
         }
