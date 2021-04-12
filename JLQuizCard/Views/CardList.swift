@@ -55,13 +55,21 @@ struct CardList: View {
                 Text("")
             }.frame(width: 0, height: 0)
             .hidden()
-            
-            TextField("",text: $searchText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(height:showSearchbar ? 44 : 0)
-                .padding(.horizontal,10)
-                .hidden(!showSearchbar)
-                .animation(.easeIn)
+            HStack {
+                TextField("",text: $searchText)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(height:showSearchbar ? 44 : 0)
+                    .animation(.easeIn)
+                if searchText != "" {
+                    Button(action: {
+                        searchText = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                    }.padding(10)
+                    .foregroundColor(.gray)
+                }
+            }.hidden(!showSearchbar)
+            .padding(.horizontal,10)
             
             List {
                 if searchText == "" {
