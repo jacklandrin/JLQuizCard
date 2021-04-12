@@ -65,7 +65,7 @@ struct CardList: View {
             
             ListWithOffset(onOffsetChange: {
                 print($0)
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }) {
                 if searchText == "" {
                     ForEach(groups.indices, id:\.self) { section in
@@ -92,7 +92,7 @@ struct CardList: View {
                     ForEach(searchedCards.indices,id:\.self) { index in
                         NavigationLink(destination: CardEditor(isNewOne: false, card: searchedCards[index], finishEditCard: { c in
                                 withAnimation{
-                                    self.modifyCard(card: c, index: index, in: 0)
+                                    self.modifyCard(card: c, index: index, in: -1)
                                 }
                         })
                         ){
@@ -188,18 +188,33 @@ struct CardList: View {
         saveContext()
     }
     
+    /// modify card information
+    /// - Parameters:
+    ///   - card: modified card model
+    ///   - index: index of different lists
+    ///   - section: if section is negetive, the list is search list
     func modifyCard(card: Card, index: Int, in section:Int) {
-        let newCard = groups[section].cardArray[index]
+        
+        var newCard:CardInfo
+        if section > 0 {
+            newCard = groups[section].cardArray[index]
+        } else {
+            newCard = searchedCards[index]
+        }
+ 
         newCard.question = card.question
         newCard.answer = card.answer
         newCard.languageCode = card.languageCode
         newCard.example = card.example
         newCard.type = card.type.rawValue
+        if newCard.ofGroup?.wrappedName == card.group {
+            saveContext()
+            return
+        }
         if (newCard.ofGroup != nil) {
-            let modifiedCard = newCard
             newCard.ofGroup?.removeFromCards(newCard)
-            managedObjectContext.delete(newCard)
-            addCardIntoGroup(card: modifiedCard, groupName: card.group)
+            saveContext()
+            addCardIntoGroup(card: newCard, groupName: card.group)
         } else {
             addCardIntoGroup(card: newCard, groupName: card.group)
         }
