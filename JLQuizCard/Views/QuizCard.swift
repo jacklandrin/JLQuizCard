@@ -30,23 +30,24 @@ struct QuizCard: View {
                         .font(Font.system(size: 20.0, design: .rounded))
                     Spacer().frame(height:30)
                     if card.type == .showText {
-                        Text(card.question == "" ? "This is a Question." : card.question)
+                        Button(action: {tts(text: card.question)}, label: {
+                            Text(card.question == "" ? "This is a Question." : card.question)
+                        })
+                        
                     }
                     else {
                         Button("🗣") {
-                            let utterance = AVSpeechUtterance(string: self.card.question)
-                            utterance.voice = AVSpeechSynthesisVoice(language: card.languageCode)
-                            utterance.rate = 0.5
-
-                            let synthesizer = AVSpeechSynthesizer()
-                            synthesizer.speak(utterance)
+                            tts(text: card.question)
                         }
                     }
                     Spacer().frame(height:20)
-                    Text(card.example == "" ? "This is an Example." : card.example)
-                        .font(Font.system(size: 24.0, design: .rounded))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.leading)
+                    Button(action: {tts(text: card.example)}, label: {
+                        Text(card.example == "" ? "This is an Example." : card.example)
+                            .font(Font.system(size: 24.0, design: .rounded))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.leading)
+                    })
+                    
                 }
                 
             },
@@ -88,6 +89,14 @@ struct QuizCard: View {
                     }
                 }
             )
+    }
+    func tts(text:String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: card.languageCode)
+        utterance.rate = 0.51
+
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
     }
 }
 
