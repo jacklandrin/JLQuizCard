@@ -42,6 +42,9 @@ struct GroupEditor: View {
     func delete(at offset:IndexSet) {
         offset.forEach{ index in
             let group = self.groups[index]
+            for card in group.cardArray {
+                self.managedObjectContext.delete(card)
+            }
             self.managedObjectContext.delete(group)
             cardPile.currentGroupIndex = 0
         }
