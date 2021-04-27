@@ -15,6 +15,7 @@ struct QuizCard: View {
     let onDragOut:(CGFloat) -> Void
     @State var zRotation: Angle = .degrees(0.0)
     let sequence: Int
+    let synthesizer = AVSpeechSynthesizer()
     
     init(onDragOut:@escaping (CGFloat) -> Void, sequence:Int) {
         self.onDragOut = onDragOut
@@ -91,11 +92,12 @@ struct QuizCard: View {
             )
     }
     func tts(text:String) {
+        guard !synthesizer.isSpeaking else {
+            return
+        }
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: card.languageCode)
         utterance.rate = 0.51
-
-        let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
     }
 }
