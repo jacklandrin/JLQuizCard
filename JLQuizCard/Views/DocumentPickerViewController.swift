@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UniformTypeIdentifiers
 class DocumentPickerViewController: UIDocumentPickerViewController {
     private let onDismiss: () -> Void
     private let onPick: (URL) -> ()

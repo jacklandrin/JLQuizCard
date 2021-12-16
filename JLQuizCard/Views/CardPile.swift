@@ -33,10 +33,7 @@ struct CardPile: View {
                 }
                 .frame(width: 0, height: 0)
                 .hidden()//add data after popping animation, unless list page will update View in animation, then go back this view in iOS 14
-                Text("Ready? Let's review!")
-                    .multilineTextAlignment(.center)
-                    .font(.headline)
-                Divider()
+                Spacer().frame(height:40)
                 Button(action:{
                     showGroupSheet = true
                 }){
@@ -51,7 +48,7 @@ struct CardPile: View {
                             ForEach(cardPileModel.groupNames.indices, id:\.self) {
                                 Text(cardPileModel.groupNames[$0])
                             }
-                        }
+                        }.pickerStyle(WheelPickerStyle())
                         Button(action: {
                             showGroupSheet = false
                             print("currenGroup:\(String(describing: groups[cardPileModel.currentGroupIndex].groupname))")
@@ -61,7 +58,7 @@ struct CardPile: View {
                             Text("Done").foregroundColor(Color.white)
                         }.remenberButtonStyle(color: Color.blue)
                     }
-                    
+//                    Image(uiImage: WallpaperGenerator.shared.generate())
                 })
                 ZStack {
                     ForEach((0..<self.cardPile.count).reversed()) { index in

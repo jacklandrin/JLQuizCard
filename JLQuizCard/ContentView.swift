@@ -21,7 +21,6 @@ struct ContentView: View {
             let synthesizer = AVSpeechSynthesizer()
             synthesizer.speak(utterance)
         }
-        
     }
 }
 

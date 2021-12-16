@@ -3,20 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6928A7D20C4E89D6B527BED1 /* Pods_JLQuizCardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079CA872A1D109D05AC41A63 /* Pods_JLQuizCardTests.framework */; };
-		7741A998B49D1539B4004EEB /* Pods_JLQuizCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50384DE357FDB127233A9A4 /* Pods_JLQuizCard.framework */; };
+		040C6E87276AAD3F00291DEB /* Wallpaper.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E86276AAD3F00291DEB /* Wallpaper.intentdefinition */; };
+		040C6E89276AAF7300291DEB /* Wallpaper.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E86276AAD3F00291DEB /* Wallpaper.intentdefinition */; };
+		040C6E8A276AAFF900291DEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC173FAD2439AEC500ECF53C /* Assets.xcassets */; };
+		040C6E8C276AB3DA00291DEB /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E8B276AB3DA00291DEB /* String++.swift */; };
+		040C6E8D276AB3DE00291DEB /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E8B276AB3DA00291DEB /* String++.swift */; };
+		040C6E97276AC02B00291DEB /* LineBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E8F276AC02B00291DEB /* LineBreaker.swift */; };
+		040C6E98276AC02B00291DEB /* LineBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E8F276AC02B00291DEB /* LineBreaker.swift */; };
+		040C6E99276AC02B00291DEB /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E90276AC02B00291DEB /* MyLabel.swift */; };
+		040C6E9A276AC02B00291DEB /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E90276AC02B00291DEB /* MyLabel.swift */; };
+		040C6E9B276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E91276AC02B00291DEB /* DefaultLineBreaker.swift */; };
+		040C6E9C276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E91276AC02B00291DEB /* DefaultLineBreaker.swift */; };
+		040C6E9D276AC02B00291DEB /* Sequence+ConsecutiveElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E92276AC02B00291DEB /* Sequence+ConsecutiveElements.swift */; };
+		040C6E9E276AC02B00291DEB /* Sequence+ConsecutiveElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E92276AC02B00291DEB /* Sequence+ConsecutiveElements.swift */; };
+		040C6E9F276AC02B00291DEB /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E93276AC02B00291DEB /* Sequence+Extensions.swift */; };
+		040C6EA0276AC02B00291DEB /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E93276AC02B00291DEB /* Sequence+Extensions.swift */; };
+		040C6EA1276AC02B00291DEB /* SystemLineBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E94276AC02B00291DEB /* SystemLineBreaker.swift */; };
+		040C6EA2276AC02B00291DEB /* SystemLineBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E94276AC02B00291DEB /* SystemLineBreaker.swift */; };
+		040C6EA3276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E95276AC02B00291DEB /* CGPoint+Extensions.swift */; };
+		040C6EA4276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E95276AC02B00291DEB /* CGPoint+Extensions.swift */; };
+		040C6EA5276AC02B00291DEB /* String+LineBreaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E96276AC02B00291DEB /* String+LineBreaks.swift */; };
+		040C6EA6276AC02B00291DEB /* String+LineBreaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E96276AC02B00291DEB /* String+LineBreaks.swift */; };
+		0444E3DC276A55D00086A644 /* CSV in Frameworks */ = {isa = PBXBuildFile; productRef = 0444E3DB276A55D00086A644 /* CSV */; };
+		0444E40A276A5CB00086A644 /* UIImage++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E409276A5CB00086A644 /* UIImage++.swift */; };
+		0444E40D276A5D3D0086A644 /* Data++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E40C276A5D3D0086A644 /* Data++.swift */; };
+		0444E40F276A5D690086A644 /* URL++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E40E276A5D690086A644 /* URL++.swift */; };
+		0444E415276A94AB0086A644 /* WallpaperGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E414276A94AB0086A644 /* WallpaperGenerator.swift */; };
+		0444E427276AA2B00086A644 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E426276AA2B00086A644 /* PersistenceController.swift */; };
+		0444E438276AA7B80086A644 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0444E3E2276A59A80086A644 /* Intents.framework */; };
+		0444E43B276AA7B80086A644 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E43A276AA7B80086A644 /* IntentHandler.swift */; };
+		0444E43F276AA7B80086A644 /* QZWallpaper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0444E437276AA7B80086A644 /* QZWallpaper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0444E443276AA7CF0086A644 /* WallpaperIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E42B276AA49F0086A644 /* WallpaperIntent.swift */; };
+		0444E445276AA82C0086A644 /* URL++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E40E276A5D690086A644 /* URL++.swift */; };
+		0444E446276AA82F0086A644 /* Data++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E40C276A5D3D0086A644 /* Data++.swift */; };
+		0444E447276AA8320086A644 /* UIImage++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E409276A5CB00086A644 /* UIImage++.swift */; };
+		0444E448276AA8350086A644 /* WallpaperGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E414276A94AB0086A644 /* WallpaperGenerator.swift */; };
+		0444E449276AA83B0086A644 /* CardInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */; };
+		0444E44A276AA83E0086A644 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E426276AA2B00086A644 /* PersistenceController.swift */; };
 		CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA72439AEC300ECF53C /* AppDelegate.swift */; };
 		CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA92439AEC300ECF53C /* SceneDelegate.swift */; };
 		CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FAB2439AEC300ECF53C /* ContentView.swift */; };
 		CC173FAE2439AEC500ECF53C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC173FAD2439AEC500ECF53C /* Assets.xcassets */; };
 		CC173FB12439AEC500ECF53C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC173FB02439AEC500ECF53C /* Preview Assets.xcassets */; };
 		CC173FB42439AEC500ECF53C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC173FB22439AEC500ECF53C /* LaunchScreen.storyboard */; };
-		CC173FBF2439AEC500ECF53C /* JLQuizCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FBE2439AEC500ECF53C /* JLQuizCardTests.swift */; };
-		CC173FCA2439AEC500ECF53C /* JLQuizCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */; };
 		CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FD82439B25D00ECF53C /* QuizCardModel.swift */; };
 		CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FDC2439BEEC00ECF53C /* QuizCard.swift */; };
 		CC173FDF2439C0E300ECF53C /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FDE2439C0E300ECF53C /* CardSide.swift */; };
@@ -32,34 +65,56 @@
 		CC663133260FE41200E52BC1 /* GroupEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC663132260FE41200E52BC1 /* GroupEditor.swift */; };
 		CC66315A2613421A00E52BC1 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6631592613421A00E52BC1 /* KeyboardHeightHelper.swift */; };
 		CCF05CFD26064E8500933A06 /* DocumentPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */; };
-		CF2BCF5BE2BD906F2EF0871D /* Pods_JLQuizCard_JLQuizCardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492C61FC0BA3FFE1124502E2 /* Pods_JLQuizCard_JLQuizCardUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CC173FBB2439AEC500ECF53C /* PBXContainerItemProxy */ = {
+		0444E43D276AA7B80086A644 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CC173F9C2439AEC300ECF53C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CC173FA32439AEC300ECF53C;
-			remoteInfo = JLQuizCard;
-		};
-		CC173FC62439AEC500ECF53C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC173F9C2439AEC300ECF53C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CC173FA32439AEC300ECF53C;
-			remoteInfo = JLQuizCard;
+			remoteGlobalIDString = 0444E436276AA7B80086A644;
+			remoteInfo = QZWallpaper;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0444E402276A59A90086A644 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0444E43F276AA7B80086A644 /* QZWallpaper.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		079CA872A1D109D05AC41A63 /* Pods_JLQuizCardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLQuizCardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37A312FEB89B0916EF73E1F7 /* Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig"; path = "Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		492C61FC0BA3FFE1124502E2 /* Pods_JLQuizCard_JLQuizCardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLQuizCard_JLQuizCardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BDE9DF0A3CAAFDD8C270FEA /* Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig"; path = "Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig"; sourceTree = "<group>"; };
-		80364459F6D261CA97D3AC50 /* Pods-JLQuizCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard.release.xcconfig"; path = "Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard.release.xcconfig"; sourceTree = "<group>"; };
-		B50384DE357FDB127233A9A4 /* Pods_JLQuizCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLQuizCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B77B19EF510DEBE06B38706B /* Pods-JLQuizCardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCardTests.debug.xcconfig"; path = "Target Support Files/Pods-JLQuizCardTests/Pods-JLQuizCardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		040C6E86276AAD3F00291DEB /* Wallpaper.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Wallpaper.intentdefinition; sourceTree = "<group>"; };
+		040C6E8B276AB3DA00291DEB /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
+		040C6E8F276AC02B00291DEB /* LineBreaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBreaker.swift; sourceTree = "<group>"; };
+		040C6E90276AC02B00291DEB /* MyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
+		040C6E91276AC02B00291DEB /* DefaultLineBreaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLineBreaker.swift; sourceTree = "<group>"; };
+		040C6E92276AC02B00291DEB /* Sequence+ConsecutiveElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+ConsecutiveElements.swift"; sourceTree = "<group>"; };
+		040C6E93276AC02B00291DEB /* Sequence+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
+		040C6E94276AC02B00291DEB /* SystemLineBreaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLineBreaker.swift; sourceTree = "<group>"; };
+		040C6E95276AC02B00291DEB /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		040C6E96276AC02B00291DEB /* String+LineBreaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LineBreaks.swift"; sourceTree = "<group>"; };
+		0444E3E2276A59A80086A644 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		0444E3ED276A59A80086A644 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		0444E409276A5CB00086A644 /* UIImage++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage++.swift"; sourceTree = "<group>"; };
+		0444E40C276A5D3D0086A644 /* Data++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data++.swift"; sourceTree = "<group>"; };
+		0444E40E276A5D690086A644 /* URL++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL++.swift"; sourceTree = "<group>"; };
+		0444E414276A94AB0086A644 /* WallpaperGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperGenerator.swift; sourceTree = "<group>"; };
+		0444E420276AA1040086A644 /* JLQuizCard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JLQuizCard.entitlements; sourceTree = "<group>"; };
+		0444E426276AA2B00086A644 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		0444E42B276AA49F0086A644 /* WallpaperIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperIntent.swift; sourceTree = "<group>"; };
+		0444E437276AA7B80086A644 /* QZWallpaper.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QZWallpaper.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0444E43A276AA7B80086A644 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		0444E43C276AA7B80086A644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0444E444276AA7F90086A644 /* QZWallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QZWallpaper.entitlements; sourceTree = "<group>"; };
 		CC173FA42439AEC300ECF53C /* QuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC173FA72439AEC300ECF53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC173FA92439AEC300ECF53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,12 +123,6 @@
 		CC173FB02439AEC500ECF53C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC173FB32439AEC500ECF53C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC173FB52439AEC500ECF53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC173FBA2439AEC500ECF53C /* JLQuizCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLQuizCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC173FBE2439AEC500ECF53C /* JLQuizCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLQuizCardTests.swift; sourceTree = "<group>"; };
-		CC173FC02439AEC500ECF53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLQuizCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLQuizCardUITests.swift; sourceTree = "<group>"; };
-		CC173FCB2439AEC500ECF53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC173FD82439B25D00ECF53C /* QuizCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardModel.swift; sourceTree = "<group>"; };
 		CC173FDC2439BEEC00ECF53C /* QuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCard.swift; sourceTree = "<group>"; };
 		CC173FDE2439C0E300ECF53C /* CardSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSide.swift; sourceTree = "<group>"; };
@@ -90,48 +139,83 @@
 		CC663132260FE41200E52BC1 /* GroupEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditor.swift; sourceTree = "<group>"; };
 		CC6631592613421A00E52BC1 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
 		CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerViewController.swift; sourceTree = "<group>"; };
-		E09D70D970FBB9D3EAA375F7 /* Pods-JLQuizCardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCardTests.release.xcconfig"; path = "Target Support Files/Pods-JLQuizCardTests/Pods-JLQuizCardTests.release.xcconfig"; sourceTree = "<group>"; };
-		EFC7FC78E65A8FCF4851B12B /* Pods-JLQuizCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLQuizCard.debug.xcconfig"; path = "Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0444E434276AA7B80086A644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0444E438276AA7B80086A644 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC173FA12439AEC300ECF53C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CC3E08B126002B1200381C79 /* CloudKit.framework in Frameworks */,
-				7741A998B49D1539B4004EEB /* Pods_JLQuizCard.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC173FB72439AEC500ECF53C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6928A7D20C4E89D6B527BED1 /* Pods_JLQuizCardTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC173FC22439AEC500ECF53C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CF2BCF5BE2BD906F2EF0871D /* Pods_JLQuizCard_JLQuizCardUITests.framework in Frameworks */,
+				0444E3DC276A55D00086A644 /* CSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040C6E8E276AC00F00291DEB /* TextDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				040C6E95276AC02B00291DEB /* CGPoint+Extensions.swift */,
+				040C6E91276AC02B00291DEB /* DefaultLineBreaker.swift */,
+				040C6E8F276AC02B00291DEB /* LineBreaker.swift */,
+				040C6E90276AC02B00291DEB /* MyLabel.swift */,
+				040C6E92276AC02B00291DEB /* Sequence+ConsecutiveElements.swift */,
+				040C6E93276AC02B00291DEB /* Sequence+Extensions.swift */,
+				040C6E96276AC02B00291DEB /* String+LineBreaks.swift */,
+				040C6E94276AC02B00291DEB /* SystemLineBreaker.swift */,
+			);
+			path = TextDrawer;
+			sourceTree = "<group>";
+		};
+		0444E407276A5C5A0086A644 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				040C6E8E276AC00F00291DEB /* TextDrawer */,
+				0444E414276A94AB0086A644 /* WallpaperGenerator.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0444E408276A5C7A0086A644 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0444E409276A5CB00086A644 /* UIImage++.swift */,
+				0444E40C276A5D3D0086A644 /* Data++.swift */,
+				0444E40E276A5D690086A644 /* URL++.swift */,
+				040C6E8B276AB3DA00291DEB /* String++.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0444E439276AA7B80086A644 /* QZWallpaper */ = {
+			isa = PBXGroup;
+			children = (
+				0444E444276AA7F90086A644 /* QZWallpaper.entitlements */,
+				0444E42B276AA49F0086A644 /* WallpaperIntent.swift */,
+				0444E43A276AA7B80086A644 /* IntentHandler.swift */,
+				0444E43C276AA7B80086A644 /* Info.plist */,
+				040C6E86276AAD3F00291DEB /* Wallpaper.intentdefinition */,
+			);
+			path = QZWallpaper;
+			sourceTree = "<group>";
+		};
 		CC173F9B2439AEC300ECF53C = {
 			isa = PBXGroup;
 			children = (
 				CC173FA62439AEC300ECF53C /* JLQuizCard */,
-				CC173FBD2439AEC500ECF53C /* JLQuizCardTests */,
-				CC173FC82439AEC500ECF53C /* JLQuizCardUITests */,
+				0444E439276AA7B80086A644 /* QZWallpaper */,
 				CC173FA52439AEC300ECF53C /* Products */,
 				CC3E08AF26002B1200381C79 /* Frameworks */,
-				DDEE4EF38B7ED0C409350802 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,8 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				CC173FA42439AEC300ECF53C /* QuizCard.app */,
-				CC173FBA2439AEC500ECF53C /* JLQuizCardTests.xctest */,
-				CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */,
+				0444E437276AA7B80086A644 /* QZWallpaper.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,9 +231,12 @@
 		CC173FA62439AEC300ECF53C /* JLQuizCard */ = {
 			isa = PBXGroup;
 			children = (
+				0444E420276AA1040086A644 /* JLQuizCard.entitlements */,
 				CC3E08AB26002B0700381C79 /* QuizCardDebug.entitlements */,
 				CC173FDA2439BD4E00ECF53C /* Views */,
 				CC173FD72439B23600ECF53C /* Models */,
+				0444E407276A5C5A0086A644 /* Utilities */,
+				0444E408276A5C7A0086A644 /* Extension */,
 				CC173FA72439AEC300ECF53C /* AppDelegate.swift */,
 				CC173FA92439AEC300ECF53C /* SceneDelegate.swift */,
 				CC173FAB2439AEC300ECF53C /* ContentView.swift */,
@@ -159,6 +245,7 @@
 				CC173FB52439AEC500ECF53C /* Info.plist */,
 				CC173FAF2439AEC500ECF53C /* Preview Content */,
 				CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */,
+				0444E426276AA2B00086A644 /* PersistenceController.swift */,
 			);
 			path = JLQuizCard;
 			sourceTree = "<group>";
@@ -169,24 +256,6 @@
 				CC173FB02439AEC500ECF53C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		CC173FBD2439AEC500ECF53C /* JLQuizCardTests */ = {
-			isa = PBXGroup;
-			children = (
-				CC173FBE2439AEC500ECF53C /* JLQuizCardTests.swift */,
-				CC173FC02439AEC500ECF53C /* Info.plist */,
-			);
-			path = JLQuizCardTests;
-			sourceTree = "<group>";
-		};
-		CC173FC82439AEC500ECF53C /* JLQuizCardUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CC173FC92439AEC500ECF53C /* JLQuizCardUITests.swift */,
-				CC173FCB2439AEC500ECF53C /* Info.plist */,
-			);
-			path = JLQuizCardUITests;
 			sourceTree = "<group>";
 		};
 		CC173FD72439B23600ECF53C /* Models */ = {
@@ -228,86 +297,53 @@
 			isa = PBXGroup;
 			children = (
 				CC3E08B026002B1200381C79 /* CloudKit.framework */,
-				B50384DE357FDB127233A9A4 /* Pods_JLQuizCard.framework */,
-				492C61FC0BA3FFE1124502E2 /* Pods_JLQuizCard_JLQuizCardUITests.framework */,
-				079CA872A1D109D05AC41A63 /* Pods_JLQuizCardTests.framework */,
+				0444E3E2276A59A80086A644 /* Intents.framework */,
+				0444E3ED276A59A80086A644 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DDEE4EF38B7ED0C409350802 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EFC7FC78E65A8FCF4851B12B /* Pods-JLQuizCard.debug.xcconfig */,
-				80364459F6D261CA97D3AC50 /* Pods-JLQuizCard.release.xcconfig */,
-				37A312FEB89B0916EF73E1F7 /* Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig */,
-				5BDE9DF0A3CAAFDD8C270FEA /* Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig */,
-				B77B19EF510DEBE06B38706B /* Pods-JLQuizCardTests.debug.xcconfig */,
-				E09D70D970FBB9D3EAA375F7 /* Pods-JLQuizCardTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0444E436276AA7B80086A644 /* QZWallpaper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0444E440276AA7B80086A644 /* Build configuration list for PBXNativeTarget "QZWallpaper" */;
+			buildPhases = (
+				0444E433276AA7B80086A644 /* Sources */,
+				0444E434276AA7B80086A644 /* Frameworks */,
+				0444E435276AA7B80086A644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QZWallpaper;
+			productName = QZWallpaper;
+			productReference = 0444E437276AA7B80086A644 /* QZWallpaper.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CC173FA32439AEC300ECF53C /* JLQuizCard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC173FCE2439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCard" */;
 			buildPhases = (
-				8354FDB529855DADE7261DB1 /* [CP] Check Pods Manifest.lock */,
 				CC173FA02439AEC300ECF53C /* Sources */,
 				CC173FA12439AEC300ECF53C /* Frameworks */,
 				CC173FA22439AEC300ECF53C /* Resources */,
-				EAC0125E53F5689B2E36FF53 /* [CP] Embed Pods Frameworks */,
+				0444E402276A59A90086A644 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0444E43E276AA7B80086A644 /* PBXTargetDependency */,
 			);
 			name = JLQuizCard;
+			packageProductDependencies = (
+				0444E3DB276A55D00086A644 /* CSV */,
+			);
 			productName = JLQuizCard;
 			productReference = CC173FA42439AEC300ECF53C /* QuizCard.app */;
 			productType = "com.apple.product-type.application";
-		};
-		CC173FB92439AEC500ECF53C /* JLQuizCardTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CC173FD12439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardTests" */;
-			buildPhases = (
-				0809EBF71B1E28C352657F3A /* [CP] Check Pods Manifest.lock */,
-				CC173FB62439AEC500ECF53C /* Sources */,
-				CC173FB72439AEC500ECF53C /* Frameworks */,
-				CC173FB82439AEC500ECF53C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CC173FBC2439AEC500ECF53C /* PBXTargetDependency */,
-			);
-			name = JLQuizCardTests;
-			productName = JLQuizCardTests;
-			productReference = CC173FBA2439AEC500ECF53C /* JLQuizCardTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CC173FC42439AEC500ECF53C /* JLQuizCardUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CC173FD42439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardUITests" */;
-			buildPhases = (
-				17F11B63428C7422B69E9B02 /* [CP] Check Pods Manifest.lock */,
-				CC173FC12439AEC500ECF53C /* Sources */,
-				CC173FC22439AEC500ECF53C /* Frameworks */,
-				CC173FC32439AEC500ECF53C /* Resources */,
-				70BDEDCB1385B481B667F19E /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CC173FC72439AEC500ECF53C /* PBXTargetDependency */,
-			);
-			name = JLQuizCardUITests;
-			productName = JLQuizCardUITests;
-			productReference = CC173FC52439AEC500ECF53C /* JLQuizCardUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -315,20 +351,15 @@
 		CC173F9C2439AEC300ECF53C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = jack;
 				TargetAttributes = {
+					0444E436276AA7B80086A644 = {
+						CreatedOnToolsVersion = 13.2;
+					};
 					CC173FA32439AEC300ECF53C = {
 						CreatedOnToolsVersion = 11.4;
-					};
-					CC173FB92439AEC500ECF53C = {
-						CreatedOnToolsVersion = 11.4;
-						TestTargetID = CC173FA32439AEC300ECF53C;
-					};
-					CC173FC42439AEC500ECF53C = {
-						CreatedOnToolsVersion = 11.4;
-						TestTargetID = CC173FA32439AEC300ECF53C;
 					};
 				};
 			};
@@ -341,18 +372,28 @@
 				Base,
 			);
 			mainGroup = CC173F9B2439AEC300ECF53C;
+			packageReferences = (
+				0444E3DA276A55D00086A644 /* XCRemoteSwiftPackageReference "CSV.swift" */,
+			);
 			productRefGroup = CC173FA52439AEC300ECF53C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				CC173FA32439AEC300ECF53C /* JLQuizCard */,
-				CC173FB92439AEC500ECF53C /* JLQuizCardTests */,
-				CC173FC42439AEC500ECF53C /* JLQuizCardUITests */,
+				0444E436276AA7B80086A644 /* QZWallpaper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0444E435276AA7B80086A644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040C6E8A276AAFF900291DEB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC173FA22439AEC300ECF53C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,126 +404,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC173FB82439AEC500ECF53C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC173FC32439AEC500ECF53C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0809EBF71B1E28C352657F3A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JLQuizCardTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		17F11B63428C7422B69E9B02 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JLQuizCard-JLQuizCardUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		70BDEDCB1385B481B667F19E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard-JLQuizCardUITests/Pods-JLQuizCard-JLQuizCardUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8354FDB529855DADE7261DB1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JLQuizCard-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EAC0125E53F5689B2E36FF53 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JLQuizCard/Pods-JLQuizCard-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
+		0444E433276AA7B80086A644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040C6E8D276AB3DE00291DEB /* String++.swift in Sources */,
+				0444E443276AA7CF0086A644 /* WallpaperIntent.swift in Sources */,
+				040C6E9A276AC02B00291DEB /* MyLabel.swift in Sources */,
+				0444E445276AA82C0086A644 /* URL++.swift in Sources */,
+				0444E447276AA8320086A644 /* UIImage++.swift in Sources */,
+				040C6E87276AAD3F00291DEB /* Wallpaper.intentdefinition in Sources */,
+				0444E43B276AA7B80086A644 /* IntentHandler.swift in Sources */,
+				0444E448276AA8350086A644 /* WallpaperGenerator.swift in Sources */,
+				040C6E9C276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */,
+				0444E446276AA82F0086A644 /* Data++.swift in Sources */,
+				040C6EA6276AC02B00291DEB /* String+LineBreaks.swift in Sources */,
+				040C6E9E276AC02B00291DEB /* Sequence+ConsecutiveElements.swift in Sources */,
+				040C6EA4276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */,
+				040C6EA2276AC02B00291DEB /* SystemLineBreaker.swift in Sources */,
+				0444E449276AA83B0086A644 /* CardInfoModel.xcdatamodeld in Sources */,
+				040C6EA0276AC02B00291DEB /* Sequence+Extensions.swift in Sources */,
+				040C6E98276AC02B00291DEB /* LineBreaker.swift in Sources */,
+				0444E44A276AA83E0086A644 /* PersistenceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC173FA02439AEC300ECF53C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,48 +442,42 @@
 				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,
 				CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */,
 				CC66315A2613421A00E52BC1 /* KeyboardHeightHelper.swift in Sources */,
+				040C6E8C276AB3DA00291DEB /* String++.swift in Sources */,
 				CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */,
+				040C6E97276AC02B00291DEB /* LineBreaker.swift in Sources */,
+				0444E415276A94AB0086A644 /* WallpaperGenerator.swift in Sources */,
+				040C6E9D276AC02B00291DEB /* Sequence+ConsecutiveElements.swift in Sources */,
+				0444E40A276A5CB00086A644 /* UIImage++.swift in Sources */,
+				040C6EA3276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */,
 				CC3E08A7260028E000381C79 /* ViewToolkit.swift in Sources */,
 				CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */,
 				CCF05CFD26064E8500933A06 /* DocumentPickerViewController.swift in Sources */,
+				0444E40F276A5D690086A644 /* URL++.swift in Sources */,
 				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
+				040C6E9B276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */,
 				CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */,
+				040C6EA5276AC02B00291DEB /* String+LineBreaks.swift in Sources */,
+				0444E427276AA2B00086A644 /* PersistenceController.swift in Sources */,
 				CC173FE12439C36A00ECF53C /* FiipView.swift in Sources */,
 				CC3E08C6260110C200381C79 /* CardInfoModel.xcdatamodeld in Sources */,
+				0444E40D276A5D3D0086A644 /* Data++.swift in Sources */,
 				CC4D48F926065C0900C6CAAE /* CSVFileReaderModel.swift in Sources */,
 				CC173FDF2439C0E300ECF53C /* CardSide.swift in Sources */,
+				040C6E89276AAF7300291DEB /* Wallpaper.intentdefinition in Sources */,
+				040C6E99276AC02B00291DEB /* MyLabel.swift in Sources */,
 				CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC173FB62439AEC500ECF53C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CC173FBF2439AEC500ECF53C /* JLQuizCardTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC173FC12439AEC500ECF53C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CC173FCA2439AEC500ECF53C /* JLQuizCardUITests.swift in Sources */,
+				040C6E9F276AC02B00291DEB /* Sequence+Extensions.swift in Sources */,
+				040C6EA1276AC02B00291DEB /* SystemLineBreaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CC173FBC2439AEC500ECF53C /* PBXTargetDependency */ = {
+		0444E43E276AA7B80086A644 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CC173FA32439AEC300ECF53C /* JLQuizCard */;
-			targetProxy = CC173FBB2439AEC500ECF53C /* PBXContainerItemProxy */;
-		};
-		CC173FC72439AEC500ECF53C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CC173FA32439AEC300ECF53C /* JLQuizCard */;
-			targetProxy = CC173FC62439AEC500ECF53C /* PBXContainerItemProxy */;
+			target = 0444E436276AA7B80086A644 /* QZWallpaper */;
+			targetProxy = 0444E43D276AA7B80086A644 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -550,6 +493,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0444E441276AA7B80086A644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = QZWallpaper/QZWallpaper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22726TNGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QZWallpaper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QZWallpaper;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 jack. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard.QZWallpaper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0444E442276AA7B80086A644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = QZWallpaper/QZWallpaper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22726TNGH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QZWallpaper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QZWallpaper;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 jack. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard.QZWallpaper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CC173FCC2439AEC500ECF53C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -666,8 +667,8 @@
 		};
 		CC173FCF2439AEC500ECF53C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFC7FC78E65A8FCF4851B12B /* Pods-JLQuizCard.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JLQuizCard/QuizCardDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -675,12 +676,12 @@
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JLQuizCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCard;
+				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -689,117 +690,39 @@
 		};
 		CC173FD02439AEC500ECF53C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80364459F6D261CA97D3AC50 /* Pods-JLQuizCard.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JLQuizCard/JLQuizCard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"JLQuizCard/Preview Content\"";
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JLQuizCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCard;
+				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		CC173FD22439AEC500ECF53C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B77B19EF510DEBE06B38706B /* Pods-JLQuizCardTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B22726TNGH;
-				INFOPLIST_FILE = JLQuizCardTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JLQuizCard.app/JLQuizCard";
-			};
-			name = Debug;
-		};
-		CC173FD32439AEC500ECF53C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E09D70D970FBB9D3EAA375F7 /* Pods-JLQuizCardTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B22726TNGH;
-				INFOPLIST_FILE = JLQuizCardTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JLQuizCard.app/JLQuizCard";
-			};
-			name = Release;
-		};
-		CC173FD52439AEC500ECF53C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37A312FEB89B0916EF73E1F7 /* Pods-JLQuizCard-JLQuizCardUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B22726TNGH;
-				INFOPLIST_FILE = JLQuizCardUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = JLQuizCard;
-			};
-			name = Debug;
-		};
-		CC173FD62439AEC500ECF53C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BDE9DF0A3CAAFDD8C270FEA /* Pods-JLQuizCard-JLQuizCardUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B22726TNGH;
-				INFOPLIST_FILE = JLQuizCardUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = jack.JLQuizCardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = JLQuizCard;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0444E440276AA7B80086A644 /* Build configuration list for PBXNativeTarget "QZWallpaper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0444E441276AA7B80086A644 /* Debug */,
+				0444E442276AA7B80086A644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CC173F9F2439AEC300ECF53C /* Build configuration list for PBXProject "JLQuizCard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -818,25 +741,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC173FD12439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CC173FD22439AEC500ECF53C /* Debug */,
-				CC173FD32439AEC500ECF53C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CC173FD42439AEC500ECF53C /* Build configuration list for PBXNativeTarget "JLQuizCardUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CC173FD52439AEC500ECF53C /* Debug */,
-				CC173FD62439AEC500ECF53C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0444E3DA276A55D00086A644 /* XCRemoteSwiftPackageReference "CSV.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yaslab/CSV.swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0444E3DB276A55D00086A644 /* CSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0444E3DA276A55D00086A644 /* XCRemoteSwiftPackageReference "CSV.swift" */;
+			productName = CSV;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */ = {

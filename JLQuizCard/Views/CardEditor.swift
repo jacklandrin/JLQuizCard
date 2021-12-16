@@ -78,7 +78,7 @@ struct CardEditor: View {
                     if idiom == .pad {
                         HStack {
                             VStack {
-                                Text("Please choose a language code")
+//                                Text("Please choose a language code")
                                 Picker("Please choose a language code", selection:$sampleCard.languageCode) {
                                     ForEach(languages(), id:\.self) {
                                         Text($0)
@@ -86,7 +86,7 @@ struct CardEditor: View {
                                 }
                             }
                             VStack {
-                                Text("Please choose a group")
+//                                Text("Please choose a group")
                                 Picker("Please choose a group", selection:$sampleCard.group) {
                                     ForEach(groups.map{($0.groupname ?? "")}, id:\.self) {
                                         Text($0)
@@ -96,14 +96,14 @@ struct CardEditor: View {
                             
                         }
                     } else {
-                        Text("Please choose a language code")
+//                        Text("Please choose a language code")
                         Picker("Please choose a language code", selection:$sampleCard.languageCode) {
                             ForEach(languages(), id:\.self) {
                                 Text($0)
                             }
                         }
                         
-                        Text("Please choose a group")
+//                        Text("Please choose a group")
                         Picker("Please choose a group", selection:$sampleCard.group) {
                             ForEach(groups.map{($0.groupname ?? "")}, id:\.self) {
                                 Text($0)

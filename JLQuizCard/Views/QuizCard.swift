@@ -34,7 +34,6 @@ struct QuizCard: View {
                         Button(action: {tts(text: card.question)}, label: {
                             Text(card.question == "" ? "This is a Question." : card.question)
                         })
-                        
                     }
                     else {
                         Button("🗣") {

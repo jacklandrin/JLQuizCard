@@ -79,69 +79,6 @@ private let defaultCardPile:[Card] = [
 ]
 
 
-extension CardInfo {
-    
-    static var defaultFetchRequest:NSFetchRequest<CardInfo> {
-        let request: NSFetchRequest<CardInfo> = CardInfo.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardInfo.weight, ascending: false)]
-        print("fetched the cards")
-        return request
-    }
-    
-    static func searchFetchRequest(question:String) -> NSFetchRequest<CardInfo> {
-        let request: NSFetchRequest<CardInfo> = CardInfo.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardInfo.weight, ascending: false)]
-        request.predicate = NSPredicate(format: "question CONTAINS %@", question)
-        print("fetched the searched cards")
-        return request
-    }
-    
-    static func searchedResult(question:String) -> [CardInfo] {
-        do {
-            let fetchResults = try SceneDelegate.persistenContainer.viewContext.fetch(CardInfo.searchFetchRequest(question: question))
-            if  fetchResults.count > 0 {
-                return fetchResults
-            }
-        } catch {
-            
-        }
-        return [CardInfo]()
-    }
-}
-
-extension CardGroup {
-    static var defaultFetchRequest:NSFetchRequest<CardGroup> {
-        let request: NSFetchRequest<CardGroup> = CardGroup.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardGroup.groupname, ascending: true)]
-        print("fetched the card group")
-        return request
-    }
-    
-    static var fetchResult: [CardGroup] {
-        do {
-            let fetchResults = try SceneDelegate.persistenContainer.viewContext.fetch(CardGroup.defaultFetchRequest)
-            if  fetchResults.count > 0 {
-                return fetchResults
-            }
-        } catch {
-            
-        }
-        return [CardGroup]()
-    }
-    
-    public var cardArray:[CardInfo] {
-        let set = cards as? Set<CardInfo> ?? []
-        let array = set.sorted{
-            ($0.weight, $0.id) > ($1.weight, $1.id)
-        }
-        return array
-    }
-    
-    public var wrappedName:String {
-        groupname ?? "default group"
-    }
-}
-
 extension Card {
     static let previewCard = Card(question: "This is a English question.", answer: "Answer", example:"example", languageCode:"en-US" , type: .showText)
 }
@@ -160,11 +97,7 @@ class CardPileViewModel: ObservableObject {
             CardGroup.fetchResult[currentGroupIndex].showing = true
             
             func saveContext() {
-              do {
-                try SceneDelegate.persistenContainer.viewContext.save()
-              } catch {
-                print("Error saving managed object context: \(error)")
-              }
+                PersistenceController.shared.saveContext()
             }
         }
         
