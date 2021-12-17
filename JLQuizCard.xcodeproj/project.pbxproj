@@ -28,6 +28,7 @@
 		040C6EA4276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E95276AC02B00291DEB /* CGPoint+Extensions.swift */; };
 		040C6EA5276AC02B00291DEB /* String+LineBreaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E96276AC02B00291DEB /* String+LineBreaks.swift */; };
 		040C6EA6276AC02B00291DEB /* String+LineBreaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6E96276AC02B00291DEB /* String+LineBreaks.swift */; };
+		040C6EA8276ACCB300291DEB /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C6EA7276ACCB300291DEB /* TTSManager.swift */; };
 		0444E3DC276A55D00086A644 /* CSV in Frameworks */ = {isa = PBXBuildFile; productRef = 0444E3DB276A55D00086A644 /* CSV */; };
 		0444E40A276A5CB00086A644 /* UIImage++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E409276A5CB00086A644 /* UIImage++.swift */; };
 		0444E40D276A5D3D0086A644 /* Data++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E40C276A5D3D0086A644 /* Data++.swift */; };
@@ -44,6 +45,9 @@
 		0444E448276AA8350086A644 /* WallpaperGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E414276A94AB0086A644 /* WallpaperGenerator.swift */; };
 		0444E449276AA83B0086A644 /* CardInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */; };
 		0444E44A276AA83E0086A644 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E426276AA2B00086A644 /* PersistenceController.swift */; };
+		04AA63D2276CDE1F00ED5DEA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D1276CDE1F00ED5DEA /* SettingView.swift */; };
+		04AA63D4276CE64400ED5DEA /* SettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D3276CE64400ED5DEA /* SettingVM.swift */; };
+		04AA63D6276CECCA00ED5DEA /* WallpaperGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */; };
 		CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA72439AEC300ECF53C /* AppDelegate.swift */; };
 		CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA92439AEC300ECF53C /* SceneDelegate.swift */; };
 		CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FAB2439AEC300ECF53C /* ContentView.swift */; };
@@ -102,6 +106,7 @@
 		040C6E94276AC02B00291DEB /* SystemLineBreaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLineBreaker.swift; sourceTree = "<group>"; };
 		040C6E95276AC02B00291DEB /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		040C6E96276AC02B00291DEB /* String+LineBreaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LineBreaks.swift"; sourceTree = "<group>"; };
+		040C6EA7276ACCB300291DEB /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
 		0444E3E2276A59A80086A644 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		0444E3ED276A59A80086A644 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		0444E409276A5CB00086A644 /* UIImage++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage++.swift"; sourceTree = "<group>"; };
@@ -115,6 +120,9 @@
 		0444E43A276AA7B80086A644 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		0444E43C276AA7B80086A644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0444E444276AA7F90086A644 /* QZWallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QZWallpaper.entitlements; sourceTree = "<group>"; };
+		04AA63D1276CDE1F00ED5DEA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		04AA63D3276CE64400ED5DEA /* SettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVM.swift; sourceTree = "<group>"; };
+		04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperGuideView.swift; sourceTree = "<group>"; };
 		CC173FA42439AEC300ECF53C /* QuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC173FA72439AEC300ECF53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC173FA92439AEC300ECF53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 			children = (
 				040C6E8E276AC00F00291DEB /* TextDrawer */,
 				0444E414276A94AB0086A644 /* WallpaperGenerator.swift */,
+				040C6EA7276ACCB300291DEB /* TTSManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -264,6 +273,7 @@
 				CC173FD82439B25D00ECF53C /* QuizCardModel.swift */,
 				CC4D48F826065C0900C6CAAE /* CSVFileReaderModel.swift */,
 				CC6631592613421A00E52BC1 /* KeyboardHeightHelper.swift */,
+				04AA63D3276CE64400ED5DEA /* SettingVM.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +289,8 @@
 				CC3E08A6260028E000381C79 /* ViewToolkit.swift */,
 				CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */,
 				CC663132260FE41200E52BC1 /* GroupEditor.swift */,
+				04AA63D1276CDE1F00ED5DEA /* SettingView.swift */,
+				04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -436,7 +448,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AA63D6276CECCA00ED5DEA /* WallpaperGuideView.swift in Sources */,
 				CC663133260FE41200E52BC1 /* GroupEditor.swift in Sources */,
+				040C6EA8276ACCB300291DEB /* TTSManager.swift in Sources */,
 				CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */,
 				CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */,
 				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,
@@ -444,6 +458,7 @@
 				CC66315A2613421A00E52BC1 /* KeyboardHeightHelper.swift in Sources */,
 				040C6E8C276AB3DA00291DEB /* String++.swift in Sources */,
 				CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */,
+				04AA63D2276CDE1F00ED5DEA /* SettingView.swift in Sources */,
 				040C6E97276AC02B00291DEB /* LineBreaker.swift in Sources */,
 				0444E415276A94AB0086A644 /* WallpaperGenerator.swift in Sources */,
 				040C6E9D276AC02B00291DEB /* Sequence+ConsecutiveElements.swift in Sources */,
@@ -466,6 +481,7 @@
 				040C6E89276AAF7300291DEB /* Wallpaper.intentdefinition in Sources */,
 				040C6E99276AC02B00291DEB /* MyLabel.swift in Sources */,
 				CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */,
+				04AA63D4276CE64400ED5DEA /* SettingVM.swift in Sources */,
 				040C6E9F276AC02B00291DEB /* Sequence+Extensions.swift in Sources */,
 				040C6EA1276AC02B00291DEB /* SystemLineBreaker.swift in Sources */,
 			);

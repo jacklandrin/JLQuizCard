@@ -20,14 +20,15 @@ class WallpaperGenerator {
         let example = luckyCard.example!
         let wallpaperBg = UIImage(named: "Cat_b")!
         let wallpaperWithQuestion = wallpaperBg
-            .textToImageLeft(drawText: question,
-                                     fontSize: 16,
-                                     textColor: UIColor(named: "Cat_q")!,
-                                     weight: .bold,
-                                     atX: 44,
-                                     atY: 290)
+            .textToImageLeftMultiLine(drawText: question,
+                             fontSize: 14,
+                             textColor: UIColor(named: "Cat_q")!,
+                             weight: .bold,
+                             atX: 44,
+                             atY: 290)
+        
         let wallpaperWithAnswer = wallpaperWithQuestion
-            .textToImageLeft(drawText: answer,
+            .textToImageLeftMultiLine(drawText: answer,
                              fontSize: 14,
                              textColor: UIColor(named: "Cat_a")!,
                              weight: .regular,
@@ -39,6 +40,7 @@ class WallpaperGenerator {
                              from: CGPoint(x: 44, y: 370),
                              to: CGPoint(x: wallpaperWithAnswer.size.width - 44, y: 370))
         
+        
         let finalWallpaper = wallpaperWithLine
             .textToImageLeftMultiLine(drawText: "Example:\r\(example)",
                              fontSize: 14,
@@ -46,6 +48,7 @@ class WallpaperGenerator {
                              weight: .regular,
                              atX: 44,
                              atY: 380)
+        
         return finalWallpaper
     }
 }

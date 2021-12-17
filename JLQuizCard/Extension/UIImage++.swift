@@ -84,7 +84,7 @@ extension UIImage {
         
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = NSTextAlignment.left
-        textStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
+        textStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
         let textFontAttributes = [
             NSAttributedString.Key.font: textFont,
             NSAttributedString.Key.foregroundColor: textColor,
@@ -101,9 +101,11 @@ extension UIImage {
             let lineRange = CTLineGetStringRange(line)
             let range = NSRange(location: lineRange.location, length: lineRange.length)
             let lineString = (text as NSString).substring(with: range)
-            let rect = CGRect(origin: CGPoint(x: x, y: currentY), size: CGSize(width: width, height: textHeight))
+            let realLineCount = lineString.countOf(subString: "\r")
+            let realTextHeight = CGFloat(realLineCount) * textHeight
+            let rect = CGRect(origin: CGPoint(x: x, y: currentY), size: CGSize(width: width, height: realTextHeight))
             lineString.draw(in: rect, withAttributes:textFontAttributes)
-            currentY += textHeight
+            currentY += realTextHeight
         }
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

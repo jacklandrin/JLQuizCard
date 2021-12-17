@@ -30,4 +30,8 @@ extension String{
         return ceil(boundingBox.height)
     }
 
+    
+    func countOf(subString:String) -> Int {
+        return self.components(separatedBy: subString).count
+    }
 }
