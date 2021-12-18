@@ -230,9 +230,23 @@ struct ButtonStyle : ViewModifier{
     func body(content: Content) -> some View {
         content
             .frame(maxWidth: 120, minHeight:50)
-            .background(color)
+            .background(background)
+            .overlay(RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color(UIColor.darkGray).opacity(0.9),
+                                lineWidth: 4))
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding(.horizontal,20)
+            .padding(.horizontal,10)
+            .shadow(color: color.opacity(0.3), radius: 4, x: 4, y: 4)
+    }
+    
+    var background:some View {
+        ZStack {
+            color
+            Image(decorative:"button_stroke")
+                .resizable()
+                .frame(height:50)
+                .foregroundColor(.white)
+        }
     }
 }
 
@@ -293,6 +307,38 @@ extension View {
             self
         }
     }
+}
+
+extension Text {
+    @ViewBuilder func muyaoFont(size:CGFloat) -> some View {
+        self.font(Font.custom("Muyao-Softbrush", size: size))
+    }
+}
+
+extension View {
+    func placeholder(
+        _ text: String,
+        when shouldShow: Bool,
+        alignment: Alignment = .leading) -> some View {
+            
+            placeholder(when: shouldShow, alignment: alignment) {
+                Text(text)
+                    .foregroundColor(Color("qzblue"))
+            }
+    }
+    
+    func placeholder<Content: View>(
+            when shouldShow: Bool,
+            alignment: Alignment = .leading,
+            @ViewBuilder placeholder: () -> Content) -> some View {
+
+            ZStack(alignment: alignment) {
+                self
+                placeholder()
+                    .opacity(shouldShow ? 1 : 0)
+                    .allowsHitTesting(false)
+            }
+        }
 }
 
 struct ListWithOffset<Content:View>:View {

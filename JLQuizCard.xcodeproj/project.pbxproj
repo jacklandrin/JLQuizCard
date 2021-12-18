@@ -48,6 +48,12 @@
 		04AA63D2276CDE1F00ED5DEA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D1276CDE1F00ED5DEA /* SettingView.swift */; };
 		04AA63D4276CE64400ED5DEA /* SettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D3276CE64400ED5DEA /* SettingVM.swift */; };
 		04AA63D6276CECCA00ED5DEA /* WallpaperGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */; };
+		04AA63D9276D3FE000ED5DEA /* SafeAreaInsetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D8276D3FE000ED5DEA /* SafeAreaInsetTool.swift */; };
+		04AA63DB276E028400ED5DEA /* ScreenSizeEnvironmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63DA276E028400ED5DEA /* ScreenSizeEnvironmentValue.swift */; };
+		04AA63DF276E1EA000ED5DEA /* Muyao-Softbrush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04AA63DE276E1EA000ED5DEA /* Muyao-Softbrush.ttf */; };
+		04AA63E1276E305300ED5DEA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63E0276E305300ED5DEA /* BackgroundView.swift */; };
+		04AA63E3276E331C00ED5DEA /* SelectGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63E2276E331C00ED5DEA /* SelectGroupView.swift */; };
+		04B67EF7276E94F0003EC6F7 /* SelectWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B67EF6276E94F0003EC6F7 /* SelectWallpaperView.swift */; };
 		CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA72439AEC300ECF53C /* AppDelegate.swift */; };
 		CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA92439AEC300ECF53C /* SceneDelegate.swift */; };
 		CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FAB2439AEC300ECF53C /* ContentView.swift */; };
@@ -57,7 +63,7 @@
 		CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FD82439B25D00ECF53C /* QuizCardModel.swift */; };
 		CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FDC2439BEEC00ECF53C /* QuizCard.swift */; };
 		CC173FDF2439C0E300ECF53C /* CardSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FDE2439C0E300ECF53C /* CardSide.swift */; };
-		CC173FE12439C36A00ECF53C /* FiipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE02439C36A00ECF53C /* FiipView.swift */; };
+		CC173FE12439C36A00ECF53C /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE02439C36A00ECF53C /* FlipView.swift */; };
 		CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE22439C3DC00ECF53C /* CardStack.swift */; };
 		CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FE42439C43C00ECF53C /* CardPile.swift */; };
 		CC3E08A7260028E000381C79 /* ViewToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E08A6260028E000381C79 /* ViewToolkit.swift */; };
@@ -123,6 +129,12 @@
 		04AA63D1276CDE1F00ED5DEA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		04AA63D3276CE64400ED5DEA /* SettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVM.swift; sourceTree = "<group>"; };
 		04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperGuideView.swift; sourceTree = "<group>"; };
+		04AA63D8276D3FE000ED5DEA /* SafeAreaInsetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeAreaInsetTool.swift; sourceTree = "<group>"; };
+		04AA63DA276E028400ED5DEA /* ScreenSizeEnvironmentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeEnvironmentValue.swift; sourceTree = "<group>"; };
+		04AA63DE276E1EA000ED5DEA /* Muyao-Softbrush.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muyao-Softbrush.ttf"; sourceTree = "<group>"; };
+		04AA63E0276E305300ED5DEA /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		04AA63E2276E331C00ED5DEA /* SelectGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupView.swift; sourceTree = "<group>"; };
+		04B67EF6276E94F0003EC6F7 /* SelectWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpaperView.swift; sourceTree = "<group>"; };
 		CC173FA42439AEC300ECF53C /* QuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC173FA72439AEC300ECF53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC173FA92439AEC300ECF53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,7 +146,7 @@
 		CC173FD82439B25D00ECF53C /* QuizCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardModel.swift; sourceTree = "<group>"; };
 		CC173FDC2439BEEC00ECF53C /* QuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCard.swift; sourceTree = "<group>"; };
 		CC173FDE2439C0E300ECF53C /* CardSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSide.swift; sourceTree = "<group>"; };
-		CC173FE02439C36A00ECF53C /* FiipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiipView.swift; sourceTree = "<group>"; };
+		CC173FE02439C36A00ECF53C /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		CC173FE22439C3DC00ECF53C /* CardStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		CC173FE42439C43C00ECF53C /* CardPile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPile.swift; sourceTree = "<group>"; };
 		CC3E08A6260028E000381C79 /* ViewToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToolkit.swift; sourceTree = "<group>"; };
@@ -218,6 +230,31 @@
 			path = QZWallpaper;
 			sourceTree = "<group>";
 		};
+		04AA63D7276D3FC500ED5DEA /* EnvironmentValues */ = {
+			isa = PBXGroup;
+			children = (
+				04AA63D8276D3FE000ED5DEA /* SafeAreaInsetTool.swift */,
+				04AA63DA276E028400ED5DEA /* ScreenSizeEnvironmentValue.swift */,
+			);
+			path = EnvironmentValues;
+			sourceTree = "<group>";
+		};
+		04AA63DC276E1E9500ED5DEA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				04AA63DD276E1EA000ED5DEA /* YaoRuanBiShouXieTi */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		04AA63DD276E1EA000ED5DEA /* YaoRuanBiShouXieTi */ = {
+			isa = PBXGroup;
+			children = (
+				04AA63DE276E1EA000ED5DEA /* Muyao-Softbrush.ttf */,
+			);
+			path = YaoRuanBiShouXieTi;
+			sourceTree = "<group>";
+		};
 		CC173F9B2439AEC300ECF53C = {
 			isa = PBXGroup;
 			children = (
@@ -240,21 +277,23 @@
 		CC173FA62439AEC300ECF53C /* JLQuizCard */ = {
 			isa = PBXGroup;
 			children = (
+				04AA63DC276E1E9500ED5DEA /* Resource */,
 				0444E420276AA1040086A644 /* JLQuizCard.entitlements */,
 				CC3E08AB26002B0700381C79 /* QuizCardDebug.entitlements */,
 				CC173FDA2439BD4E00ECF53C /* Views */,
 				CC173FD72439B23600ECF53C /* Models */,
 				0444E407276A5C5A0086A644 /* Utilities */,
 				0444E408276A5C7A0086A644 /* Extension */,
+				04AA63D7276D3FC500ED5DEA /* EnvironmentValues */,
 				CC173FA72439AEC300ECF53C /* AppDelegate.swift */,
 				CC173FA92439AEC300ECF53C /* SceneDelegate.swift */,
 				CC173FAB2439AEC300ECF53C /* ContentView.swift */,
+				0444E426276AA2B00086A644 /* PersistenceController.swift */,
 				CC173FAD2439AEC500ECF53C /* Assets.xcassets */,
 				CC173FB22439AEC500ECF53C /* LaunchScreen.storyboard */,
 				CC173FB52439AEC500ECF53C /* Info.plist */,
 				CC173FAF2439AEC500ECF53C /* Preview Content */,
 				CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */,
-				0444E426276AA2B00086A644 /* PersistenceController.swift */,
 			);
 			path = JLQuizCard;
 			sourceTree = "<group>";
@@ -291,6 +330,9 @@
 				CC663132260FE41200E52BC1 /* GroupEditor.swift */,
 				04AA63D1276CDE1F00ED5DEA /* SettingView.swift */,
 				04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */,
+				04AA63E0276E305300ED5DEA /* BackgroundView.swift */,
+				04AA63E2276E331C00ED5DEA /* SelectGroupView.swift */,
+				04B67EF6276E94F0003EC6F7 /* SelectWallpaperView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				CC173FDE2439C0E300ECF53C /* CardSide.swift */,
-				CC173FE02439C36A00ECF53C /* FiipView.swift */,
+				CC173FE02439C36A00ECF53C /* FlipView.swift */,
 				CC173FE22439C3DC00ECF53C /* CardStack.swift */,
 			);
 			path = Containers;
@@ -410,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AA63DF276E1EA000ED5DEA /* Muyao-Softbrush.ttf in Resources */,
 				CC173FB42439AEC500ECF53C /* LaunchScreen.storyboard in Resources */,
 				CC173FB12439AEC500ECF53C /* Preview Assets.xcassets in Resources */,
 				CC173FAE2439AEC500ECF53C /* Assets.xcassets in Resources */,
@@ -456,6 +499,7 @@
 				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,
 				CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */,
 				CC66315A2613421A00E52BC1 /* KeyboardHeightHelper.swift in Sources */,
+				04B67EF7276E94F0003EC6F7 /* SelectWallpaperView.swift in Sources */,
 				040C6E8C276AB3DA00291DEB /* String++.swift in Sources */,
 				CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */,
 				04AA63D2276CDE1F00ED5DEA /* SettingView.swift in Sources */,
@@ -463,9 +507,12 @@
 				0444E415276A94AB0086A644 /* WallpaperGenerator.swift in Sources */,
 				040C6E9D276AC02B00291DEB /* Sequence+ConsecutiveElements.swift in Sources */,
 				0444E40A276A5CB00086A644 /* UIImage++.swift in Sources */,
+				04AA63E1276E305300ED5DEA /* BackgroundView.swift in Sources */,
+				04AA63E3276E331C00ED5DEA /* SelectGroupView.swift in Sources */,
 				040C6EA3276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */,
 				CC3E08A7260028E000381C79 /* ViewToolkit.swift in Sources */,
 				CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */,
+				04AA63D9276D3FE000ED5DEA /* SafeAreaInsetTool.swift in Sources */,
 				CCF05CFD26064E8500933A06 /* DocumentPickerViewController.swift in Sources */,
 				0444E40F276A5D690086A644 /* URL++.swift in Sources */,
 				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
@@ -473,7 +520,7 @@
 				CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */,
 				040C6EA5276AC02B00291DEB /* String+LineBreaks.swift in Sources */,
 				0444E427276AA2B00086A644 /* PersistenceController.swift in Sources */,
-				CC173FE12439C36A00ECF53C /* FiipView.swift in Sources */,
+				CC173FE12439C36A00ECF53C /* FlipView.swift in Sources */,
 				CC3E08C6260110C200381C79 /* CardInfoModel.xcdatamodeld in Sources */,
 				0444E40D276A5D3D0086A644 /* Data++.swift in Sources */,
 				CC4D48F926065C0900C6CAAE /* CSVFileReaderModel.swift in Sources */,
@@ -483,6 +530,7 @@
 				CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */,
 				04AA63D4276CE64400ED5DEA /* SettingVM.swift in Sources */,
 				040C6E9F276AC02B00291DEB /* Sequence+Extensions.swift in Sources */,
+				04AA63DB276E028400ED5DEA /* ScreenSizeEnvironmentValue.swift in Sources */,
 				040C6EA1276AC02B00291DEB /* SystemLineBreaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

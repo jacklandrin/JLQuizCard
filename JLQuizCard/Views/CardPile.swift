@@ -15,108 +15,56 @@ struct CardPile: View {
     @State var isShowSetting = false
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    @Environment(\.screenSize) private var screenSize
     
     @FetchRequest(fetchRequest: CardInfo.defaultFetchRequest)
     var cards:FetchedResults<CardInfo>
     @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
     var groups:FetchedResults<CardGroup>
     
+    
     @State var cardPile:[Card] = [Card]()
     @State var showGroupSheet = false
     @State var cardPileModel = CardPileViewModel()
+    @State var animateGradient = false
+    
+    
+    init() {
+        UINavigationBar
+            .appearance()
+            .largeTitleTextAttributes = [.font : UIFont(name: "Muyao-Softbrush", size: 60)!,
+                                         .foregroundColor:UIColor(named:"qzcyan")!]
+        UINavigationBar
+            .appearance()
+            .titleTextAttributes = [.font : UIFont(name: "Muyao-Softbrush", size: 24)!,
+                                         .foregroundColor:UIColor(named:"qzcyan")!]
+    }
     
     var body: some View {
         NavigationView {
-            VStack {
-                NavigationLink(destination: SettingView().environmentObject(cardPileModel), isActive: $isShowSetting){
-                    Text("")
+            ZStack {
+                Color.white
+                animationBackground
+                BackgroundView()
+                VStack {
+                    NavigationLink(destination: SettingView().environmentObject(cardPileModel), isActive: $isShowSetting){
+                        EmptyView()
+                    }
+                    //add data after popping animation, unless list page will update View in animation, then go back this view in iOS 14
+                    Spacer().frame(height:134 + safeAreaInsets.top)
+                    groupButton
+                    
+                    piles
+                    
+                    Spacer()
+                    buttons
+                    Spacer().frame(height:120)
                 }
-                .frame(width: 0, height: 0)
-                .hidden()//add data after popping animation, unless list page will update View in animation, then go back this view in iOS 14
-                Spacer().frame(height:40)
-                Button(action:{
-                    showGroupSheet = true
-                }){
-                    Text(selectingGroupButtonName()).foregroundColor(Color.white)
-                }.frame(maxWidth:150, minHeight: 44)
-                .background(Color.blue)
-                .clipShape(RoundedRectangle(cornerRadius: 22))
-                .sheet(isPresented: $showGroupSheet, content: {
-//                    VStack {
-//                        Text("Please select a group:")
-//                        Picker("Please select a group", selection:$cardPileModel.currentGroupIndex) {
-//                            ForEach(cardPileModel.groupNames.indices, id:\.self) {
-//                                Text(cardPileModel.groupNames[$0])
-//                            }
-//                        }.pickerStyle(WheelPickerStyle())
-//                        Button(action: {
-//                            showGroupSheet = false
-//                            print("currenGroup:\(String(describing: groups[cardPileModel.currentGroupIndex].groupname))")
-//                            convertToShowCards()
-//                            currentIndex = 0
-//                        }) {
-//                            Text("Done").foregroundColor(Color.white)
-//                        }.remenberButtonStyle(color: Color.blue)
-//                    }
-                    Image(uiImage: WallpaperGenerator.shared.generate())
-                })
-                ZStack {
-                    ForEach((0..<self.cardPile.count).reversed()) { index in
-                        QuizCard(onDragOut:{ d in
-                            if (d < 0 && self.currentIndex == 0) || (d > 0 && Int(self.currentIndex) == self.cardPile.count - 1) || self.isAnimation || d == 0 {
-                                return
-                            }
-                            
-                            if d < 0 {
-                                withAnimation {
-                                    self.currentIndex += -1
-                                    self.isAnimation = true
-                                }
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
-                                    self.isAnimation = false
-                                }
-                            } else {
-                                self.currentIndex += 1
-                                print("current index\(self.currentIndex)")
-                            }
-                        }, sequence: Int(index + 1))
-                        .environmentObject(cardPile[index])
-                        .cardTransformed(Double(self.currentIndex), card: index)
-                    }
-                            
-                }.padding(.bottom,80)
-                .padding(.top, 20)
-                .padding(.horizontal, 14)
-                
-                Spacer()
-                HStack{
-                    Button(action:{
-                        groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight += 2
-                        flipNextCard()
-                    }) {
-                        Text("Hard").foregroundColor(Color.white)
-                    }
-                    .remenberButtonStyle(color: Color.red)
-                    
-                    Button(action:{
-                        groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight += 1
-                        flipNextCard()
-                    }) {
-                        Text("Good").foregroundColor(Color.white)
-                    }
-                    .remenberButtonStyle(color: Color.green)
-                    
-                    Button(action:{
-                        groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight -= 1
-                        flipNextCard()
-                    }) {
-                        Text("Easy").foregroundColor(Color.white)
-                    }
-                    .remenberButtonStyle(color: Color.gray)
-                    
-                }
-                Spacer().frame(height:60)
-            }.onAppear(){
+                .edgesIgnoringSafeArea(.all)
+            }
+            
+            .onAppear(){
                 convertToShowCards()
                 print("card pile onAppear fired")
             }
@@ -126,12 +74,124 @@ struct CardPile: View {
                     Button(action: {
                         isShowSetting = true
                     }, label: {
-                        Image(systemName: "gear")
+                        Image("setting")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 44, height: 44)
                     })
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         .padding(0)
+        
+    }
+
+    var animationBackground:some View {
+        LinearGradient(gradient: Gradient(colors: [Color("Bg1"),
+                                                   Color("Bg2"),
+                                                   Color("Bg3")]),
+                                    startPoint: animateGradient ? .topLeading : .bottomLeading,
+                                    endPoint: animateGradient ? .bottomTrailing : .topTrailing)
+            .ignoresSafeArea()
+            .animation(.easeInOut(duration: 10.0).repeatForever(autoreverses: true), value: animateGradient)
+            .onAppear {
+                    animateGradient.toggle()
+            }
+    }
+    
+    var groupButton: some View {
+        Button(action:{
+            showGroupSheet = true
+        }){
+            ZStack {
+                Image(decorative:"button_stroke")
+                    .resizable()
+                    .frame(height:50)
+                    .foregroundColor(.white)
+                Text(selectingGroupButtonName())
+                    .muyaoFont(size: 24)
+                    .foregroundColor(Color.white)
+            }
+        }.frame(maxWidth:150, minHeight: 44)
+        .background(Color("qzblue"))
+        .overlay(RoundedRectangle(cornerRadius: 22)
+                    .stroke(Color(UIColor.darkGray).opacity(0.9), style: StrokeStyle(lineWidth: 4, dash: [10])))
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .sheet(isPresented: $showGroupSheet, content: {
+            SelectGroupView(done: {
+                showGroupSheet = false
+                print("currenGroup:\(String(describing: groups[cardPileModel.currentGroupIndex].groupname))")
+                convertToShowCards()
+                currentIndex = 0
+            })
+                .environmentObject(cardPileModel)
+                .ignoresSafeArea()
+//                    Image(uiImage: WallpaperGenerator.shared.generate())
+        })
+    }
+    
+    var piles:some View {
+        ZStack {
+            ForEach((0..<self.cardPile.count).reversed()) { index in
+                QuizCard(onDragOut:{ d in
+                    if (d < 0 && self.currentIndex == 0) || (d > 0 && Int(self.currentIndex) == self.cardPile.count - 1) || self.isAnimation || d == 0 {
+                        return
+                    }
+                    
+                    if d < 0 {
+                        withAnimation {
+                            self.currentIndex += -1
+                            self.isAnimation = true
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
+                            self.isAnimation = false
+                        }
+                    } else {
+                        self.currentIndex += 1
+                        print("current index\(self.currentIndex)")
+                    }
+                }, sequence: Int(index + 1))
+                .environmentObject(cardPile[index])
+                .cardTransformed(Double(self.currentIndex), card: index)
+            }
+                    
+        }.padding(.bottom,80)
+        .padding(.top, 20)
+        .padding(.horizontal, 24)
+    }
+    
+    var buttons:some View {
+        HStack{
+            Button(action:{
+                groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight += 2
+                flipNextCard()
+            }) {
+                Text("Hard")
+                    .muyaoFont(size: 24)
+                    .foregroundColor(Color.white)
+            }.remenberButtonStyle(color: Color("qzred"))
+            
+            Button(action:{
+                groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight += 1
+                flipNextCard()
+            }) {
+                Text("Good")
+                    .muyaoFont(size: 24)
+                    .foregroundColor(Color.white)
+            }
+            .remenberButtonStyle(color: Color("qzgreen"))
+            
+            Button(action:{
+                groups[cardPileModel.currentGroupIndex].cardArray[currentIndex].weight -= 1
+                flipNextCard()
+            }) {
+                Text("Easy")
+                    .muyaoFont(size: 24)
+                    .foregroundColor(Color.white)
+            }
+            .remenberButtonStyle(color: Color.gray)
+            
+        }.padding(.horizontal, 20)
     }
     
     func convertToShowCards() {

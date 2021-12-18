@@ -12,6 +12,7 @@ struct CardEditor: View {
     private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
     private var isPortrait : Bool { UIDevice.current.orientation.isPortrait }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
     @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
     var groups:FetchedResults<CardGroup>
     var isNewOne: Bool
@@ -50,6 +51,7 @@ struct CardEditor: View {
     var body: some View {
         
         VStack {
+            Spacer().frame(height: safeAreaInsets.top + 44)
             QuizCard(onDragOut: {_ in}, sequence: 1)
                 .environmentObject(sampleCard)
                 .frame(height:self.keyboardHeightHelper.isShowingKeyboard ? 300 : 400)
@@ -58,63 +60,89 @@ struct CardEditor: View {
                 .offset(y: -self.keyboardHeightHelper.cardOffset)
                 .scaleEffect(quizCardScale())
             
-            Spacer().frame(maxHeight:UIDevice.current.orientation.isPortrait ? 160 : 100)
+            Spacer().frame(maxHeight:UIDevice.current.orientation.isPortrait ? 204 : 144)
                 
-            List{
+            ScrollView{
                 VStack(alignment:.leading) {
                     Toggle(isOn: self.$sampleCard.isTextMode.animation()) {
                         Text("Text Mode")
+                            .foregroundColor(.black)
                     }
-                    Text("Question:")
-                    TextField("Write question here...", text: self.$sampleCard.question)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Text("Example:")
-                    TextField("Write example here...", text: self.$sampleCard.example)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Text("Answer:")
-                    TextField("Write answer here...", text: self.$sampleCard.answer)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.bottom,20)
+                    Group{
+                        Text("Question:")
+                            .foregroundColor(.black)
+                        TextField("Write question here...", text: self.$sampleCard.question)
+                            .foregroundColor(.black)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 24)
+                                        .stroke(Color(UIColor.darkGray).opacity(0.9), style: StrokeStyle(lineWidth: 4, dash: [10])))
+                        Text("Example:")
+                            .foregroundColor(.black)
+                        TextField("Write example here...", text: self.$sampleCard.example)
+                            .foregroundColor(.black)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 24)
+                                        .stroke(Color(UIColor.darkGray).opacity(0.9), style: StrokeStyle(lineWidth: 4, dash: [10])))
+                        Text("Answer:")
+                            .foregroundColor(.black)
+                        TextField("Write answer here...", text: self.$sampleCard.answer)
+                            .foregroundColor(.black)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(RoundedRectangle(cornerRadius: 24)
+                                        .stroke(Color(UIColor.darkGray).opacity(0.9), style: StrokeStyle(lineWidth: 4, dash: [10])))
+                            .padding(.bottom,20)
+                            
+                    }
+                    
                     if idiom == .pad {
-                        HStack {
-                            VStack {
-//                                Text("Please choose a language code")
+                        HStack(spacing:20) {
+                            HStack {
+                                Text("Please choose a language code")
+                                    .foregroundColor(.black)
                                 Picker("Please choose a language code", selection:$sampleCard.languageCode) {
                                     ForEach(languages(), id:\.self) {
                                         Text($0)
+                                            .foregroundColor(.black)
                                     }
-                                }
+                                }.foregroundColor(.black)
                             }
-                            VStack {
-//                                Text("Please choose a group")
+                            
+                            HStack {
+                                Text("Please choose a group")
+                                    .foregroundColor(.black)
                                 Picker("Please choose a group", selection:$sampleCard.group) {
                                     ForEach(groups.map{($0.groupname ?? "")}, id:\.self) {
                                         Text($0)
+                                            .foregroundColor(.black)
                                     }
-                                }
+                                }.foregroundColor(.black)
                             }
                             
                         }
                     } else {
-//                        Text("Please choose a language code")
-                        Picker("Please choose a language code", selection:$sampleCard.languageCode) {
+                        Text("Language code")
+                            .foregroundColor(.black)
+                        Picker("", selection:$sampleCard.languageCode) {
                             ForEach(languages(), id:\.self) {
                                 Text($0)
+                                    .foregroundColor(.black)
                             }
                         }
-                        
-//                        Text("Please choose a group")
-                        Picker("Please choose a group", selection:$sampleCard.group) {
+                        Text("Group")
+                            .foregroundColor(.black)
+                        Picker("", selection:$sampleCard.group) {
                             ForEach(groups.map{($0.groupname ?? "")}, id:\.self) {
                                 Text($0)
+                                    .foregroundColor(.black)
                             }
-                        }
+                        }.foregroundColor(.black)
                     }
                     Spacer()
-                }
-                
+                }.padding(.horizontal, 20)
             }
         }
+        .padding(10.0)
+        .background(Color("Bg3"))
         .changeNavigationTitleAndTrailingButton(title: "Card Editor", trailingText: "Done", action: makeNewCard)
         .onAppear(perform: onAppearUpdateData)
         .onDisappear(perform: {
@@ -124,7 +152,7 @@ struct CardEditor: View {
             }
             
         })
-        .padding(10.0)
+        
         .alert(isPresented: self.$isShowAlert) {
                 Alert(title: Text("Warning"), message: Text("Write something"), dismissButton: .default(Text("Got it!")))
         }

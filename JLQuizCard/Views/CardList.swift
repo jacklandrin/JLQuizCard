@@ -14,7 +14,7 @@ struct CardList: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var cardPile:CardPileViewModel
     @ObservedObject var CSVFileReader:CSVFileReaderModel = CSVFileReaderModel()
-    
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
     @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
     var groups:FetchedResults<CardGroup>
     
@@ -25,40 +25,37 @@ struct CardList: View {
     @State var searchText = ""
     @State var showSearchbar = true
     
+    init() {
+        UITableViewCell.appearance().backgroundColor = UIColor(named: "Bg3")!
+        UITableView.appearance().backgroundColor = UIColor(named: "Bg3")!
+        UITextField.appearance().backgroundColor = UIColor(named: "Bg3")!
+    }
+    
     var body: some View {
         VStack {
-            HStack {
-                Button(action:importFromCSV){
-                    Text("Import from csv").foregroundColor(Color.white)
-                }.frame(maxWidth:150, minHeight: 44)
-                .background(Color.gray)
-                .clipShape(RoundedRectangle(cornerRadius: 22))
-                
-                Spacer().frame(width:30)
-                
-                Button(action: {
-                    showEditGroup = true
-                }) {
-                    Text("Edit Group").foregroundColor(Color.white)
-                }
-                .frame(maxWidth:150, minHeight: 44)
-                .background(Color.gray)
-                .clipShape(RoundedRectangle(cornerRadius: 22))
-                .sheet(isPresented: $showEditGroup) {
-                    GroupEditor().environmentObject(cardPile).environment(\.managedObjectContext, managedObjectContext).padding(20)
-                }
-            }.padding(15)
+            Spacer(minLength: safeAreaInsets.top + 44)
+            buttons
             
-            NavigationLink(destination: CardEditor(isNewOne: true, card: nil, finishEditCard: { c in
+            NavigationLink(destination: CardEditor(isNewOne: true,
+                                                   card: nil,
+                                                   finishEditCard: { c in
                  self.addCard(card: c)
-            }), isActive: $isShowEditor) {
-                Text("")
-            }.frame(width: 0, height: 0)
-            .hidden()
+            }).ignoresSafeArea(),
+                           isActive: $isShowEditor) {
+                EmptyView()
+            }
             ZStack {
-                TextField("",text: $searchText.animation())
+                TextField("", text: $searchText.animation())
+                    .foregroundColor(.black)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(height:showSearchbar ? 44 : 0)
+                    .placeholder("  Search", when: searchText.isEmpty)
+                    .padding(.horizontal, 15)
+                    .overlay(RoundedRectangle(cornerRadius: 24)
+                                .stroke(Color(UIColor.darkGray).opacity(0.9),
+                                        style: StrokeStyle(lineWidth: 4, dash: [10])))
+                    
+                
                 HStack {
                     Spacer()
                     if searchText != "" {
@@ -78,24 +75,25 @@ struct CardList: View {
             List {
                 if searchText == "" {
                     ForEach(groups.indices, id:\.self) { section in
-                        Section(header: Text(groups[section].wrappedName)) {
+                        Section(header: Text(groups[section].wrappedName).foregroundColor(.black)) {
                             ForEach(groups[section].cardArray.indices, id:\.self) { i in
                                 NavigationLink(destination: CardEditor(isNewOne: false, card: groups[section].cardArray[i], finishEditCard: { c in
                                         withAnimation{
                                             self.modifyCard(card: c, index: i, in: section)
                                         }
-                                })
+                                }).ignoresSafeArea()
                                 ){
                                     HStack{
                                         Text(cellText(card: groups[section].cardArray[i]))
+                                            .foregroundColor(.black)
                                         Spacer()
                                         Text(String(groups[section].cardArray[i].weight))
+                                            .foregroundColor(.black)
                                     }
                                 }
                                 .buttonStyle(PlainButtonStyle())
-                                
                             }.onDelete{delete(at: $0, in: section)}
-                        }
+                        }.background(Color("Bg3"))
                     }
                 } else {
                     ForEach(searchedCards.indices,id:\.self) { index in
@@ -103,12 +101,14 @@ struct CardList: View {
                                 withAnimation{
                                     self.modifyCard(card: c, index: index, in: -1)
                                 }
-                        })
+                        }).ignoresSafeArea()
                         ){
                             HStack{
                                 Text(cellText(card: searchedCards[index]))
+                                    .foregroundColor(.black)
                                 Spacer()
                                 Text(String(searchedCards[index].weight))
+                                    .foregroundColor(.black)
                             }
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -120,13 +120,55 @@ struct CardList: View {
                    let _ = groups[index].cardArray.map{print("appear group:\(groups[index].wrappedName) card:\($0.question!)")}
                 }
             }
-            .changeNavigationTitleAndTrailingButton(title: "Card List", trailingText: "Add One", action: {
-                self.isShowEditor = true
-            })
+            
         
-        }.alert(isPresented: self.$CSVFileReader.isShowAlert) {
+        }
+        .background(Color("Bg3"))
+        .navigationBarTitle(Text("Card List"))
+        .toolbar{
+            ToolbarItem(placement:.navigationBarTrailing) {
+                    Button(action:{
+                        self.isShowEditor = true
+                    }){
+                        Image("btn_add")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(Color("qzblue"))
+                            .frame(width: 40, height: 40)
+                    }
+            }
+        }
+        .alert(isPresented: self.$CSVFileReader.isShowAlert) {
             Alert(title: Text("Error"), message: Text(self.CSVFileReader.errorMessage), dismissButton: .default(Text("Got it!")))
         }
+    }
+    
+    var buttons: some View {
+        HStack {
+            Button(action:importFromCSV){
+                Text("Import from csv")
+                    .muyaoFont(size: 20)
+                    .foregroundColor(Color.white)
+            }
+            .remenberButtonStyle(color: Color("qzcyan"))
+            .frame(maxWidth:150, minHeight: 44)
+            
+            
+            Spacer().frame(width:20)
+            
+            Button(action: {
+                showEditGroup = true
+            }) {
+                Text("Edit Group")
+                    .muyaoFont(size: 20)
+                    .foregroundColor(Color.white)
+            }
+            .remenberButtonStyle(color: Color("qzcyan"))
+            .frame(maxWidth:150, minHeight: 44)
+            .sheet(isPresented: $showEditGroup) {
+                GroupEditor().environmentObject(cardPile).environment(\.managedObjectContext, managedObjectContext).padding(20)
+            }
+        }.padding(15)
     }
     
     func importFromCSV() -> Void {
@@ -205,7 +247,7 @@ struct CardList: View {
     func modifyCard(card: Card, index: Int, in section:Int) {
         
         var newCard:CardInfo
-        if section > 0 {
+        if section >= 0 {
             newCard = groups[section].cardArray[index]
         } else {
             newCard = searchedCards[index]
