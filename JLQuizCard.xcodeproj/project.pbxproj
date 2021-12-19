@@ -809,6 +809,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
@@ -832,6 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
