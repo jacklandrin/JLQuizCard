@@ -12,6 +12,7 @@ import CoreData
 struct GroupEditor: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
     @EnvironmentObject var cardPile:CardPileViewModel
     @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
     var groups:FetchedResults<CardGroup>
@@ -19,23 +20,55 @@ struct GroupEditor: View {
     @State var isShowAlert = false
     @State var alertContent = ""
 
+    init() {
+        UITableViewCell.appearance().backgroundColor = UIColor(named: "Bg3")!
+        UITableView.appearance().backgroundColor = UIColor(named: "Bg3")!
+    }
+    
     var body: some View {
         VStack(alignment:.leading) {
+            Spacer().frame(height:20)
             HStack{
-                TextField("Write a new group name", text: $newGroupName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Spacer()
+                TextField("", text: $newGroupName)
+                    .foregroundColor(.black)
+                    .frame(height:44)
+                    .placeholder("group name", when: newGroupName.isEmpty)
+                    .padding(.horizontal, 10)
+                    .overlay(RoundedRectangle(cornerRadius: 24)
+                                .stroke(Color(UIColor.darkGray).opacity(0.9),
+                                        style: StrokeStyle(lineWidth: 4, dash: [10])))
+                
                 Button(action: addGroup) {
                     Text("Add")
+                        .muyaoFont(size: 26)
                 }
-            }
+                Spacer()
+            }.padding(.horizontal, 10)
+            
             Text("All Groups:")
+                .foregroundColor(.black)
+                .padding(.horizontal, 20)
+            
             List {
                 ForEach(groups.indices, id:\.self) { index in
                     Text(groups[index].groupname ?? "")
+                        .foregroundColor(.black)
                 }.onDelete(perform: delete)
-            }
-        }.alert(isPresented: self.$isShowAlert) {
-            Alert(title: Text("Warning"), message: Text(alertContent), dismissButton: .default(Text("Got it!")))
+                    .listRowBackground(Color("Bg3"))
+            }.defaultListStyle()
+            .overlay(RoundedRectangle(cornerRadius: 24)
+                        .stroke(Color(UIColor.darkGray).opacity(0.9),
+                                style: StrokeStyle(lineWidth: 4, dash: [10])))
+            .padding(.horizontal, 20)
+            .padding(.bottom, safeAreaInsets.bottom)
+        }
+        .background(Color("Bg3"))
+        .ignoresSafeArea()
+        .alert(isPresented: self.$isShowAlert) {
+            Alert(title: Text("Warning"),
+                  message: Text(alertContent),
+                  dismissButton: .default(Text("Got it!")))
             }
     }
     

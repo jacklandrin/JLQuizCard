@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+let hasLoadedDataKey = "hasLoadedDataKey"
+
 struct PersistenceController {
     static let shared = PersistenceController(inMemory: true)
     let container: NSPersistentCloudKitContainer
@@ -53,6 +55,45 @@ struct PersistenceController {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func writeInitailData() {
+        let hasLoadedData = UserDefaults.standard.bool(forKey: hasLoadedDataKey)
+        if !hasLoadedData {
+            let context = self.container.viewContext
+            for card in defaultCardPile {
+                let newCard = CardInfo(context:context)
+                newCard.question = card.question
+                newCard.answer = card.answer
+                newCard.languageCode = "en-US"
+                newCard.example = card.example
+                newCard.type = CardType.showText.rawValue
+                newCard.weight = 0
+                addCardIntoGroup(card: newCard, groupName: card.group)
+            }
+            
+            UserDefaults.standard.set(true, forKey: hasLoadedDataKey)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    func addCardIntoGroup(card:CardInfo, groupName:String) {
+        let context = self.container.viewContext
+        let request: NSFetchRequest<CardGroup> = CardGroup.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardGroup.groupname, ascending: true)]
+        request.predicate = NSPredicate(format: "groupname = %@", groupName)
+        do {
+            let fetchResults = try context.fetch(request)
+            if  fetchResults.count > 0 {
+                fetchResults[0].addToCards(card)
+            } else {
+                card.ofGroup = CardGroup(context: context)
+                card.ofGroup?.groupname = groupName
+            }
+        } catch {
+            print("Error saving managed object context: \(error)")
+        }
+        saveContext()
     }
 }
 

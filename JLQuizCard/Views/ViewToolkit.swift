@@ -309,6 +309,18 @@ extension View {
     }
 }
 
+extension View {
+    @ViewBuilder func selected(_ hasSelected:Bool) -> some View {
+        if hasSelected {
+            self.overlay(RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color(UIColor.darkGray).opacity(0.9),
+                                    style: StrokeStyle(lineWidth: 4, dash: [10])))
+        } else {
+            self
+        }
+    }
+}
+
 extension Text {
     @ViewBuilder func muyaoFont(size:CGFloat) -> some View {
         self.font(Font.custom("Muyao-Softbrush", size: size))

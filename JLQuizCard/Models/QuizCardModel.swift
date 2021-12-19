@@ -19,13 +19,9 @@ extension Int: Identifiable {
     }
 }
 
-enum CardType: String, Codable {
-    case showText = "ShowText"
-    case speech = "Speech"
-}
 
 class Card : ObservableObject,Identifiable  {
-//    var id = UUID()
+
     @Published var question: String = ""
     @Published var answer: String = ""
     @Published var example: String = ""
@@ -40,7 +36,11 @@ class Card : ObservableObject,Identifiable  {
         }
     }
     
-    init(question:String, answer:String, example: String, languageCode: String, type:CardType) {
+    init(question:String,
+         answer:String,
+         example: String,
+         languageCode: String,
+         type:CardType) {
         self.question = question
         self.answer = answer
         self.example = example
@@ -48,36 +48,43 @@ class Card : ObservableObject,Identifiable  {
         self.type = type
     }
     
-    convenience init(question:String, answer:String, example: String, languageCode: String, type:CardType, weight:Int) {
-        self.init(question:question, answer:answer, example: example, languageCode: languageCode, type:type)
+    convenience init(question:String,
+                     answer:String,
+                     example: String,
+                     languageCode: String,
+                     type:CardType,
+                     weight:Int) {
+        self.init(question:question,
+                  answer:answer,
+                  example: example,
+                  languageCode: languageCode,
+                  type:type)
         self.weight = weight
     }
     
-    convenience init(question:String, answer:String, example: String, languageCode: String, type:CardType, group:String) {
-        self.init(question:question, answer:answer, example: example, languageCode: languageCode, type:type)
+    convenience init(question:String,
+                     answer:String,
+                     example: String,
+                     languageCode: String,
+                     type:CardType,
+                     group:String) {
+        self.init(question:question,
+                  answer:answer,
+                  example: example,
+                  languageCode: languageCode,
+                  type:type)
         self.group = group
     }
     
    static func convertCard(cardInfo:CardInfo) -> Card {
-    return Card(question: cardInfo.question!, answer: cardInfo.answer!, example: cardInfo.example!, languageCode: cardInfo.languageCode!, type: CardType(rawValue: cardInfo.type!) ?? .speech, weight: Int(cardInfo.weight))
+    return Card(question: cardInfo.question!,
+                answer: cardInfo.answer!,
+                example: cardInfo.example!,
+                languageCode: cardInfo.languageCode!,
+                type: CardType(rawValue: cardInfo.type!) ?? .speech,
+                weight: Int(cardInfo.weight))
     }
 }
-
-struct CardData: Decodable {
-    var question: String
-    var answer: String
-    var example: String
-    var group: String
-}
-
-private let defaultCardPile:[Card] = [
-    Card(question: "This is an English question.", answer: "Answer",example:"", languageCode:"en-US" ,type: .speech),
-    Card(question: "What's your problem?", answer: "Answer",example:"", languageCode:"en-US" , type: .showText),
-    Card(question: "Repeat,repeat,repeat!", answer: "Answer",example:"", languageCode:"en-US" , type: .speech),
-    Card(question: "Come on! Try it again!", answer: "Answer",example:"", languageCode:"en-US" , type: .speech),
-    Card(question: "Hello, world!", answer: "Answer",example:"", languageCode:"en-US" , type: .showText),
-]
-
 
 extension Card {
     static let previewCard = Card(question: "This is a English question.", answer: "Answer", example:"example", languageCode:"en-US" , type: .showText)

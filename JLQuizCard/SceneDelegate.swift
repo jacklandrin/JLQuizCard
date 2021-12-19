@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let context = PersistenceController.shared.container.viewContext
+        PersistenceController.shared.writeInitailData()
         let contentView = CardPile().environment(\.managedObjectContext, context)
         try? context.setQueryGenerationFrom(.current)
         context.refreshAllObjects()

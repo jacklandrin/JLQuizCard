@@ -16,7 +16,9 @@ struct SelectWallpaperView: View {
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Environment(\.screenSize) private var screenSize
     @State var wallpaperGuideActive = false
-    @State var wallpaperSamples = ["Cat","step2","step3","step4"]
+    @State var wallpaperSamples:[WallpaperStyle] = [.spring,.firstlove,.sea,.autumn]
+    @State var currentStyle:WallpaperStyle = WallpaperGenerator.shared.currentStyle
+
     var body: some View {
         NavigationLink(destination: WallpaperGuideView(),
                        isActive: $wallpaperGuideActive){
@@ -28,10 +30,9 @@ struct SelectWallpaperView: View {
             }, label: {
                 Text("add shortcut for auto-updating lock screen wallpaper")
                     .foregroundColor(.white)
-                    .muyaoFont(size: 26)
                     .padding(.horizontal, 10)
                 
-            }).frame(width: screenSize.width - 40, height:100)
+            }).frame(width: screenSize.width - 40, height:80)
                 .background(Color("qzblue"))
                 .overlay(RoundedRectangle(cornerRadius: 20)
                             .stroke(Color(UIColor.darkGray).opacity(0.9),
@@ -42,22 +43,32 @@ struct SelectWallpaperView: View {
             ScrollView{
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(wallpaperSamples, id:\.self) { sample in
-                        Image(sample)
+                        Image(sample.sampleImageName())
                             .resizable()
                             .scaledToFit()
+                            .shadow(radius: 5)
+                            .selected(sample == currentStyle)
+                            .cornerRadius(20)
+                            .onTapGesture {
+                                currentStyle = sample
+                                let userDefalts = UserDefaults(suiteName: appGroup)!
+                                userDefalts.set(sample.rawValue, forKey: WallpaperStyleKey)
+                                userDefalts.synchronize()
+                            }
                     }
-                }
+                }.padding(.horizontal, 4)
+                Spacer(minLength: safeAreaInsets.bottom + 10)
             }
             .padding(.horizontal, 20)
             
         }.background(background)
-        
+            .navigationTitle("Wallpaper")
     }
     
     var background:some View {
         ZStack{
             Color("Bg1")
-            BackgroundView().opacity(0.9)
+            BackgroundView().opacity(0.2)
         }.ignoresSafeArea()
     }
 }

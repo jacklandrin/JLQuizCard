@@ -13,12 +13,11 @@ struct BackgroundView: View {
     @Environment(\.screenSize) private var screenSize
     var body: some View {
         ZStack{
-           
             Group {
                 HStack {
                     ForEach(0..<Int(screenSize.width) / 40) { _ in
                         Rectangle()
-                            .foregroundColor(Color("stride"))
+                            .foregroundColor(Color("stripe"))
                             .frame(width: 20, height: screenSize.height, alignment: .leading)
                             .padding(.trailing, 20)
                     }
@@ -27,7 +26,7 @@ struct BackgroundView: View {
                 VStack {
                     ForEach(0..<Int(screenSize.height) / 40) { _ in
                         Rectangle()
-                            .foregroundColor(Color("stride"))
+                            .foregroundColor(Color("stripe"))
                             .frame(width: screenSize.width, height: 20, alignment: .top)
                             .padding(.bottom, 20)
                     }

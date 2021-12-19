@@ -54,6 +54,22 @@
 		04AA63E1276E305300ED5DEA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63E0276E305300ED5DEA /* BackgroundView.swift */; };
 		04AA63E3276E331C00ED5DEA /* SelectGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63E2276E331C00ED5DEA /* SelectGroupView.swift */; };
 		04B67EF7276E94F0003EC6F7 /* SelectWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B67EF6276E94F0003EC6F7 /* SelectWallpaperView.swift */; };
+		04FA0EB3276F974800FC6FC5 /* DefaultCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */; };
+		04FA0EB4276F975600FC6FC5 /* DefaultCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */; };
+		04FA0EB6276F9C8000FC6FC5 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB5276F9C8000FC6FC5 /* CardType.swift */; };
+		04FA0EB8276F9C9A00FC6FC5 /* UserdefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB7276F9C9A00FC6FC5 /* UserdefaultKeys.swift */; };
+		04FA0EB9276F9C9A00FC6FC5 /* UserdefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB7276F9C9A00FC6FC5 /* UserdefaultKeys.swift */; };
+		04FA0EBA276F9C9C00FC6FC5 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB5276F9C8000FC6FC5 /* CardType.swift */; };
+		04FA0EBD276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EBC276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift */; };
+		04FA0EBE276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EBC276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift */; };
+		04FA0EC0276FD35D00FC6FC5 /* SpringConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EBF276FD35D00FC6FC5 /* SpringConfiguration.swift */; };
+		04FA0EC1276FD35D00FC6FC5 /* SpringConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EBF276FD35D00FC6FC5 /* SpringConfiguration.swift */; };
+		04FA0EC3276FD97C00FC6FC5 /* FirstLoveConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EC2276FD97C00FC6FC5 /* FirstLoveConfiguration.swift */; };
+		04FA0EC4276FD97C00FC6FC5 /* FirstLoveConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EC2276FD97C00FC6FC5 /* FirstLoveConfiguration.swift */; };
+		04FA0EC6276FDEE200FC6FC5 /* SeaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EC5276FDEE200FC6FC5 /* SeaConfiguration.swift */; };
+		04FA0EC7276FDEE200FC6FC5 /* SeaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EC5276FDEE200FC6FC5 /* SeaConfiguration.swift */; };
+		04FA0EC9276FE18500FC6FC5 /* AutumnConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EC8276FE18500FC6FC5 /* AutumnConfiguration.swift */; };
+		04FA0ECA276FE18500FC6FC5 /* AutumnConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EC8276FE18500FC6FC5 /* AutumnConfiguration.swift */; };
 		CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA72439AEC300ECF53C /* AppDelegate.swift */; };
 		CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FA92439AEC300ECF53C /* SceneDelegate.swift */; };
 		CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC173FAB2439AEC300ECF53C /* ContentView.swift */; };
@@ -135,6 +151,14 @@
 		04AA63E0276E305300ED5DEA /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		04AA63E2276E331C00ED5DEA /* SelectGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupView.swift; sourceTree = "<group>"; };
 		04B67EF6276E94F0003EC6F7 /* SelectWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpaperView.swift; sourceTree = "<group>"; };
+		04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCards.swift; sourceTree = "<group>"; };
+		04FA0EB5276F9C8000FC6FC5 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		04FA0EB7276F9C9A00FC6FC5 /* UserdefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultKeys.swift; sourceTree = "<group>"; };
+		04FA0EBC276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperStyleConfiguration.swift; sourceTree = "<group>"; };
+		04FA0EBF276FD35D00FC6FC5 /* SpringConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringConfiguration.swift; sourceTree = "<group>"; };
+		04FA0EC2276FD97C00FC6FC5 /* FirstLoveConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoveConfiguration.swift; sourceTree = "<group>"; };
+		04FA0EC5276FDEE200FC6FC5 /* SeaConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaConfiguration.swift; sourceTree = "<group>"; };
+		04FA0EC8276FE18500FC6FC5 /* AutumnConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutumnConfiguration.swift; sourceTree = "<group>"; };
 		CC173FA42439AEC300ECF53C /* QuizCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC173FA72439AEC300ECF53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC173FA92439AEC300ECF53C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				040C6E8E276AC00F00291DEB /* TextDrawer */,
-				0444E414276A94AB0086A644 /* WallpaperGenerator.swift */,
 				040C6EA7276ACCB300291DEB /* TTSManager.swift */,
 			);
 			path = Utilities;
@@ -255,6 +278,29 @@
 			path = YaoRuanBiShouXieTi;
 			sourceTree = "<group>";
 		};
+		04FA0EB1276F971B00FC6FC5 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */,
+				04FA0EB5276F9C8000FC6FC5 /* CardType.swift */,
+				04FA0EB7276F9C9A00FC6FC5 /* UserdefaultKeys.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		04FA0EBB276FD11700FC6FC5 /* Wallpaper */ = {
+			isa = PBXGroup;
+			children = (
+				0444E414276A94AB0086A644 /* WallpaperGenerator.swift */,
+				04FA0EBC276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift */,
+				04FA0EC5276FDEE200FC6FC5 /* SeaConfiguration.swift */,
+				04FA0EBF276FD35D00FC6FC5 /* SpringConfiguration.swift */,
+				04FA0EC2276FD97C00FC6FC5 /* FirstLoveConfiguration.swift */,
+				04FA0EC8276FE18500FC6FC5 /* AutumnConfiguration.swift */,
+			);
+			path = Wallpaper;
+			sourceTree = "<group>";
+		};
 		CC173F9B2439AEC300ECF53C = {
 			isa = PBXGroup;
 			children = (
@@ -277,14 +323,16 @@
 		CC173FA62439AEC300ECF53C /* JLQuizCard */ = {
 			isa = PBXGroup;
 			children = (
-				04AA63DC276E1E9500ED5DEA /* Resource */,
 				0444E420276AA1040086A644 /* JLQuizCard.entitlements */,
 				CC3E08AB26002B0700381C79 /* QuizCardDebug.entitlements */,
+				04AA63DC276E1E9500ED5DEA /* Resource */,
 				CC173FDA2439BD4E00ECF53C /* Views */,
 				CC173FD72439B23600ECF53C /* Models */,
 				0444E407276A5C5A0086A644 /* Utilities */,
 				0444E408276A5C7A0086A644 /* Extension */,
 				04AA63D7276D3FC500ED5DEA /* EnvironmentValues */,
+				04FA0EB1276F971B00FC6FC5 /* Define */,
+				04FA0EBB276FD11700FC6FC5 /* Wallpaper */,
 				CC173FA72439AEC300ECF53C /* AppDelegate.swift */,
 				CC173FA92439AEC300ECF53C /* SceneDelegate.swift */,
 				CC173FAB2439AEC300ECF53C /* ContentView.swift */,
@@ -320,9 +368,9 @@
 		CC173FDA2439BD4E00ECF53C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC173FE42439C43C00ECF53C /* CardPile.swift */,
 				CC173FDB2439BD5B00ECF53C /* Containers */,
 				CC173FDC2439BEEC00ECF53C /* QuizCard.swift */,
-				CC173FE42439C43C00ECF53C /* CardPile.swift */,
 				CC414CCF243AF5FF00F78AD4 /* CardList.swift */,
 				CC414CD3243B148E00F78AD4 /* CardEditor.swift */,
 				CC3E08A6260028E000381C79 /* ViewToolkit.swift */,
@@ -468,19 +516,27 @@
 			files = (
 				040C6E8D276AB3DE00291DEB /* String++.swift in Sources */,
 				0444E443276AA7CF0086A644 /* WallpaperIntent.swift in Sources */,
+				04FA0EC1276FD35D00FC6FC5 /* SpringConfiguration.swift in Sources */,
 				040C6E9A276AC02B00291DEB /* MyLabel.swift in Sources */,
 				0444E445276AA82C0086A644 /* URL++.swift in Sources */,
+				04FA0EC4276FD97C00FC6FC5 /* FirstLoveConfiguration.swift in Sources */,
 				0444E447276AA8320086A644 /* UIImage++.swift in Sources */,
 				040C6E87276AAD3F00291DEB /* Wallpaper.intentdefinition in Sources */,
 				0444E43B276AA7B80086A644 /* IntentHandler.swift in Sources */,
+				04FA0EC7276FDEE200FC6FC5 /* SeaConfiguration.swift in Sources */,
 				0444E448276AA8350086A644 /* WallpaperGenerator.swift in Sources */,
+				04FA0EB9276F9C9A00FC6FC5 /* UserdefaultKeys.swift in Sources */,
 				040C6E9C276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */,
 				0444E446276AA82F0086A644 /* Data++.swift in Sources */,
+				04FA0ECA276FE18500FC6FC5 /* AutumnConfiguration.swift in Sources */,
 				040C6EA6276AC02B00291DEB /* String+LineBreaks.swift in Sources */,
 				040C6E9E276AC02B00291DEB /* Sequence+ConsecutiveElements.swift in Sources */,
+				04FA0EBE276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift in Sources */,
 				040C6EA4276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */,
 				040C6EA2276AC02B00291DEB /* SystemLineBreaker.swift in Sources */,
 				0444E449276AA83B0086A644 /* CardInfoModel.xcdatamodeld in Sources */,
+				04FA0EB4276F975600FC6FC5 /* DefaultCards.swift in Sources */,
+				04FA0EBA276F9C9C00FC6FC5 /* CardType.swift in Sources */,
 				040C6EA0276AC02B00291DEB /* Sequence+Extensions.swift in Sources */,
 				040C6E98276AC02B00291DEB /* LineBreaker.swift in Sources */,
 				0444E44A276AA83E0086A644 /* PersistenceController.swift in Sources */,
@@ -495,8 +551,11 @@
 				CC663133260FE41200E52BC1 /* GroupEditor.swift in Sources */,
 				040C6EA8276ACCB300291DEB /* TTSManager.swift in Sources */,
 				CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */,
+				04FA0EC3276FD97C00FC6FC5 /* FirstLoveConfiguration.swift in Sources */,
 				CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */,
+				04FA0EB3276F974800FC6FC5 /* DefaultCards.swift in Sources */,
 				CC173FAA2439AEC300ECF53C /* SceneDelegate.swift in Sources */,
+				04FA0EBD276FD14000FC6FC5 /* WallpaperStyleConfiguration.swift in Sources */,
 				CC173FE32439C3DC00ECF53C /* CardStack.swift in Sources */,
 				CC66315A2613421A00E52BC1 /* KeyboardHeightHelper.swift in Sources */,
 				04B67EF7276E94F0003EC6F7 /* SelectWallpaperView.swift in Sources */,
@@ -514,6 +573,7 @@
 				CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */,
 				04AA63D9276D3FE000ED5DEA /* SafeAreaInsetTool.swift in Sources */,
 				CCF05CFD26064E8500933A06 /* DocumentPickerViewController.swift in Sources */,
+				04FA0EC0276FD35D00FC6FC5 /* SpringConfiguration.swift in Sources */,
 				0444E40F276A5D690086A644 /* URL++.swift in Sources */,
 				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
 				040C6E9B276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */,
@@ -521,6 +581,9 @@
 				040C6EA5276AC02B00291DEB /* String+LineBreaks.swift in Sources */,
 				0444E427276AA2B00086A644 /* PersistenceController.swift in Sources */,
 				CC173FE12439C36A00ECF53C /* FlipView.swift in Sources */,
+				04FA0EC9276FE18500FC6FC5 /* AutumnConfiguration.swift in Sources */,
+				04FA0EC6276FDEE200FC6FC5 /* SeaConfiguration.swift in Sources */,
+				04FA0EB6276F9C8000FC6FC5 /* CardType.swift in Sources */,
 				CC3E08C6260110C200381C79 /* CardInfoModel.xcdatamodeld in Sources */,
 				0444E40D276A5D3D0086A644 /* Data++.swift in Sources */,
 				CC4D48F926065C0900C6CAAE /* CSVFileReaderModel.swift in Sources */,
@@ -529,6 +592,7 @@
 				040C6E99276AC02B00291DEB /* MyLabel.swift in Sources */,
 				CC173FAC2439AEC300ECF53C /* ContentView.swift in Sources */,
 				04AA63D4276CE64400ED5DEA /* SettingVM.swift in Sources */,
+				04FA0EB8276F9C9A00FC6FC5 /* UserdefaultKeys.swift in Sources */,
 				040C6E9F276AC02B00291DEB /* Sequence+Extensions.swift in Sources */,
 				04AA63DB276E028400ED5DEA /* ScreenSizeEnvironmentValue.swift in Sources */,
 				040C6EA1276AC02B00291DEB /* SystemLineBreaker.swift in Sources */,
@@ -740,7 +804,7 @@
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JLQuizCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -763,7 +827,7 @@
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JLQuizCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -39,6 +39,7 @@ struct CardPile: View {
             .appearance()
             .titleTextAttributes = [.font : UIFont(name: "Muyao-Softbrush", size: 24)!,
                                          .foregroundColor:UIColor(named:"qzcyan")!]
+        
     }
     
     var body: some View {
@@ -66,6 +67,7 @@ struct CardPile: View {
             
             .onAppear(){
                 convertToShowCards()
+                shareSafeArea()
                 print("card pile onAppear fired")
             }
             .navigationTitle(Text("QuizCard"))
@@ -126,7 +128,7 @@ struct CardPile: View {
             })
                 .environmentObject(cardPileModel)
                 .ignoresSafeArea()
-//                    Image(uiImage: WallpaperGenerator.shared.generate())
+//         Image(uiImage: WallpaperGenerator.shared.generate()!)
         })
     }
     
@@ -156,8 +158,9 @@ struct CardPile: View {
             }
                     
         }.padding(.bottom,80)
-        .padding(.top, 20)
+        .padding(.top, safeAreaInsets.bottom > 0 ? 20 : 0)
         .padding(.horizontal, 24)
+        .offset(y: safeAreaInsets.bottom == 0 ? -40 : 0)
     }
     
     var buttons:some View {
@@ -236,6 +239,13 @@ struct CardPile: View {
       } catch {
         print("Error saving managed object context: \(error)")
       }
+    }
+    
+    func shareSafeArea() {
+        let safeAreaBottom = safeAreaInsets.bottom
+        let userDefalts = UserDefaults(suiteName: appGroup)
+        userDefalts?.set(safeAreaBottom, forKey: safeAreaBottomKey)
+        userDefalts?.synchronize()
     }
 }
 

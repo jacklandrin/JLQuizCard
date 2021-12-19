@@ -47,7 +47,7 @@ struct CardList: View {
             ZStack {
                 TextField("", text: $searchText.animation())
                     .foregroundColor(.black)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(height:44)
                     .frame(height:showSearchbar ? 44 : 0)
                     .placeholder("  Search", when: searchText.isEmpty)
                     .padding(.horizontal, 15)
@@ -55,7 +55,6 @@ struct CardList: View {
                                 .stroke(Color(UIColor.darkGray).opacity(0.9),
                                         style: StrokeStyle(lineWidth: 4, dash: [10])))
                     
-                
                 HStack {
                     Spacer()
                     if searchText != "" {
@@ -93,8 +92,8 @@ struct CardList: View {
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }.onDelete{delete(at: $0, in: section)}
-                        }.background(Color("Bg3"))
-                    }
+                        }
+                    }.listRowBackground(Color("Bg3"))
                 } else {
                     ForEach(searchedCards.indices,id:\.self) { index in
                         NavigationLink(destination: CardEditor(isNewOne: false, card: searchedCards[index], finishEditCard: { c in
@@ -112,7 +111,7 @@ struct CardList: View {
                             }
                         }
                         .buttonStyle(PlainButtonStyle())
-                    }
+                    }.listRowBackground(Color("Bg3"))
                 }
             }.defaultListStyle()
             .onAppear{
@@ -120,8 +119,6 @@ struct CardList: View {
                    let _ = groups[index].cardArray.map{print("appear group:\(groups[index].wrappedName) card:\($0.question!)")}
                 }
             }
-            
-        
         }
         .background(Color("Bg3"))
         .navigationBarTitle(Text("Card List"))
@@ -133,7 +130,6 @@ struct CardList: View {
                         Image("btn_add")
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(Color("qzblue"))
                             .frame(width: 40, height: 40)
                     }
             }
@@ -166,7 +162,10 @@ struct CardList: View {
             .remenberButtonStyle(color: Color("qzcyan"))
             .frame(maxWidth:150, minHeight: 44)
             .sheet(isPresented: $showEditGroup) {
-                GroupEditor().environmentObject(cardPile).environment(\.managedObjectContext, managedObjectContext).padding(20)
+                GroupEditor()
+                    .environmentObject(cardPile)
+                    .environment(\.managedObjectContext, managedObjectContext)
+                    .ignoresSafeArea()
             }
         }.padding(15)
     }
@@ -216,27 +215,9 @@ struct CardList: View {
             newCard.example = card.example
             newCard.type = card.type.rawValue
             newCard.weight = 0
-            addCardIntoGroup(card: newCard, groupName: card.group)
+            PersistenceController.shared.addCardIntoGroup(card: newCard, groupName: card.group)
         }
         
-    }
-    
-    func addCardIntoGroup(card:CardInfo, groupName:String) {
-        let request: NSFetchRequest<CardGroup> = CardGroup.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CardGroup.groupname, ascending: true)]
-        request.predicate = NSPredicate(format: "groupname = %@", groupName)
-        do {
-            let fetchResults = try managedObjectContext.fetch(request)
-            if  fetchResults.count > 0 {
-                fetchResults[0].addToCards(card)
-            } else {
-                card.ofGroup = CardGroup(context: managedObjectContext)
-                card.ofGroup?.groupname = groupName
-            }
-        } catch {
-            print("Error saving managed object context: \(error)")
-        }
-        saveContext()
     }
     
     /// modify card information
@@ -265,9 +246,9 @@ struct CardList: View {
         if (newCard.ofGroup != nil) {
             newCard.ofGroup?.removeFromCards(newCard)
             saveContext()
-            addCardIntoGroup(card: newCard, groupName: card.group)
+            PersistenceController.shared.addCardIntoGroup(card: newCard, groupName: card.group)
         } else {
-            addCardIntoGroup(card: newCard, groupName: card.group)
+            PersistenceController.shared.addCardIntoGroup(card: newCard, groupName: card.group)
         }
         
         saveContext()

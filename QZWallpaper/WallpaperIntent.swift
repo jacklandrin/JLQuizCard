@@ -14,7 +14,7 @@ import UIKit
 final class WallpaperIntentHandler:NSObject, QuizCardWallpaperIntentHandling {
     func handle(intent: QuizCardWallpaperIntent) async -> QuizCardWallpaperIntentResponse {
         let response = QuizCardWallpaperIntentResponse(code: .success, userActivity: nil)
-        response.wallpaper = WallpaperGenerator.shared.generate().toINFile
+        response.wallpaper = WallpaperGenerator.shared.generate()?.toINFile
         return response
     }
 }
