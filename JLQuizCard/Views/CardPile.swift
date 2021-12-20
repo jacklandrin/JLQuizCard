@@ -29,17 +29,20 @@ struct CardPile: View {
     @State var cardPileModel = CardPileViewModel()
     @State var animateGradient = false
     
+    @State var currentScreenSize:CGSize = UIScreen.main.bounds.size
     
     init() {
-        UINavigationBar
-            .appearance()
-            .largeTitleTextAttributes = [.font : UIFont(name: "Muyao-Softbrush", size: 60)!,
-                                         .foregroundColor:UIColor(named:"qzcyan")!]
-        UINavigationBar
-            .appearance()
-            .titleTextAttributes = [.font : UIFont(name: "Muyao-Softbrush", size: 24)!,
-                                         .foregroundColor:UIColor(named:"qzcyan")!]
-        
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.configureWithTransparentBackground()
+        coloredAppearance.backgroundColor = .clear
+        coloredAppearance.largeTitleTextAttributes = [.font : UIFont(name: "Muyao-Softbrush",
+                                                                     size: 60)!,
+                                                      .foregroundColor:UIColor(named:"qzcyan")!]
+        coloredAppearance.titleTextAttributes = [.font : UIFont(name: "Muyao-Softbrush",
+                                                                size: 24)!,
+                                                 .foregroundColor:UIColor(named:"qzcyan")!]
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        UINavigationBar.appearance().compactAppearance = coloredAppearance
     }
     
     var body: some View {
@@ -73,18 +76,28 @@ struct CardPile: View {
             .navigationTitle(Text("QuizCard"))
             .toolbar{
                 ToolbarItem(placement:.navigationBarTrailing) {
-                    Button(action: {
-                        isShowSetting = true
-                    }, label: {
-                        Image("setting")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 44, height: 44)
-                    })
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            isShowSetting = true
+                        }, label: {
+                            Image("setting")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 44, height: 44)
+                        })
+                    }
+                    
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         .padding(0)
+        .environment(\.screenSize, currentScreenSize)
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                currentScreenSize = UIScreen.main.bounds.size
+            }
+        }
         
     }
 

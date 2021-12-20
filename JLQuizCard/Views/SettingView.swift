@@ -12,6 +12,8 @@ struct SettingView: View {
     @Environment(\.screenSize) private var screenSize
     @EnvironmentObject var cardPileModel:CardPileViewModel
     @ObservedObject var settingVM = SettingVM()
+    
+    
     var body: some View {
         NavigationLink(destination: CardList()
                         .environmentObject(cardPileModel)
@@ -23,6 +25,8 @@ struct SettingView: View {
                        isActive: $settingVM.wallpaperActive){
             EmptyView()
         }
+        
+        
         ScrollView{
             VStack(spacing:22) {
                 Button(action: {

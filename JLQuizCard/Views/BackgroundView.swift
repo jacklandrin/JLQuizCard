@@ -11,6 +11,8 @@ import SwiftUI
 struct BackgroundView: View {
     
     @Environment(\.screenSize) private var screenSize
+    @State var updateID = UUID()
+
     var body: some View {
         ZStack{
             Group {
@@ -33,6 +35,14 @@ struct BackgroundView: View {
                 }.ignoresSafeArea()
             }.opacity(0.75)
         }.frame(width: screenSize.width, height: screenSize.height)
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                print("width:\(screenSize.width),height:\(screenSize.height)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    updateID = UUID()
+                }
+                
+            }
+            .id(updateID)
     }
 }
 

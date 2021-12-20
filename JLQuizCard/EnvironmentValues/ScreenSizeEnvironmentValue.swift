@@ -17,7 +17,8 @@ private struct ScreenSizeKey:EnvironmentKey {
 
 extension EnvironmentValues {
     var screenSize:CGSize {
-        self[ScreenSizeKey.self]
+        get { self[ScreenSizeKey.self] }
+        set { self[ScreenSizeKey.self] = newValue}
     }
 }
 

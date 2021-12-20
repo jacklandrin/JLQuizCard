@@ -29,6 +29,7 @@ struct CardList: View {
         UITableViewCell.appearance().backgroundColor = UIColor(named: "Bg3")!
         UITableView.appearance().backgroundColor = UIColor(named: "Bg3")!
         UITextField.appearance().backgroundColor = UIColor(named: "Bg3")!
+        
     }
     
     var body: some View {
@@ -124,14 +125,18 @@ struct CardList: View {
         .navigationBarTitle(Text("Card List"))
         .toolbar{
             ToolbarItem(placement:.navigationBarTrailing) {
+                HStack {
+                    Spacer()
                     Button(action:{
-                        self.isShowEditor = true
-                    }){
-                        Image("btn_add")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                    }
+                            self.isShowEditor = true
+                        }){
+                            Image("btn_add")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                        }
+                }
+                
             }
         }
         .alert(isPresented: self.$CSVFileReader.isShowAlert) {

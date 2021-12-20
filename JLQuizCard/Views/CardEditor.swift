@@ -13,6 +13,7 @@ struct CardEditor: View {
     private var isPortrait : Bool { UIDevice.current.orientation.isPortrait }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.safeAreaInsets) private var safeAreaInsets
+    @Environment(\.screenSize) private var screenSize
     @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
     var groups:FetchedResults<CardGroup>
     var isNewOne: Bool
@@ -22,7 +23,13 @@ struct CardEditor: View {
     @State var languageCode = "en-GB"
 //    @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     
-    @State var sampleCard: Card = Card(question: "", answer: "", example: "", languageCode: "", type: .showText, weight: 0)
+    @State var sampleCard: Card = Card(question: "",
+                                       answer: "",
+                                       example: "",
+                                       languageCode: "",
+                                       type: .showText,
+                                       weight: 0)
+    
     
     var finishEditCard : (Card) -> Void
     
@@ -62,7 +69,7 @@ struct CardEditor: View {
                 
             Spacer().frame(minHeight:0, maxHeight:UIDevice.current.orientation.isPortrait ? 204 : 144)
         }
-        .padding(10.0)
+        .padding(.horizontal, 10.0)
         .background(Color("Bg3"))
         .navigationTitle("Card Editor")
         .toolbar{
@@ -153,27 +160,28 @@ struct CardEditor: View {
                         
                     }
                 } else {
+            
                     HStack {
                         Text("Language code")
                             .foregroundColor(.black)
                         Spacer()
-                        Picker("", selection:$sampleCard.languageCode) {
+                        Picker(sampleCard.languageCode.isEmpty ? languages().first! : sampleCard.languageCode, selection:$sampleCard.languageCode) {
                             ForEach(languages(), id:\.self) {
                                 Text($0)
                                     .foregroundColor(.black)
                             }
-                        }
+                        }.pickerStyle(.menu)
                     }
                     HStack {
                         Text("Group")
                             .foregroundColor(.black)
                         Spacer()
-                        Picker("", selection:$sampleCard.group) {
+                        Picker(sampleCard.group.isEmpty ? groups.first!.groupname! : sampleCard.group, selection:$sampleCard.group) {
                             ForEach(groups.map{($0.groupname ?? "")}, id:\.self) {
                                 Text($0)
                                     .foregroundColor(.black)
                             }
-                        }.foregroundColor(.black)
+                        }.pickerStyle(.menu)
                     }
                     
                 }

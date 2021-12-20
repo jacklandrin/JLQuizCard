@@ -19,7 +19,9 @@ struct WallpaperGuideView: View {
     
     var body: some View {
         VStack {
+
             Spacer().frame(height: 34)
+
             Text("Set lock screen Quiz Card")
                 .foregroundColor(Color(UIColor.darkGray))
                 .muyaoFont(size: 26)

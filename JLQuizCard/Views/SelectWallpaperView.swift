@@ -25,6 +25,11 @@ struct SelectWallpaperView: View {
             EmptyView()
         }
         VStack {
+            if #available(iOS 15, *) {
+                Spacer().frame(height: 0)
+            } else {
+                Spacer().frame(height: 64 + safeAreaInsets.top)
+            }
             Button(action: {
                 wallpaperGuideActive = true
             }, label: {
