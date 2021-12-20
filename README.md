@@ -20,6 +20,6 @@ Now, you can import batch card from CSV file (The head is **question, answer, ex
 
 The git address is <https://github.com/jacklandrin/JLQuizCard>
 ## Requirement
-* iOS 15 *
+* iOS 14 *
 * Swift 5.5
 * Xcode 13
