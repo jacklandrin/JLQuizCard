@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/UI-SwiftUI-blue) ![](https://img.shields.io/badge/License-MIT-orange)  ![](https://img.shields.io/badge/Automation-Shortcuts-purple)
 # JLQuizCard
 ![](http://www.jacklandrin.com/wp-content/uploads/2021/12/quiz_card_180.png)
 ## What is JLQuizCard?
