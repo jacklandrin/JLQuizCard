@@ -21,7 +21,6 @@ struct CardEditor: View {
     @State var isMakingNewCard = false
     @State var isShowAlert: Bool = false
     @State var languageCode = "en-GB"
-//    @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     
     @State var sampleCard: Card = Card(question: "",
                                        answer: "",
@@ -59,19 +58,30 @@ struct CardEditor: View {
         
         VStack {
             Spacer().frame(height: safeAreaInsets.top + 44)
-            inputView
             
-            QuizCard(onDragOut: {_ in}, sequence: 1)
-                .environmentObject(sampleCard)
-                .frame(height:200)
-                .padding(.top, -100)
-                .padding(.horizontal,10)
-                
-            Spacer().frame(minHeight:0, maxHeight:UIDevice.current.orientation.isPortrait ? 204 : 144)
+            ZStack {
+                VStack {
+                    inputView
+                    Spacer()
+                }
+               
+                VStack {
+                    Spacer().frame(height:screenSize.height / 2 - 130)
+                    QuizCard(onDragOut: {_ in}, sequence: 1)
+                        .environmentObject(sampleCard)
+                        .frame(height:200)
+                        .padding(.horizontal,10)
+                    Spacer().frame(minHeight:0, maxHeight:UIDevice.current.orientation.isPortrait ? 224 : 144)
+                }
+               
+            }.edgesIgnoringSafeArea(.bottom)
+            
+            Spacer()
         }
         .padding(.horizontal, 10.0)
         .background(Color("Bg3"))
         .navigationTitle("Card Editor")
+        .ignoresSafeArea()
         .toolbar{
             ToolbarItem(placement:.navigationBarTrailing) {
                 Button(action: {
@@ -187,7 +197,7 @@ struct CardEditor: View {
                 }
                 Spacer()
             }.padding(.horizontal, 20)
-        }
+        }.frame(height:screenSize.height / 2)
     }
     
     

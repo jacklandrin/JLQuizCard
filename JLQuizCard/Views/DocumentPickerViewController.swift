@@ -15,9 +15,9 @@ class DocumentPickerViewController: UIDocumentPickerViewController {
     init(supportedTypes: [String], onPick: @escaping (URL) -> Void, onDismiss: @escaping () -> Void) {
         self.onDismiss = onDismiss
         self.onPick = onPick
-
+        
         super.init(documentTypes: supportedTypes, in: .open)
-
+        
         allowsMultipleSelection = false
         delegate = self
         
