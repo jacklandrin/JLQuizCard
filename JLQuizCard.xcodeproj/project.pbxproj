@@ -800,6 +800,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JLQuizCard/QuizCardDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"JLQuizCard/Preview Content\"";
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
@@ -810,7 +811,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
@@ -825,6 +826,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JLQuizCard/JLQuizCard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"JLQuizCard/Preview Content\"";
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
@@ -835,7 +837,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;

@@ -13,7 +13,7 @@ struct CardPile: View {
     @State var currentIndex = 0
     @State var isAnimation:Bool = false
     @State var isShowSetting = false
-    
+    private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Environment(\.screenSize) private var screenSize
@@ -60,6 +60,7 @@ struct CardPile: View {
                     groupButton
                     
                     piles
+                        .offset(y:idiom == .pad && currentScreenSize.height > 800 ? currentScreenSize.height * 0.1 : 0)
                     
                     Spacer()
                     buttons

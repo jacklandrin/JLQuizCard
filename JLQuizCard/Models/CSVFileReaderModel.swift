@@ -32,7 +32,7 @@ class CSVFileReaderModel: ObservableObject {
                 let card = Card(question: item.question,
                                 answer: item.answer,
                                 example: item.example,
-                                languageCode: "de",
+                                languageCode: "en",
                                 type: .showText,
                                 group:item.group)
                 importingCards.append(card)

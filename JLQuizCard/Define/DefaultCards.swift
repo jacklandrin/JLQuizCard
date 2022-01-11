@@ -17,8 +17,8 @@ struct CardData: Decodable {
 
 let defaultCardPile:[CardData] = [
     CardData(question: "This is an English question.", answer: "Answer",example:"example", group: "My Group"),
-    CardData(question: "What's your problem?", answer: "Answer",example:"example", group: "My Group"),
+    CardData(question: "What's your question?", answer: "Answer",example:"example", group: "My Group"),
     CardData(question: "Repeat,repeat,repeat!", answer: "Answer",example:"example", group: "My Group"),
     CardData(question: "Come on! Try it again!", answer: "Answer",example:"example", group: "My Group"),
-    CardData(question: "Hello, world!", answer: "Answer",example:"", group: "My Group"),
+    CardData(question: "Hello, world!", answer: "Answer",example:"Hello, WallCard", group: "My Group"),
 ]
