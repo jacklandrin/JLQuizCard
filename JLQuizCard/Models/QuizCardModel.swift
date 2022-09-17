@@ -25,9 +25,9 @@ class Card : ObservableObject,Identifiable  {
     @Published var question: String = ""
     @Published var answer: String = ""
     @Published var example: String = ""
-    @Published var languageCode: String = ""
+    @Published var languageCode: String = "en-GB"
     @Published var type: CardType = .showText
-    @Published var group: String = ""
+    @Published var group: String = "default"
     var weight: Int = 0
     @Published var isTextMode = true
     {

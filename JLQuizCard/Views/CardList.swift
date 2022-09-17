@@ -122,7 +122,10 @@ struct CardList: View {
         .navigationBarTitle(Text("Card List"))
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.viewModel.groups = CardGroup.fetchResult
+                if self.viewModel.groups.isEmpty {
+                    self.viewModel.groups = CardGroup.fetchResult
+                }
+                
                 for index in viewModel.groups.indices {
                     let _ = viewModel.groups[index].cardArray.map{print("appear group:\(viewModel.groups[index].wrappedName) card:\($0.question!)")}
                 }
@@ -190,6 +193,7 @@ struct CardList: View {
                         }
                     }
                     url.stopAccessingSecurityScopedResource()
+                    self.viewModel.groups = CardGroup.fetchResult
                     print("if show alert \(CSVFileReader.isShowAlert)")
                 }
             },

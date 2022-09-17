@@ -45,6 +45,7 @@
 		0444E448276AA8350086A644 /* WallpaperGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E414276A94AB0086A644 /* WallpaperGenerator.swift */; };
 		0444E449276AA83B0086A644 /* CardInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */; };
 		0444E44A276AA83E0086A644 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E426276AA2B00086A644 /* PersistenceController.swift */; };
+		044BE6A028D66DD900A4F3BE /* LanguageCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044BE69F28D66DD900A4F3BE /* LanguageCodes.swift */; };
 		04AA63D2276CDE1F00ED5DEA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D1276CDE1F00ED5DEA /* SettingView.swift */; };
 		04AA63D4276CE64400ED5DEA /* SettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D3276CE64400ED5DEA /* SettingVM.swift */; };
 		04AA63D6276CECCA00ED5DEA /* WallpaperGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */; };
@@ -146,6 +147,7 @@
 		0444E43A276AA7B80086A644 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		0444E43C276AA7B80086A644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0444E444276AA7F90086A644 /* QZWallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QZWallpaper.entitlements; sourceTree = "<group>"; };
+		044BE69F28D66DD900A4F3BE /* LanguageCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCodes.swift; sourceTree = "<group>"; };
 		04AA63D1276CDE1F00ED5DEA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		04AA63D3276CE64400ED5DEA /* SettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVM.swift; sourceTree = "<group>"; };
 		04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperGuideView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */,
 				04FA0EB5276F9C8000FC6FC5 /* CardType.swift */,
 				04FA0EB7276F9C9A00FC6FC5 /* UserdefaultKeys.swift */,
+				044BE69F28D66DD900A4F3BE /* LanguageCodes.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				0444E40A276A5CB00086A644 /* UIImage++.swift in Sources */,
 				04AA63E1276E305300ED5DEA /* BackgroundView.swift in Sources */,
 				04AA63E3276E331C00ED5DEA /* SelectGroupView.swift in Sources */,
+				044BE6A028D66DD900A4F3BE /* LanguageCodes.swift in Sources */,
 				040C6EA3276AC02B00291DEB /* CGPoint+Extensions.swift in Sources */,
 				CC3E08A7260028E000381C79 /* ViewToolkit.swift in Sources */,
 				CC173FE52439C43C00ECF53C /* CardPile.swift in Sources */,

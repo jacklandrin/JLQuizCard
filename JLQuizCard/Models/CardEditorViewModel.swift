@@ -17,7 +17,7 @@ final class CardEditorViewModel:ObservableObject {
     @Published var sampleCard: Card = Card(question: "",
                                        answer: "",
                                        example: "",
-                                       languageCode: "",
+                                       languageCode: "en-GB",
                                        type: .showText,
                                        weight: 0)
     @Published var groups:[CardGroup] = [CardGroup]()

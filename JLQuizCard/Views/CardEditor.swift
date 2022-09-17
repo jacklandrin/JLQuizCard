@@ -193,18 +193,7 @@ struct CardEditor: View {
     
     
     func languages() -> [String] {
-        var lang = [String]()
-        if !Locale.preferredLanguages.contains("en-GB") {
-            lang.append("en-GB")
-        }
-        if !Locale.preferredLanguages.contains("de") {
-            lang.append("de")
-        }
-        if !Locale.preferredLanguages.contains("zh-Hans-CN") {
-            lang.append("zh-Hans-CN")
-        }
-        lang += Locale.preferredLanguages
-        return lang
+        return languageCodes
     }
     
     func makeNewCard() {
