@@ -14,12 +14,8 @@ struct GroupEditor: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @EnvironmentObject var cardPile:CardPileViewModel
-    @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
-    var groups:FetchedResults<CardGroup>
-    @State var newGroupName:String = ""
-    @State var isShowAlert = false
-    @State var alertContent = ""
-
+    @StateObject var viewModel = GroupEditorViewModel()
+    
     init() {
         UITableViewCell.appearance().backgroundColor = UIColor(named: "Bg3")!
         UITableView.appearance().backgroundColor = UIColor(named: "Bg3")!
@@ -30,14 +26,14 @@ struct GroupEditor: View {
             Spacer().frame(height:20)
             HStack{
                 Spacer()
-                TextField("", text: $newGroupName)
+                TextField("", text: $viewModel.newGroupName)
                     .foregroundColor(.black)
                     .frame(height:44)
-                    .placeholder("group name", when: newGroupName.isEmpty)
+                    .placeholder("group name", when: viewModel.newGroupName.isEmpty)
                     .padding(.horizontal, 10)
                     .overlay(RoundedRectangle(cornerRadius: 24)
-                                .stroke(Color(UIColor.darkGray).opacity(0.9),
-                                        style: StrokeStyle(lineWidth: 4, dash: [10])))
+                        .stroke(Color(UIColor.darkGray).opacity(0.9),
+                                style: StrokeStyle(lineWidth: 4, dash: [10])))
                 
                 Button(action: addGroup) {
                     Text("Add")
@@ -51,30 +47,34 @@ struct GroupEditor: View {
                 .padding(.horizontal, 20)
             
             List {
-                ForEach(groups.indices, id:\.self) { index in
-                    Text(groups[index].groupname ?? "")
+                ForEach(viewModel.groups.indices, id:\.self) { index in
+                    Text(viewModel.groups[index].groupname ?? "")
                         .foregroundColor(.black)
                 }.onDelete(perform: delete)
                     .listRowBackground(Color("Bg3"))
-            }.defaultListStyle()
-            .overlay(RoundedRectangle(cornerRadius: 24)
-                        .stroke(Color(UIColor.darkGray).opacity(0.9),
-                                style: StrokeStyle(lineWidth: 4, dash: [10])))
-            .padding(.horizontal, 20)
-            .padding(.bottom, safeAreaInsets.bottom)
+            }.listBackgroundHidden()
+                .defaultListStyle()
+                .overlay(RoundedRectangle(cornerRadius: 24)
+                    .stroke(Color(UIColor.darkGray).opacity(0.9),
+                            style: StrokeStyle(lineWidth: 4, dash: [10])))
+                .padding(.horizontal, 20)
+                .padding(.bottom, safeAreaInsets.bottom)
         }
         .background(Color("Bg3"))
         .ignoresSafeArea()
-        .alert(isPresented: self.$isShowAlert) {
+        .onAppear{
+            self.viewModel.setupGroups()
+        }
+        .alert(isPresented: self.$viewModel.isShowAlert) {
             Alert(title: Text("Warning"),
-                  message: Text(alertContent),
+                  message: Text(viewModel.alertContent),
                   dismissButton: .default(Text("Got it!")))
-            }
+        }
     }
     
     func delete(at offset:IndexSet) {
         offset.forEach{ index in
-            let group = self.groups[index]
+            let group = self.viewModel.groups[index]
             for card in group.cardArray {
                 self.managedObjectContext.delete(card)
             }
@@ -84,21 +84,21 @@ struct GroupEditor: View {
     }
     
     func addGroup() {
-        guard newGroupName != "" else {
-            self.isShowAlert = true
-            self.alertContent = "Write something"
+        guard viewModel.newGroupName != "" else {
+            self.viewModel.isShowAlert = true
+            self.viewModel.alertContent = "Write something"
             return
         }
-        newGroupName = newGroupName.trimmingCharacters(in: .whitespacesAndNewlines)
+        viewModel.newGroupName = viewModel.newGroupName.trimmingCharacters(in: .whitespacesAndNewlines)
         let request: NSFetchRequest<CardGroup> = CardGroup.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \CardGroup.groupname, ascending: true)]
-        request.predicate = NSPredicate(format: "groupname = %@", newGroupName)
+        request.predicate = NSPredicate(format: "groupname = %@", viewModel.newGroupName)
         do {
             let fetchResults = try managedObjectContext.fetch(request)
             if  fetchResults.count > 0 {
-                self.isShowAlert = true
-                self.alertContent = "The group name is repeated"
-                newGroupName = ""
+                self.viewModel.isShowAlert = true
+                self.viewModel.alertContent = "The group name is repeated"
+                viewModel.newGroupName = ""
                 return
             }
         } catch {
@@ -107,19 +107,20 @@ struct GroupEditor: View {
         
         withAnimation{
             let newGroup = CardGroup(context: managedObjectContext)
-            newGroup.groupname = newGroupName
+            newGroup.groupname = viewModel.newGroupName
             saveContext()
-            newGroupName = ""
+            viewModel.newGroupName = ""
+            self.viewModel.groups = CardGroup.fetchResult
         }
         
     }
     
     func saveContext() {
-      do {
-        try managedObjectContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error saving managed object context: \(error)")
+        }
     }
 }
 

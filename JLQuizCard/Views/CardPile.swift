@@ -77,18 +77,15 @@ struct CardPile: View {
             .navigationTitle(Text("QuizCard"))
             .toolbar{
                 ToolbarItem(placement:.navigationBarTrailing) {
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            isShowSetting = true
-                        }, label: {
-                            Image("setting")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 44, height: 44)
-                        })
-                    }
-                    
+                   
+                    Button(action: {
+                        isShowSetting = true
+                    }, label: {
+                        Image("setting")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 44, height: 44)
+                    }).traillingToolbar()
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())

@@ -32,7 +32,7 @@ class CSVFileReaderModel: ObservableObject {
                 let card = Card(question: item.question,
                                 answer: item.answer,
                                 example: item.example,
-                                languageCode: "en",
+                                languageCode: checkLanguageCode(code: item.langcode) ? item.langcode! : "en",
                                 type: .showText,
                                 group:item.group)
                 importingCards.append(card)
@@ -43,7 +43,13 @@ class CSVFileReaderModel: ObservableObject {
             errorMessage = nserror.description
             isShowAlert = true
         }
-        
+    }
+    
+    private func checkLanguageCode(code:String?) -> Bool {
+        if let code = code, NSLocale.availableLocaleIdentifiers.contains(code) {
+            return true
+        }
+        return false
     }
     
 }

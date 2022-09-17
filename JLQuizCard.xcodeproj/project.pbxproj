@@ -53,7 +53,11 @@
 		04AA63DF276E1EA000ED5DEA /* Muyao-Softbrush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04AA63DE276E1EA000ED5DEA /* Muyao-Softbrush.ttf */; };
 		04AA63E1276E305300ED5DEA /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63E0276E305300ED5DEA /* BackgroundView.swift */; };
 		04AA63E3276E331C00ED5DEA /* SelectGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63E2276E331C00ED5DEA /* SelectGroupView.swift */; };
+		04B4BD6028D4BA0A0035BD47 /* CardEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4BD5F28D4BA0A0035BD47 /* CardEditorViewModel.swift */; };
+		04B4BD6228D6112A0035BD47 /* CardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4BD6128D6112A0035BD47 /* CardListViewModel.swift */; };
+		04B4BD6428D64B380035BD47 /* GroupEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4BD6328D64B380035BD47 /* GroupEditorViewModel.swift */; };
 		04B67EF7276E94F0003EC6F7 /* SelectWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B67EF6276E94F0003EC6F7 /* SelectWallpaperView.swift */; };
+		04E852E628D23A2900676BA0 /* TrailingToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E852E528D23A2900676BA0 /* TrailingToolbar.swift */; };
 		04FA0EB3276F974800FC6FC5 /* DefaultCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */; };
 		04FA0EB4276F975600FC6FC5 /* DefaultCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */; };
 		04FA0EB6276F9C8000FC6FC5 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA0EB5276F9C8000FC6FC5 /* CardType.swift */; };
@@ -150,7 +154,11 @@
 		04AA63DE276E1EA000ED5DEA /* Muyao-Softbrush.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muyao-Softbrush.ttf"; sourceTree = "<group>"; };
 		04AA63E0276E305300ED5DEA /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		04AA63E2276E331C00ED5DEA /* SelectGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupView.swift; sourceTree = "<group>"; };
+		04B4BD5F28D4BA0A0035BD47 /* CardEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditorViewModel.swift; sourceTree = "<group>"; };
+		04B4BD6128D6112A0035BD47 /* CardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModel.swift; sourceTree = "<group>"; };
+		04B4BD6328D64B380035BD47 /* GroupEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditorViewModel.swift; sourceTree = "<group>"; };
 		04B67EF6276E94F0003EC6F7 /* SelectWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpaperView.swift; sourceTree = "<group>"; };
+		04E852E528D23A2900676BA0 /* TrailingToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingToolbar.swift; sourceTree = "<group>"; };
 		04FA0EB2276F974800FC6FC5 /* DefaultCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCards.swift; sourceTree = "<group>"; };
 		04FA0EB5276F9C8000FC6FC5 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		04FA0EB7276F9C9A00FC6FC5 /* UserdefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultKeys.swift; sourceTree = "<group>"; };
@@ -278,6 +286,14 @@
 			path = YaoRuanBiShouXieTi;
 			sourceTree = "<group>";
 		};
+		04E852E428D239F900676BA0 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				04E852E528D23A2900676BA0 /* TrailingToolbar.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		04FA0EB1276F971B00FC6FC5 /* Define */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +345,7 @@
 				CC173FDA2439BD4E00ECF53C /* Views */,
 				CC173FD72439B23600ECF53C /* Models */,
 				0444E407276A5C5A0086A644 /* Utilities */,
+				04E852E428D239F900676BA0 /* Modifiers */,
 				0444E408276A5C7A0086A644 /* Extension */,
 				04AA63D7276D3FC500ED5DEA /* EnvironmentValues */,
 				04FA0EB1276F971B00FC6FC5 /* Define */,
@@ -361,6 +378,9 @@
 				CC4D48F826065C0900C6CAAE /* CSVFileReaderModel.swift */,
 				CC6631592613421A00E52BC1 /* KeyboardHeightHelper.swift */,
 				04AA63D3276CE64400ED5DEA /* SettingVM.swift */,
+				04B4BD5F28D4BA0A0035BD47 /* CardEditorViewModel.swift */,
+				04B4BD6128D6112A0035BD47 /* CardListViewModel.swift */,
+				04B4BD6328D64B380035BD47 /* GroupEditorViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,9 +567,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B4BD6228D6112A0035BD47 /* CardListViewModel.swift in Sources */,
 				04AA63D6276CECCA00ED5DEA /* WallpaperGuideView.swift in Sources */,
 				CC663133260FE41200E52BC1 /* GroupEditor.swift in Sources */,
 				040C6EA8276ACCB300291DEB /* TTSManager.swift in Sources */,
+				04B4BD6428D64B380035BD47 /* GroupEditorViewModel.swift in Sources */,
 				CC173FA82439AEC300ECF53C /* AppDelegate.swift in Sources */,
 				04FA0EC3276FD97C00FC6FC5 /* FirstLoveConfiguration.swift in Sources */,
 				CC414CD0243AF5FF00F78AD4 /* CardList.swift in Sources */,
@@ -561,6 +583,7 @@
 				04B67EF7276E94F0003EC6F7 /* SelectWallpaperView.swift in Sources */,
 				040C6E8C276AB3DA00291DEB /* String++.swift in Sources */,
 				CC173FD92439B25D00ECF53C /* QuizCardModel.swift in Sources */,
+				04B4BD6028D4BA0A0035BD47 /* CardEditorViewModel.swift in Sources */,
 				04AA63D2276CDE1F00ED5DEA /* SettingView.swift in Sources */,
 				040C6E97276AC02B00291DEB /* LineBreaker.swift in Sources */,
 				0444E415276A94AB0086A644 /* WallpaperGenerator.swift in Sources */,
@@ -576,6 +599,7 @@
 				04FA0EC0276FD35D00FC6FC5 /* SpringConfiguration.swift in Sources */,
 				0444E40F276A5D690086A644 /* URL++.swift in Sources */,
 				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
+				04E852E628D23A2900676BA0 /* TrailingToolbar.swift in Sources */,
 				040C6E9B276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */,
 				CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */,
 				040C6EA5276AC02B00291DEB /* String+LineBreaks.swift in Sources */,
@@ -805,7 +829,7 @@
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JLQuizCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -831,7 +855,7 @@
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JLQuizCard/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

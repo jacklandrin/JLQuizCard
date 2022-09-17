@@ -199,6 +199,16 @@ extension View {
     }
 }
 
+extension View {
+    @ViewBuilder
+    func listBackgroundHidden() -> some View {
+        if #available(iOS 16, *) {
+            self.scrollContentBackground(Visibility.hidden)
+        }
+    }
+}
+
+
 // MARK: - for keyboard botton ignored area
 @available(iOS 14, *)
 struct keyboardBottonIgnore:ViewModifier {

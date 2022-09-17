@@ -11,7 +11,7 @@ import SwiftUI
 struct SettingView: View {
     @Environment(\.screenSize) private var screenSize
     @EnvironmentObject var cardPileModel:CardPileViewModel
-    @ObservedObject var settingVM = SettingVM()
+    @StateObject var settingVM = SettingVM()
     
     
     var body: some View {

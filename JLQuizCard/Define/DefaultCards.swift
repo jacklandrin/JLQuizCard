@@ -13,6 +13,7 @@ struct CardData: Decodable {
     var answer: String
     var example: String
     var group: String
+    var langcode: String?
 }
 
 let defaultCardPile:[CardData] = [

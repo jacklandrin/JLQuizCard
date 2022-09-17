@@ -15,15 +15,7 @@ struct CardList: View {
     @EnvironmentObject var cardPile:CardPileViewModel
     @ObservedObject var CSVFileReader:CSVFileReaderModel = CSVFileReaderModel()
     @Environment(\.safeAreaInsets) private var safeAreaInsets
-    @FetchRequest(fetchRequest: CardGroup.defaultFetchRequest)
-    var groups:FetchedResults<CardGroup>
-    
-    
-    @State var isShowEditor = false
-    @State var isDocumentPickerPresented = false
-    @State var showEditGroup = false
-    @State var searchText = ""
-    @State var showSearchbar = true
+    @StateObject var viewModel = CardListViewModel()
     
     init() {
         UITableViewCell.appearance().backgroundColor = UIColor(named: "Bg3")!
@@ -42,15 +34,15 @@ struct CardList: View {
                                                    finishEditCard: { c in
                  self.addCard(card: c)
             }).ignoresSafeArea(),
-                           isActive: $isShowEditor) {
+                           isActive: self.$viewModel.isShowEditor) {
                 EmptyView()
             }
             ZStack {
-                TextField("", text: $searchText.animation())
+                TextField("", text: $viewModel.searchText.animation())
                     .foregroundColor(.black)
                     .frame(height:44)
-                    .frame(height:showSearchbar ? 44 : 0)
-                    .placeholder("  Search", when: searchText.isEmpty)
+                    .frame(height:viewModel.showSearchbar ? 44 : 0)
+                    .placeholder("  Search", when: viewModel.searchText.isEmpty)
                     .padding(.horizontal, 15)
                     .overlay(RoundedRectangle(cornerRadius: 24)
                                 .stroke(Color(UIColor.darkGray).opacity(0.9),
@@ -58,9 +50,9 @@ struct CardList: View {
                     
                 HStack {
                     Spacer()
-                    if searchText != "" {
+                    if viewModel.searchText != "" {
                         Button(action: {
-                            searchText = ""
+                            viewModel.searchText = ""
                         }) {
                             Image(systemName: "xmark.circle.fill")
                         }.padding(10)
@@ -69,74 +61,84 @@ struct CardList: View {
                     }
                 }
             }
-            .hidden(!showSearchbar)
+            .hidden(!viewModel.showSearchbar)
             .padding(.horizontal,10)
             
-            List {
-                if searchText == "" {
-                    ForEach(groups.indices, id:\.self) { section in
-                        Section(header: Text(groups[section].wrappedName).foregroundColor(.black)) {
-                            ForEach(groups[section].cardArray.indices, id:\.self) { i in
-                                NavigationLink(destination: CardEditor(isNewOne: false, card: groups[section].cardArray[i], finishEditCard: { c in
-                                        withAnimation{
-                                            self.modifyCard(card: c, index: i, in: section)
+            if viewModel.groups.isEmpty {
+                VStack {
+                    ProgressView().progressViewStyle(.circular)
+                    Spacer()
+                }
+            } else {
+                List {
+                    if viewModel.searchText == "" {
+                        ForEach(viewModel.groups.indices, id:\.self) { section in
+                            Section(header: Text(viewModel.groups[section].wrappedName).foregroundColor(.black)) {
+                                ForEach(viewModel.groups[section].cardArray.indices, id:\.self) { i in
+                                    NavigationLink(destination: CardEditor(isNewOne: false, card:viewModel.groups[section].cardArray[i], finishEditCard: { c in
+                                            withAnimation{
+                                                self.modifyCard(card: c, index: i, in: section)
+                                            }
+                                    }).ignoresSafeArea()
+                                    ){
+                                        HStack{
+                                            Text(cellText(card: viewModel.groups[section].cardArray[i]))
+                                                .foregroundColor(.black)
+                                            Spacer()
+                                            Text(String(viewModel.groups[section].cardArray[i].weight))
+                                                .foregroundColor(.black)
                                         }
-                                }).ignoresSafeArea()
-                                ){
-                                    HStack{
-                                        Text(cellText(card: groups[section].cardArray[i]))
-                                            .foregroundColor(.black)
-                                        Spacer()
-                                        Text(String(groups[section].cardArray[i].weight))
-                                            .foregroundColor(.black)
                                     }
-                                }
-                                .buttonStyle(PlainButtonStyle())
-                            }.onDelete{delete(at: $0, in: section)}
-                        }
-                    }.listRowBackground(Color("Bg3"))
-                } else {
-                    ForEach(searchedCards.indices,id:\.self) { index in
-                        NavigationLink(destination: CardEditor(isNewOne: false, card: searchedCards[index], finishEditCard: { c in
-                                withAnimation{
-                                    self.modifyCard(card: c, index: index, in: -1)
-                                }
-                        }).ignoresSafeArea()
-                        ){
-                            HStack{
-                                Text(cellText(card: searchedCards[index]))
-                                    .foregroundColor(.black)
-                                Spacer()
-                                Text(String(searchedCards[index].weight))
-                                    .foregroundColor(.black)
+                                    .buttonStyle(PlainButtonStyle())
+                                }.onDelete{delete(at: $0, in: section)}
                             }
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }.listRowBackground(Color("Bg3"))
-                }
-            }.defaultListStyle()
-            .onAppear{
-                for index in groups.indices {
-                   let _ = groups[index].cardArray.map{print("appear group:\(groups[index].wrappedName) card:\($0.question!)")}
-                }
+                        }.listRowBackground(Color("Bg3"))
+                    } else {
+                        ForEach(searchedCards.indices,id:\.self) { index in
+                            NavigationLink(destination: CardEditor(isNewOne: false, card: searchedCards[index], finishEditCard: { c in
+                                    withAnimation{
+                                        self.modifyCard(card: c, index: index, in: -1)
+                                    }
+                            }).ignoresSafeArea()
+                            ){
+                                HStack{
+                                    Text(cellText(card: searchedCards[index]))
+                                        .foregroundColor(.black)
+                                    Spacer()
+                                    Text(String(searchedCards[index].weight))
+                                        .foregroundColor(.black)
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }.listRowBackground(Color("Bg3"))
+                    }
+                }.listBackgroundHidden()
+                .defaultListStyle()
+                    .background(Color("Bg3"))
+                
             }
         }
         .background(Color("Bg3"))
         .navigationBarTitle(Text("Card List"))
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.viewModel.groups = CardGroup.fetchResult
+                for index in viewModel.groups.indices {
+                    let _ = viewModel.groups[index].cardArray.map{print("appear group:\(viewModel.groups[index].wrappedName) card:\($0.question!)")}
+                }
+            }
+        }
         .toolbar{
             ToolbarItem(placement:.navigationBarTrailing) {
-                HStack {
-                    Spacer()
-                    Button(action:{
-                            self.isShowEditor = true
-                        }){
-                            Image("btn_add")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 40, height: 40)
-                        }
-                }
-                
+               
+            Button(action:{
+                self.viewModel.isShowEditor = true
+                }){
+                    Image("btn_add")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
+                }.traillingToolbar()
             }
         }
         .alert(isPresented: self.$CSVFileReader.isShowAlert) {
@@ -158,7 +160,7 @@ struct CardList: View {
             Spacer().frame(width:20)
             
             Button(action: {
-                showEditGroup = true
+                viewModel.showEditGroup = true
             }) {
                 Text("Edit Group")
                     .muyaoFont(size: 20)
@@ -166,7 +168,7 @@ struct CardList: View {
             }
             .remenberButtonStyle(color: Color("qzcyan"))
             .frame(maxWidth:150, minHeight: 44)
-            .sheet(isPresented: $showEditGroup) {
+            .sheet(isPresented: $viewModel.showEditGroup) {
                 GroupEditor()
                     .environmentObject(cardPile)
                     .environment(\.managedObjectContext, managedObjectContext)
@@ -205,7 +207,7 @@ struct CardList: View {
     
     func delete(at offset: IndexSet, in section: Int) {
         offset.forEach{ index in
-            let card = self.groups[section].cardArray[index]
+            let card = self.viewModel.groups[section].cardArray[index]
             self.managedObjectContext.delete(card)
         }
         saveContext()
@@ -234,7 +236,7 @@ struct CardList: View {
         
         var newCard:CardInfo
         if section >= 0 {
-            newCard = groups[section].cardArray[index]
+            newCard = viewModel.groups[section].cardArray[index]
         } else {
             newCard = searchedCards[index]
         }
@@ -268,7 +270,7 @@ struct CardList: View {
     }
     
     var searchedCards:[CardInfo] {
-        CardInfo.searchedResult(question: searchText)
+        CardInfo.searchedResult(question: viewModel.searchText)
     }
 }
 
