@@ -9,12 +9,8 @@
 import Foundation
 
 final class GroupEditorViewModel:ObservableObject {
-    @Published var groups:[CardGroup] = [CardGroup]()
     @Published var newGroupName:String = ""
     @Published var isShowAlert = false
     @Published var alertContent = ""
-    
-    func setupGroups() {
-        groups = CardGroup.fetchResult
-    }
+
 }

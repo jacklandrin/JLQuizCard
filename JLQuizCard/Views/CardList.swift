@@ -169,7 +169,7 @@ struct CardList: View {
             .remenberButtonStyle(color: Color("qzcyan"))
             .frame(maxWidth:150, minHeight: 44)
             .sheet(isPresented: $viewModel.showEditGroup) {
-                GroupEditor()
+                GroupEditor(groups: $viewModel.groups)
                     .environmentObject(cardPile)
                     .environment(\.managedObjectContext, managedObjectContext)
                     .ignoresSafeArea()

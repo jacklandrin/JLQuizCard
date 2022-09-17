@@ -15,10 +15,12 @@ struct GroupEditor: View {
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @EnvironmentObject var cardPile:CardPileViewModel
     @StateObject var viewModel = GroupEditorViewModel()
+    @Binding var groups:[CardGroup]
     
-    init() {
+    init(groups:Binding<[CardGroup]>) {
         UITableViewCell.appearance().backgroundColor = UIColor(named: "Bg3")!
         UITableView.appearance().backgroundColor = UIColor(named: "Bg3")!
+        self._groups = groups
     }
     
     var body: some View {
@@ -47,8 +49,8 @@ struct GroupEditor: View {
                 .padding(.horizontal, 20)
             
             List {
-                ForEach(viewModel.groups.indices, id:\.self) { index in
-                    Text(viewModel.groups[index].groupname ?? "")
+                ForEach(groups.indices, id:\.self) { index in
+                    Text(groups[index].groupname ?? "")
                         .foregroundColor(.black)
                 }.onDelete(perform: delete)
                     .listRowBackground(Color("Bg3"))
@@ -62,9 +64,6 @@ struct GroupEditor: View {
         }
         .background(Color("Bg3"))
         .ignoresSafeArea()
-        .onAppear{
-            self.viewModel.setupGroups()
-        }
         .alert(isPresented: self.$viewModel.isShowAlert) {
             Alert(title: Text("Warning"),
                   message: Text(viewModel.alertContent),
@@ -74,12 +73,13 @@ struct GroupEditor: View {
     
     func delete(at offset:IndexSet) {
         offset.forEach{ index in
-            let group = self.viewModel.groups[index]
+            let group = self.groups[index]
             for card in group.cardArray {
                 self.managedObjectContext.delete(card)
             }
             self.managedObjectContext.delete(group)
             cardPile.currentGroupIndex = 0
+            self.refreshGroups()
         }
     }
     
@@ -110,7 +110,7 @@ struct GroupEditor: View {
             newGroup.groupname = viewModel.newGroupName
             saveContext()
             viewModel.newGroupName = ""
-            self.viewModel.groups = CardGroup.fetchResult
+            refreshGroups()
         }
         
     }
@@ -122,10 +122,14 @@ struct GroupEditor: View {
             print("Error saving managed object context: \(error)")
         }
     }
+    
+    private func refreshGroups() {
+        self.groups = CardGroup.fetchResult
+    }
 }
 
 struct GroupEditor_Previews: PreviewProvider {
     static var previews: some View {
-        GroupEditor()
+        GroupEditor(groups: .constant([CardGroup]()))
     }
 }
