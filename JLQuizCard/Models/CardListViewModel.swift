@@ -15,4 +15,5 @@ final class CardListViewModel:ObservableObject {
     @Published var showEditGroup = false
     @Published var searchText = ""
     @Published var showSearchbar = true
+    @Published var isShowImportTips = false
 }

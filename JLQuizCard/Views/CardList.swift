@@ -145,7 +145,14 @@ struct CardList: View {
             }
         }
         .alert(isPresented: self.$CSVFileReader.isShowAlert) {
-            Alert(title: Text("Error"), message: Text(self.CSVFileReader.errorMessage), dismissButton: .default(Text("Got it!")))
+            Alert(title: Text("Error"),
+                  message: Text(self.CSVFileReader.errorMessage),
+                  dismissButton: .default(Text("Got it!")))
+        }
+        .alert(isPresented: self.$viewModel.isShowImportTips) {
+            Alert(title: Text("Tips"),
+                  message: Text("The CSV file's heads are \"question, answer, example, group, langcode\""),
+                  dismissButton: .default(Text("Got it!")))
         }
     }
     
@@ -158,6 +165,20 @@ struct CardList: View {
             }
             .remenberButtonStyle(color: Color("qzcyan"))
             .frame(maxWidth:150, minHeight: 44)
+            .padding(.trailing, 0)
+            
+            VStack {
+                Button(action: {
+                    self.viewModel.isShowImportTips = true
+                }, label: {
+                    Image(systemName: "exclamationmark.circle")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                })
+                Spacer()
+            }
+            .frame(height:44)
+            .offset(x:-16)
             
             
             Spacer().frame(width:20)
