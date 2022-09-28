@@ -12,5 +12,5 @@ final class GroupEditorViewModel:ObservableObject {
     @Published var newGroupName:String = ""
     @Published var isShowAlert = false
     @Published var alertContent = ""
-
+    
 }

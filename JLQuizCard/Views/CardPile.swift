@@ -139,7 +139,7 @@ struct CardPile: View {
             })
                 .environmentObject(cardPileModel)
                 .ignoresSafeArea()
-//         Image(uiImage: WallpaperGenerator.shared.generate()!)
+
         })
     }
     
@@ -214,7 +214,7 @@ struct CardPile: View {
             return
         }
         for item in groups[cardPileModel.currentGroupIndex].cardArray {
-            let card = Card.convertCard(cardInfo: item)
+            let card = CardAdaptor.convertCard(cardInfo: item)
             self.cardPile.append(card)
         }
     }

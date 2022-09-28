@@ -53,12 +53,14 @@ class Card : ObservableObject,Identifiable  {
                      example: String,
                      languageCode: String,
                      type:CardType,
-                     weight:Int) {
+                     weight:Int,
+                     group:String) {
         self.init(question:question,
                   answer:answer,
                   example: example,
                   languageCode: languageCode,
                   type:type)
+        self.group = group
         self.weight = weight
     }
     
@@ -76,14 +78,6 @@ class Card : ObservableObject,Identifiable  {
         self.group = group
     }
     
-   static func convertCard(cardInfo:CardInfo) -> Card {
-    return Card(question: cardInfo.question!,
-                answer: cardInfo.answer!,
-                example: cardInfo.example!,
-                languageCode: cardInfo.languageCode!,
-                type: CardType(rawValue: cardInfo.type!) ?? .speech,
-                weight: Int(cardInfo.weight))
-    }
 }
 
 extension Card {

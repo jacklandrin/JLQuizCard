@@ -204,6 +204,8 @@ extension View {
     func listBackgroundHidden() -> some View {
         if #available(iOS 16, *) {
             self.scrollContentBackground(Visibility.hidden)
+        } else {
+            self
         }
     }
 }

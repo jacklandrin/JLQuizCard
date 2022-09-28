@@ -19,10 +19,10 @@ struct CardEditor: View {
    
     var finishEditCard : (Card) -> Void
     
-    init(isNewOne: Bool, card: CardInfo?, finishEditCard:@escaping (Card) -> Void) {
+    init(isNewOne: Bool, cardInfo: CardInfo?, finishEditCard:@escaping (Card) -> Void) {
         
         self.finishEditCard = finishEditCard
-        self.viewModel = CardEditorViewModel(isNewOne: isNewOne, card: card)
+        self.viewModel = CardEditorViewModel(isNewOne: isNewOne, card: cardInfo)
     }
     
     func onAppearUpdateData() {
@@ -176,7 +176,7 @@ struct CardEditor: View {
                         Spacer()
                         if !self.viewModel.sampleCard.group.isEmpty {
                             Picker(viewModel.sampleCard.group, selection:$viewModel.sampleCard.group) {
-                                ForEach(viewModel.groups.map{($0.groupname ?? "")}, id:\.self) {
+                                ForEach(viewModel.groups.map{($0.wrappedName)}, id:\.self) {
                                     Text($0)
                                         .foregroundColor(.black)
                                 }
@@ -220,6 +220,6 @@ struct CardEditor: View {
 
 struct CardEditor_Previews: PreviewProvider {
     static var previews: some View {
-        CardEditor(isNewOne: true, card: nil, finishEditCard: {_ in})
+        CardEditor(isNewOne: true, cardInfo: nil, finishEditCard: {_ in})
     }
 }

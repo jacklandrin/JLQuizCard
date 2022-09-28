@@ -19,7 +19,8 @@ final class CardEditorViewModel:ObservableObject {
                                        example: "",
                                        languageCode: "en-GB",
                                        type: .showText,
-                                       weight: 0)
+                                       weight: 0,
+                                       group:"default")
     @Published var groups:[CardGroup] = [CardGroup]()
     
     var isNewOne: Bool

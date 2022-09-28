@@ -46,6 +46,8 @@
 		0444E449276AA83B0086A644 /* CardInfoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC3E08C4260110C200381C79 /* CardInfoModel.xcdatamodeld */; };
 		0444E44A276AA83E0086A644 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E426276AA2B00086A644 /* PersistenceController.swift */; };
 		044BE6A028D66DD900A4F3BE /* LanguageCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044BE69F28D66DD900A4F3BE /* LanguageCodes.swift */; };
+		048D107028DE25BC00D3BE39 /* CardAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D106F28DE25BC00D3BE39 /* CardAdaptor.swift */; };
+		048D107228DE273B00D3BE39 /* QuizCardGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D107128DE273B00D3BE39 /* QuizCardGroup.swift */; };
 		04AA63D2276CDE1F00ED5DEA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D1276CDE1F00ED5DEA /* SettingView.swift */; };
 		04AA63D4276CE64400ED5DEA /* SettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D3276CE64400ED5DEA /* SettingVM.swift */; };
 		04AA63D6276CECCA00ED5DEA /* WallpaperGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */; };
@@ -148,6 +150,8 @@
 		0444E43C276AA7B80086A644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0444E444276AA7F90086A644 /* QZWallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QZWallpaper.entitlements; sourceTree = "<group>"; };
 		044BE69F28D66DD900A4F3BE /* LanguageCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCodes.swift; sourceTree = "<group>"; };
+		048D106F28DE25BC00D3BE39 /* CardAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAdaptor.swift; sourceTree = "<group>"; };
+		048D107128DE273B00D3BE39 /* QuizCardGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardGroup.swift; sourceTree = "<group>"; };
 		04AA63D1276CDE1F00ED5DEA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		04AA63D3276CE64400ED5DEA /* SettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVM.swift; sourceTree = "<group>"; };
 		04AA63D5276CECCA00ED5DEA /* WallpaperGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperGuideView.swift; sourceTree = "<group>"; };
@@ -263,6 +267,23 @@
 			path = QZWallpaper;
 			sourceTree = "<group>";
 		};
+		048D106E28DE257200D3BE39 /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				048D106F28DE25BC00D3BE39 /* CardAdaptor.swift */,
+			);
+			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		048D107328E0D29F00D3BE39 /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				CC414CCF243AF5FF00F78AD4 /* CardList.swift */,
+				04B4BD6128D6112A0035BD47 /* CardListViewModel.swift */,
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
 		04AA63D7276D3FC500ED5DEA /* EnvironmentValues */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +368,7 @@
 				04AA63DC276E1E9500ED5DEA /* Resource */,
 				CC173FDA2439BD4E00ECF53C /* Views */,
 				CC173FD72439B23600ECF53C /* Models */,
+				048D106E28DE257200D3BE39 /* Adaptor */,
 				0444E407276A5C5A0086A644 /* Utilities */,
 				04E852E428D239F900676BA0 /* Modifiers */,
 				0444E408276A5C7A0086A644 /* Extension */,
@@ -382,8 +404,8 @@
 				CC6631592613421A00E52BC1 /* KeyboardHeightHelper.swift */,
 				04AA63D3276CE64400ED5DEA /* SettingVM.swift */,
 				04B4BD5F28D4BA0A0035BD47 /* CardEditorViewModel.swift */,
-				04B4BD6128D6112A0035BD47 /* CardListViewModel.swift */,
 				04B4BD6328D64B380035BD47 /* GroupEditorViewModel.swift */,
+				048D107128DE273B00D3BE39 /* QuizCardGroup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,8 +416,8 @@
 				CC173FE42439C43C00ECF53C /* CardPile.swift */,
 				CC173FDB2439BD5B00ECF53C /* Containers */,
 				CC173FDC2439BEEC00ECF53C /* QuizCard.swift */,
-				CC414CCF243AF5FF00F78AD4 /* CardList.swift */,
 				CC414CD3243B148E00F78AD4 /* CardEditor.swift */,
+				048D107328E0D29F00D3BE39 /* CardList */,
 				CC3E08A6260028E000381C79 /* ViewToolkit.swift */,
 				CCF05CFC26064E8500933A06 /* DocumentPickerViewController.swift */,
 				CC663132260FE41200E52BC1 /* GroupEditor.swift */,
@@ -605,6 +627,7 @@
 				CC173FDD2439BEEC00ECF53C /* QuizCard.swift in Sources */,
 				04E852E628D23A2900676BA0 /* TrailingToolbar.swift in Sources */,
 				040C6E9B276AC02B00291DEB /* DefaultLineBreaker.swift in Sources */,
+				048D107228DE273B00D3BE39 /* QuizCardGroup.swift in Sources */,
 				CC414CD4243B148E00F78AD4 /* CardEditor.swift in Sources */,
 				040C6EA5276AC02B00291DEB /* String+LineBreaks.swift in Sources */,
 				0444E427276AA2B00086A644 /* PersistenceController.swift in Sources */,
@@ -612,6 +635,7 @@
 				04FA0EC9276FE18500FC6FC5 /* AutumnConfiguration.swift in Sources */,
 				04FA0EC6276FDEE200FC6FC5 /* SeaConfiguration.swift in Sources */,
 				04FA0EB6276F9C8000FC6FC5 /* CardType.swift in Sources */,
+				048D107028DE25BC00D3BE39 /* CardAdaptor.swift in Sources */,
 				CC3E08C6260110C200381C79 /* CardInfoModel.xcdatamodeld in Sources */,
 				0444E40D276A5D3D0086A644 /* Data++.swift in Sources */,
 				CC4D48F926065C0900C6CAAE /* CSVFileReaderModel.swift in Sources */,
@@ -656,7 +680,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = QZWallpaper/QZWallpaper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = B22726TNGH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QZWallpaper/Info.plist;
@@ -685,7 +709,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = QZWallpaper/QZWallpaper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = B22726TNGH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QZWallpaper/Info.plist;
@@ -828,7 +852,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JLQuizCard/QuizCardDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"JLQuizCard/Preview Content\"";
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
@@ -839,7 +863,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
@@ -854,7 +878,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JLQuizCard/JLQuizCard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"JLQuizCard/Preview Content\"";
 				DEVELOPMENT_TEAM = B22726TNGH;
 				ENABLE_PREVIEWS = YES;
@@ -865,7 +889,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jacklandrin.JLQuizCard;
 				PRODUCT_NAME = QuizCard;
 				SWIFT_VERSION = 5.0;
